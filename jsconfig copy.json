@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@/api/*": ["api/*"],
+      "@/component/*": ["component/*"],
+      "@/constant/*": ["constant/*"],
+      "@/function/*": ["function/*"],
+      "@/config/*": ["config/*"],
+      "@/hoc/*": ["hoc/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/pages/*": ["pages/*"],
+      "@/public/*": ["public/*"],
+      "@/styles/*": ["styles/*"]
+    }
+  }
+}
