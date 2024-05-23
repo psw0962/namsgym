@@ -1,12 +1,8 @@
-import reset from "styled-reset";
-import { createGlobalStyle } from "styled-components";
+import reset from 'styled-reset';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-
-  * {
-    box-sizing: border-box;
-  }
 
   @font-face {
         font-family: 'Pretendard';
@@ -29,8 +25,12 @@ const GlobalStyle = createGlobalStyle`
         src: url('/fonts/PretendardBold.ttf') format('ttf');
   }
 
-  body {
-    /* overflow-y: hidden; */
+  * {
+    box-sizing: border-box;
+  }
+
+  body, html {
+    overflow-x: hidden;
     font-family: 'Pretendard';
 
     // android 환경 클릭 시 highlight 제거

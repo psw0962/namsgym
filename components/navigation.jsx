@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import Image from 'next/image';
 import useScrollEvent from '@/hooks/useScrollEvent';
 import Font from './font';
+import ImageComponent from './image-component';
+
+const NAVIGATION_MENU = [
+  { id: 1, menu: 'NamsGYM', url: '/' },
+  { id: 2, menu: '지점 안내', url: '/center' },
+  { id: 3, menu: 'Personal Training', url: '/pt' },
+  { id: 4, menu: '채용 안내', url: '/employment' },
+];
 
 const Navigation = () => {
   const router = useRouter();
-  const { scrollEventState } = useScrollEvent();
+  const { $scrollEventState } = useScrollEvent();
   const [isMobileMenu, setMobileMenu] = useState(false);
 
   useEffect(() => {
@@ -19,63 +26,87 @@ const Navigation = () => {
   }, [isMobileMenu]);
 
   return (
-    <Frame scrollEventState={scrollEventState}>
+    <Frame
+      $scrollEventState={
+        $scrollEventState ? $scrollEventState.toString() : undefined
+      }
+    >
       <NavigationFrame>
         <Container>
-          <CustomImageWrapper onClick={() => router.push('/')}>
-            <CustomImage src={'/logo.svg'} alt="logo" layout="fill" />
-          </CustomImageWrapper>
+          <ImageComponent
+            width={5}
+            height={5}
+            $cursor="pointer"
+            $zIndex={10}
+            $src="/logo.svg"
+            $alt="logo"
+            onClick={() => router.push('/')}
+          />
 
           {/* desktop */}
           <DeskTopMenuWrapper>
             <MenuWrapper>
-              <CustomLi
-                fontSize="2.556rem"
-                fontWeight={700}
-                onClick={() => {
-                  router.push('/');
-                }}
-              >
-                <span>지점안내</span>
-              </CustomLi>
+              {NAVIGATION_MENU.map(x => {
+                return (
+                  <CustomLi
+                    key={x.id}
+                    fontSize="2.4rem"
+                    fontWeight={700}
+                    onClick={() => {
+                      router.push(`${x.url}`);
+                    }}
+                  >
+                    <span>{x.menu}</span>
+                  </CustomLi>
+                );
+              })}
             </MenuWrapper>
           </DeskTopMenuWrapper>
 
           {/* mobile */}
           <MobileMenuFrame>
             {isMobileMenu && (
-              <ToggleImageWrapper
-                width="2rem"
-                height="2rem"
+              <ImageComponent
+                width={3}
+                height={3}
+                $cursor="pointer"
+                $zIndex={10}
+                $src="/close.svg"
+                $alt="close"
                 onClick={() => setMobileMenu(!isMobileMenu)}
-              >
-                <CustomImage src={'/close.svg'} alt="menu" layout="fill" />
-              </ToggleImageWrapper>
+              />
             )}
 
             {!isMobileMenu && (
-              <ToggleImageWrapper
-                width="2rem"
-                height="4.5rem"
+              <ImageComponent
+                width={3}
+                height={3}
+                $cursor="pointer"
+                $src="/menu.svg"
+                $alt="menu"
                 onClick={() => setMobileMenu(!isMobileMenu)}
-              >
-                <CustomImage src={'/menu.svg'} alt="menu" layout="fill" />
-              </ToggleImageWrapper>
+              />
             )}
 
             <MobileMenuWrapper
               className={isMobileMenu ? 'showMobildeMenu' : 'hideMobildeMenu'}
             >
-              <IconWrapper
-                onClick={() => {
-                  setMobileMenu(!isMobileMenu);
-                  router.push('/about');
-                }}
-              >
-                <Font fontSize="3.2rem" pointer="pointer" fontWeight={700}>
-                  ABOUT
-                </Font>
-              </IconWrapper>
+              {NAVIGATION_MENU.map(x => {
+                return (
+                  <Font
+                    key={x.id}
+                    fontSize="3.2rem"
+                    $cursor="pointer"
+                    fontWeight={700}
+                    onClick={() => {
+                      setMobileMenu(!isMobileMenu);
+                      router.push(`${x.url}`);
+                    }}
+                  >
+                    {x.menu}
+                  </Font>
+                );
+              })}
             </MobileMenuWrapper>
           </MobileMenuFrame>
         </Container>
@@ -92,29 +123,31 @@ const Frame = styled.div`
   z-index: 3;
 
   height: 8rem;
-  visibility: ${props => (props.scrollEventState ? 'hidden' : 'visible')};
-  opacity: ${props => (props.scrollEventState ? 0 : 1)};
+  visibility: ${props => (props.$scrollEventState ? 'hidden' : 'visible')};
+  opacity: ${props => (props.$scrollEventState ? 0 : 1)};
   transition: all 0.2s;
 `;
 
 const NavigationFrame = styled.header`
   background: #fff;
-  border-bottom: 0.15rem solid #000;
   position: absolute;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 `;
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 160rem;
+
+  max-width: 140rem;
   margin: 0 auto;
   padding: 1.5rem 6rem;
 
   @media screen and (max-width: 500px) {
-    padding: 2.4rem 1.5rem 2.4rem 1.5rem;
+    padding: 2.4rem 3rem 2.4rem 3rem;
   }
 `;
 
@@ -156,11 +189,9 @@ const MobileMenuWrapper = styled.div`
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 3rem;
-
-  margin-top: 8rem;
-  padding-top: 2rem;
-  padding-left: 2rem;
 
   &.showMobildeMenu {
     visibility: visible;
@@ -172,34 +203,11 @@ const MobileMenuWrapper = styled.div`
   }
 `;
 
-const CustomImage = styled(Image)`
-  cursor: pointer;
-  z-index: 3;
-`;
-
-const CustomImageWrapper = styled.div`
-  position: relative;
-  width: 8.8rem;
-  height: 5.1rem;
-`;
-
-const ToggleImageWrapper = styled.div`
-  position: relative;
-  width: ${props => (props.width ? props.width : '3rem')};
-  height: ${props => (props.height ? props.height : '3rem')};
-`;
-
-const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;
-
 const CustomLi = styled.li`
   cursor: pointer;
+  white-space: nowrap;
   font-size: ${props => (props.fontSize ? props.fontSize : '1.6rem')};
   line-height: ${props => (props.lineHeight ? props.lineHeight : '')};
   font-weight: ${props => (props.fontWeight ? props.fontWeight : 400)};
-  margin: ${props => (props.margin ? props.margin : '')};
-  cursor: ${props => (props.pointer ? props.pointer : '')};
+  margin: ${props => (props.$margin ? props.$margin : '')};
 `;

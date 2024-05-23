@@ -1,9 +1,9 @@
-import Font from "@/components/font";
+import Font from '@/components/font';
 
 const Home = () => {
   return (
     <>
-      <div>
+      <div style={{ width: '100%' }}>
         <Font fontSize="10rem" fontWeight="700">
           Hi, I'm Pretend
         </Font>

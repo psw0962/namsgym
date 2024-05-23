@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useScrollEvent = () => {
   const [getUserHeight, setGetUserHeight] = useState(0);
-  const [scrollEventState, setScrollEventState] = useState(false);
+  const [$scrollEventState, setScrollEventState] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +31,7 @@ const useScrollEvent = () => {
     };
   }, [getUserHeight]);
 
-  return { scrollEventState };
+  return { $scrollEventState };
 };
 
 export default useScrollEvent;

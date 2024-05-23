@@ -8,10 +8,21 @@ import usePageLoading from '@/hooks/usePageLoading';
 import GlobalSpinner from '@/components/global-spinner';
 import styled from 'styled-components';
 import Navigation from '@/components/navigation';
+import { Analytics } from '@vercel/analytics/react';
+// import Sns from '@/component/common/sns';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import dynamic from 'next/dynamic';
+import Footer from '@/components/footer';
+
+const Splash = dynamic(() => import('@/components/splash'), {
+  ssr: false,
+});
 
 const App = ({ Component, pageProps }) => {
-  const [queryClient] = useState(() => new QueryClient());
   const loading = usePageLoading();
+  const [queryClient] = useState(() => new QueryClient());
+  const [isSplash, setIsSplash] = useState(true);
 
   return (
     <>
@@ -24,6 +35,8 @@ const App = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
         />
         <link rel="icon" href="/favicon.ico" />
+
+        <title>남스짐 | 프리미엄 PT GYM</title>
       </Head>
 
       <GlobalStyle />
@@ -31,26 +44,31 @@ const App = ({ Component, pageProps }) => {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <RecoilRoot>
-            {loading ? (
-              <SpinnerWrapper>
-                <GlobalSpinner
-                  width={18}
-                  height={18}
-                  marginRight={18}
-                  dotColor="#8536FF"
-                />
-              </SpinnerWrapper>
-            ) : (
-              <>
+            <React.Fragment>
+              {isSplash ? (
+                <Splash setIsSplash={setIsSplash} />
+              ) : (
                 <Frame>
-                  <Navigation />
+                  {loading ? (
+                    <GlobalSpinner />
+                  ) : (
+                    <>
+                      <Analytics />
 
-                  <ComponentFrame>
-                    <Component {...pageProps} />
-                  </ComponentFrame>
+                      <Navigation />
+
+                      <ComponentFrame>
+                        <Component {...pageProps} />
+                      </ComponentFrame>
+
+                      <Footer />
+
+                      {/* <Sns /> */}
+                    </>
+                  )}
                 </Frame>
-              </>
-            )}
+              )}
+            </React.Fragment>
           </RecoilRoot>
         </Hydrate>
 
@@ -66,27 +84,20 @@ const Frame = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  padding-left: 6rem;
-  padding-right: 6rem;
-
-  max-width: 120rem;
-  min-height: 100vh;
-  margin: 0 auto;
-
-  @media screen and (max-width: 500px) {
-    max-width: 100%;
-    padding: 0rem 1.6rem 0rem 1.6rem;
-  }
 `;
 
 const ComponentFrame = styled.div`
-  padding-top: 12rem;
-`;
-
-const SpinnerWrapper = styled.div`
-  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 140rem;
+  min-height: 100vh;
+  padding: 12rem 6rem 6rem 6rem;
+
+  @media screen and (max-width: 500px) {
+    max-width: 100%;
+    padding: 12rem 3rem 6rem 3rem;
+  }
 `;

@@ -1,9 +1,8 @@
-import { useRef, useEffect } from "react";
-import styled from "styled-components";
-import useOnClickOutside from "hooks/useOnClickOutside";
-import Image from "next/image";
-import ImageWrapper from "./image-wrapper";
-import close from "@/public/svg/close.svg";
+import { useRef, useEffect } from 'react';
+import styled from 'styled-components';
+import useOnClickOutside from 'hooks/useOnClickOutside';
+import ImageComponent from './image-component';
+import close from '@/public/svg/close.svg';
 
 const Modal = ({ state, setState, isOverflow, children }) => {
   const moodalOpenInRef = useRef();
@@ -12,42 +11,36 @@ const Modal = ({ state, setState, isOverflow, children }) => {
     inRef: moodalOpenInRef,
     exceptRef: modalOpenExceptRef,
     handler: () => {
-      setState("");
+      setState('');
     },
   });
 
   useEffect(() => {
     if (state) {
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = 'hidden';
     } else {
-      document.body.style.overflowY = "unset";
+      document.body.style.overflowY = 'unset';
     }
   }, [state]);
 
   return (
-    <Frame className={state ? "slideUp" : "slideDown"}>
+    <Frame className={state ? 'slideUp' : 'slideDown'}>
       <DialogFrame
         ref={moodalOpenInRef}
-        className={state ? "slideUp" : "slideDown"}
+        className={state ? 'slideUp' : 'slideDown'}
         isOverflow={isOverflow}
       >
         <DialogWrapper>
-          <CloseFrame
+          <ImageComponent
             width={3}
             height={3}
-            cursor="pointer"
+            $cursor="pointer"
+            $src={close}
+            $alt="close"
             onClick={() => {
               setState(false);
             }}
-          >
-            <Image
-              src={close}
-              alt="close"
-              priority={true}
-              quality={100}
-              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-            />
-          </CloseFrame>
+          />
         </DialogWrapper>
 
         <div>{children}</div>
@@ -99,7 +92,7 @@ const DialogFrame = styled.div`
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
   z-index: 10;
-  overflow-x: ${(props) => (props.isOverflow ? "auto" : "")};
+  overflow-x: ${props => (props.isOverflow ? 'auto' : '')};
   overflow-y: auto;
 
   &.slideUp {
@@ -117,10 +110,4 @@ const DialogWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-`;
-
-const CloseFrame = styled(ImageWrapper)`
-  position: absolute;
-  top: -4rem;
-  right: -2rem;
 `;
