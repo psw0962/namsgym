@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import logo from '@/public/logo.svg';
 import ImageComponent from '@/components/image-component';
 
 const Splash = ({ setIsSplash }) => {
@@ -26,7 +25,12 @@ const Splash = ({ setIsSplash }) => {
           transition={{ duration: 0.5 }}
         >
           <Frame>
-            <ImageComponent width={18} height={20} $src={logo} $alt="logo" />
+            <ImageComponent
+              width={20}
+              height={20}
+              $src="/logo.svg"
+              $alt="logo"
+            />
           </Frame>
         </motion.div>
       )}

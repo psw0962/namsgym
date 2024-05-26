@@ -9,16 +9,16 @@ const Custom404 = () => {
 
   return (
     <Frame>
-      <Font fontSize="2.7rem" fontWeight={700}>
+      <Font $fontSize="2.7rem" $fontWeight={700}>
         해당 페이지를 찾지 못했습니다.
       </Font>
 
       <Font
-        fontSize="2rem"
-        fontWeight={700}
+        $fontSize="2rem"
+        $fontWeight={700}
         $margin="1.5rem 0 0 0"
-        textAlign="center"
-        lineHeight={1.4}
+        $textAlign="center"
+        $lineHeight={1.4}
       >
         주소가 잘못 되었거나
         <br /> 더 이상 제공되지 않는 페이지입니다.
@@ -30,7 +30,7 @@ const Custom404 = () => {
         <CustomButton
           color="#fff"
           padding="2rem 3rem 2rem 3rem"
-          backgroundColor="#B49445"
+          $backgroundColor="#B49445"
           onClick={() => router.push('/')}
         >
           메인 홈으로 이동
@@ -39,7 +39,7 @@ const Custom404 = () => {
         <CustomButton
           color="#fff"
           padding="2rem 3rem 2rem 3rem"
-          backgroundColor="#000"
+          $backgroundColor="#000"
           onClick={() => router.back()}
         >
           이전 화면으로 이동
@@ -71,6 +71,6 @@ const CustomButton = styled(Button)`
   width: 100%;
   color: #fff;
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : '#fff'};
+    props.$backgroundColor ? props.$backgroundColor : '#fff'};
   border: none;
 `;

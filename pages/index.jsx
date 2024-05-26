@@ -4,19 +4,19 @@ const Home = () => {
   return (
     <>
       <div style={{ width: '100%' }}>
-        <Font fontSize="10rem" fontWeight="700">
+        <Font $fontSize="10rem" $fontWeight="700">
           Hi, I'm Pretend
         </Font>
 
-        <Font fontSize="10rem" fontWeight="400">
+        <Font $fontSize="10rem" $fontWeight="400">
           Hi, I'm Pretend
         </Font>
 
-        <Font fontSize="10rem" fontWeight="700">
+        <Font $fontSize="10rem" $fontWeight="700">
           안녕하세요, 프리텐드입니다.
         </Font>
 
-        <Font fontSize="10rem" fontWeight="400">
+        <Font $fontSize="10rem" $fontWeight="400">
           안녕하세요, 프리텐드입니다.
         </Font>
       </div>

@@ -3,27 +3,27 @@ import styled from 'styled-components';
 const Button = ({
   $margin,
   width,
-  fontSize,
+  $fontSize,
   border,
   padding,
   $borderRadius,
-  backgroundColor,
+  $backgroundColor,
   color,
-  lineHeight,
+  $lineHeight,
   onClick,
   children,
 }) => {
   return (
     <ButtonComp
       $margin={$margin}
-      width={width}
-      fontSize={fontSize}
-      border={border}
+      $fontSize={$fontSize}
       $borderRadius={$borderRadius}
+      $backgroundColor={$backgroundColor}
+      $lineHeight={$lineHeight}
+      width={width}
+      border={border}
       padding={padding}
-      backgroundColor={backgroundColor}
       color={color}
-      lineHeight={lineHeight}
       onClick={onClick}
     >
       {children}
@@ -32,7 +32,7 @@ const Button = ({
 };
 
 const ButtonComp = styled.button`
-  font-size: ${props => (props.fontSize ? props.fontSize : '1.6rem')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '1.6rem')};
   width: ${props => (props.width ? props.width : '100%')};
   margin: ${props => props.$margin && props.$margin};
   border: ${props => (props.border ? props.border : 'none')};
@@ -40,9 +40,9 @@ const ButtonComp = styled.button`
     props.$borderRadius ? props.$borderRadius : '5px'};
   padding: ${props => (props.padding ? props.padding : '1rem')};
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : '#fff'};
+    props.$backgroundColor ? props.$backgroundColor : '#fff'};
   color: ${props => (props.color ? props.color : '#000')};
-  line-height: ${props => (props.lineHeight ? props.lineHeight : 1.2)};
+  line-height: ${props => (props.$lineHeight ? props.$lineHeight : 1.2)};
   cursor: pointer;
 `;
 

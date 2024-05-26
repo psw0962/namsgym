@@ -16,8 +16,10 @@ import centerInfo from '@/constant/center-info';
 import ReSetttingMapBounds from '@/components/resetting-map-bounds';
 import { useRouter } from 'next/router';
 import useScrollMove from '@/hooks/useScrollMove';
-import useLocalStorage from 'node_modules/use-local-storage/dist/index';
+import useLocalStorage from 'use-local-storage';
 import shuffleArray from '@/functions/shuffleArray';
+import useDrag from '@/hooks/useDrag';
+import Pre from '@/components/pre';
 
 const MACHINELOGO = [
   { id: 1, url: '/images/machine-logo/1.jpg' },
@@ -31,6 +33,7 @@ const MACHINELOGO = [
 const Center = () => {
   const router = useRouter();
   const { scrollOnceMove } = useScrollMove();
+  const isDragging = useDrag();
 
   const [checkedItems, setCheckedItems] = useLocalStorage(
     'centerInfo',
@@ -123,12 +126,12 @@ const Center = () => {
 
       <FindCenterFrame>
         <CountTagWrapper>
-          <Font fontSize="4rem" fontWeight="700">
+          <Font $fontSize="4rem" $fontWeight="700">
             지점 찾기
           </Font>
 
           <CountTag>
-            <Font fontSize="1.5rem" fontWeight="700">
+            <Font $fontSize="1.5rem" $fontWeight="700">
               {centerInfo.length}
             </Font>
           </CountTag>
@@ -167,7 +170,7 @@ const Center = () => {
 
       {checkedItems.length === 0 && (
         <NoSelected>
-          <Font fontSize="3rem" fontWeight="700">
+          <Font $fontSize="3rem" $fontWeight="700">
             선택한 지점이 없습니다.
           </Font>
         </NoSelected>
@@ -178,9 +181,14 @@ const Center = () => {
             return (
               <CardWrapper
                 key={x?.id}
-                onClick={() => router.push(`/center/${x.id}`)}
+                onClick={() => {
+                  if (!isDragging) {
+                    router.push(`/center/${x.id}`);
+                  }
+                }}
               >
                 <ImageComponent
+                  className="scale-img"
                   width={'100%'}
                   height={30}
                   $borderRadius="10px 10px 0 0"
@@ -189,10 +197,77 @@ const Center = () => {
                   $alt="center1"
                 />
 
-                <CardInfo>
-                  <Font fontSize="2.4rem" fontWeight="700" color="#fff">
+                <CardInfo className="center-info">
+                  <Font $fontSize="2.4rem" $fontWeight="700" color="#fff">
                     {x?.centerName}
                   </Font>
+
+                  <Font
+                    $fontSize="1.6rem"
+                    $fontWeight="400"
+                    color="#fff"
+                    $lineHeight={1.4}
+                  >
+                    {x?.address}
+                  </Font>
+
+                  <IconWrapper $margin="1.5rem 0 0 0">
+                    <div>
+                      <ImageComponent
+                        width={2}
+                        height={2}
+                        $src="/phone.svg"
+                        $alt="phone"
+                      />
+                    </div>
+
+                    <Font
+                      $fontSize="1.6rem"
+                      $fontWeight="400"
+                      color="#fff"
+                      $margin="0.5rem 0 0 0"
+                    >
+                      {x?.tel}
+                    </Font>
+                  </IconWrapper>
+
+                  <IconWrapper $margin="0.1rem 0 0 0">
+                    <ImageComponent
+                      width={2}
+                      height={2}
+                      $src="/clock.svg"
+                      $alt="clock"
+                    />
+
+                    <Pre
+                      $fontSize="1.6rem"
+                      $fontWeight="400"
+                      color="#fff"
+                      $lineHeight={1.4}
+                      $whiteSpace="pre-wrap"
+                    >
+                      {x?.operatingTime}
+                    </Pre>
+                  </IconWrapper>
+
+                  <IconWrapper $margin="0.1rem 0 0 0">
+                    <ImageComponent
+                      width={2}
+                      height={2}
+                      $src="/car.svg"
+                      $alt="car"
+                    />
+
+                    <Font
+                      $fontSize="1.6rem"
+                      $fontWeight="400"
+                      color="#fff"
+                      $lineHeight={1.4}
+                      $whiteSpace="pre-wrap"
+                    >
+                      {x?.parking}
+                    </Font>
+                  </IconWrapper>
                 </CardInfo>
               </CardWrapper>
             );
@@ -229,12 +304,9 @@ const CardFrame = styled.div`
   gap: 3rem;
   margin-top: 8rem;
   margin-bottom: 10rem;
+  height: 100%;
 
   @media screen and (max-width: 500px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media screen and (max-width: 450px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
@@ -242,13 +314,33 @@ const CardFrame = styled.div`
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  .scale-img {
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  &:hover .scale-img img {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover .center-info {
+    background-color: #cbad63;
+    transition: background-color 0.2s ease-in-out;
+  }
 `;
 
 const CardInfo = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background-color: #101015;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 0 0 10px 10px;
+  max-height: 33rem;
+  height: 100%;
+  cursor: pointer;
 `;
 
 const CountTagWrapper = styled.div`
@@ -321,4 +413,11 @@ const ScorllImage = styled.img`
   @media screen and (max-width: 500px) {
     width: 10rem;
   }
+`;
+
+const IconWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: ${props => (props.$margin ? props.$margin : '')};
 `;

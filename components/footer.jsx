@@ -19,85 +19,93 @@ const Footer = () => {
               onClick={() => router.push('/')}
             />
 
-            <CustomFont fontSize="3rem" fontWeight="700">
-              NamsGym
-            </CustomFont>
+            <CustomFont>NamsGym</CustomFont>
           </LogoWrapper>
 
           <InnerWrapper>
-            <Font fontSize="1.3rem" fontWeight="500" $margin="0 0 2rem 0">
+            <Font $fontSize="1.3rem" $fontWeight="500" $margin="0 0 2rem 0">
               상호명 | (주)남다른사람들
             </Font>
 
-            <Font fontSize="1.3rem" fontWeight="500" $margin="0 0 2rem 0">
+            <Font $fontSize="1.3rem" $fontWeight="500" $margin="0 0 2rem 0">
               사업자등록번호 | 282-85-02247
             </Font>
           </InnerWrapper>
 
           <InnerWrapper>
-            <Font fontSize="1.3rem" fontWeight="500" $margin="0 0 2rem 0">
+            <Font $fontSize="1.3rem" $fontWeight="500" $margin="0 0 2rem 0">
               대표자명 | 남건우
             </Font>
 
-            <Font fontSize="1.3rem" fontWeight="500" $margin="0 0 2rem 0">
+            <Font $fontSize="1.3rem" $fontWeight="500" $margin="0 0 2rem 0">
               주소 | 경기 안산시 단원구 새뿔길 48 월산빌딩 지하 1층, 3층
             </Font>
           </InnerWrapper>
 
           <InnerWrapper>
-            <Font fontSize="1.3rem" fontWeight="500" $margin="0 0 2rem 0">
+            <Font $fontSize="1.3rem" $fontWeight="500" $margin="0 0 2rem 0">
               전화번호 | 010-4756-3376
             </Font>
 
-            <Font fontSize="1.3rem" fontWeight="500" $margin="0 0 2rem 0">
+            <Font $fontSize="1.3rem" $fontWeight="500" $margin="0 0 2rem 0">
               이메일 | namgh90@nate.com
             </Font>
           </InnerWrapper>
 
-          <Font fontSize="1.3rem" fontWeight="500" $margin="0 0 2rem 0">
+          <Font $fontSize="1.3rem" $fontWeight="500" $margin="0 0 2rem 0">
             Copyrightⓒ (주)남다른사람들. All Rights Reserved.
           </Font>
 
           <InnerWrapper>
-            <ImageComponent
-              width={4}
-              height={4}
-              $cursor="pointer"
-              $src="/footer-instagram.svg"
-              $alt="footer-instagram"
-              $borderRadius="10px"
-              onClick={() => router.push('/')}
-            />
+            <a
+              href="https://www.instagram.com/namsgym_official_/?igsh=NjR0NXo3dDFlYmZi"
+              target="_blank"
+            >
+              <ImageComponent
+                width={4}
+                height={4}
+                $cursor="pointer"
+                $src="/footer-instagram.svg"
+                $alt="footer-instagram"
+                $borderRadius="10px"
+              />
+            </a>
 
-            <ImageComponent
-              width={4}
-              height={4}
-              $cursor="pointer"
-              $src="/footer-youtube.svg"
-              $alt="footer-youtube"
-              $borderRadius="10px"
-              onClick={() => router.push('/')}
-            />
+            <a href="https://www.youtube.com/@pt7066" target="_blank">
+              <ImageComponent
+                width={4}
+                height={4}
+                $cursor="pointer"
+                $src="/footer-youtube.svg"
+                $alt="footer-youtube"
+                $borderRadius="10px"
+              />
+            </a>
 
-            <ImageComponent
-              width={4}
-              height={4}
-              $cursor="pointer"
-              $src="/footer-kakaotalk.svg"
-              $alt="footer-kakaotalk"
-              $borderRadius="10px"
-              onClick={() => router.push('/')}
-            />
+            <a href="https://pf.kakao.com/_FxgHWd" target="_blank">
+              <ImageComponent
+                width={4}
+                height={4}
+                $cursor="pointer"
+                $src="/footer-kakaotalk.svg"
+                $alt="footer-kakaotalk"
+                $borderRadius="10px"
+              />
+            </a>
 
-            <ImageComponent
-              width={3.5}
-              height={3.5}
-              $cursor="pointer"
-              $src="/footer-naver.svg"
-              $alt="footer-naver"
-              $borderRadius="10px"
-              onClick={() => router.push('/')}
-            />
+            <a
+              href="https://map.naver.com/p/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=15.00,0,0,0,dh"
+              target="_blank"
+            >
+              <ImageComponent
+                width={3.5}
+                height={3.5}
+                $cursor="pointer"
+                $src="/footer-naver.svg"
+                $alt="footer-naver"
+                $borderRadius="10px"
+              />
+            </a>
           </InnerWrapper>
         </div>
       </Wrapper>
@@ -141,4 +149,6 @@ const LogoWrapper = styled.div`
 const CustomFont = styled(Font)`
   display: flex;
   align-items: flex-end;
+  font-size: 3rem;
+  font-weight: 700;
 `;

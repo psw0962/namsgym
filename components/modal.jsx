@@ -35,7 +35,7 @@ const Modal = ({ state, setState, isOverflow, children }) => {
             width={3}
             height={3}
             $cursor="pointer"
-            $src={close}
+            $src="/close.svg"
             $alt="close"
             onClick={() => {
               setState(false);

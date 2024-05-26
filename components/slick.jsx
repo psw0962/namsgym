@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import ImageComponent from './image-component';
-import Font from '@/component/common/font';
+import Font from '@/component/font';
 
 const CustomNextArrow = props => {
   const { className, style, onClick } = props;
@@ -138,7 +138,7 @@ const Slick = ({
               }}
             >
               <div className="slickPage">
-                <Font fontSize="12px" fontWeight={500}>
+                <Font $fontSize="12px" $fontWeight={500}>
                   {!activeSlide2 ? 1 : activeSlide2.activeSlide2 + 1} /{' '}
                   {data?.length}
                 </Font>

@@ -8,8 +8,11 @@ import ImageComponent from './image-component';
 const NAVIGATION_MENU = [
   { id: 1, menu: 'NamsGYM', url: '/' },
   { id: 2, menu: '지점 안내', url: '/center' },
-  { id: 3, menu: 'Personal Training', url: '/pt' },
-  { id: 4, menu: '채용 안내', url: '/employment' },
+  {
+    id: 3,
+    menu: '채용 안내',
+    url: 'https://nonstop-attraction-3c8.notion.site/382e1fb43d6741c2afaedf971c33fd7d',
+  },
 ];
 
 const Navigation = () => {
@@ -50,8 +53,8 @@ const Navigation = () => {
                 return (
                   <CustomLi
                     key={x.id}
-                    fontSize="2.4rem"
-                    fontWeight={700}
+                    $fontSize="2.4rem"
+                    $fontWeight={700}
                     onClick={() => {
                       router.push(`${x.url}`);
                     }}
@@ -95,9 +98,9 @@ const Navigation = () => {
                 return (
                   <Font
                     key={x.id}
-                    fontSize="3.2rem"
+                    $fontSize="3.2rem"
                     $cursor="pointer"
-                    fontWeight={700}
+                    $fontWeight={700}
                     onClick={() => {
                       setMobileMenu(!isMobileMenu);
                       router.push(`${x.url}`);
@@ -206,8 +209,8 @@ const MobileMenuWrapper = styled.div`
 const CustomLi = styled.li`
   cursor: pointer;
   white-space: nowrap;
-  font-size: ${props => (props.fontSize ? props.fontSize : '1.6rem')};
-  line-height: ${props => (props.lineHeight ? props.lineHeight : '')};
-  font-weight: ${props => (props.fontWeight ? props.fontWeight : 400)};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '1.6rem')};
+  line-height: ${props => (props.$lineHeight ? props.$lineHeight : '')};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : 400)};
   margin: ${props => (props.$margin ? props.$margin : '')};
 `;

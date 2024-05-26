@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CommonFont = styled.p`
+const CommonPre = styled.pre`
   color: ${props => (props.color ? props.color : '')};
   font-size: ${props => (props.$fontSize ? props.$fontSize : '1.6rem')};
   letter-spacing: ${props => (props.$letterSpacing ? props.$letterSpacing : 0)};
@@ -20,8 +20,8 @@ const CommonFont = styled.p`
   );
 `;
 
-const Font = props => {
-  return <CommonFont {...props}>{props.children}</CommonFont>;
+const Pre = props => {
+  return <CommonPre {...props}>{props.children}</CommonPre>;
 };
 
-export default Font;
+export default Pre;

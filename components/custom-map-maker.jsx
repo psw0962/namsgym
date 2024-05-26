@@ -4,8 +4,11 @@ import styled from 'styled-components';
 import Font from './font';
 import Button from './button';
 import ImageComponent from './image-component';
+import { useRouter } from 'next/router';
 
 const CustomMapMarker = ({ centerData }) => {
+  const router = useRouter();
+
   // 인포윈도우
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,7 +34,7 @@ const CustomMapMarker = ({ centerData }) => {
             }}
             clickable={true}
             yAnchor={1.13}
-            $zIndex={100}
+            zIndex={100}
           >
             <InfoWindow>
               <ImageComponent
@@ -42,16 +45,15 @@ const CustomMapMarker = ({ centerData }) => {
                 $borderRadius="10px"
                 $src={centerData.thumbnailImage}
                 $alt={`centerImage${centerData.id}`}
-                onClick={() => router.push('/')}
               />
 
-              <Font fontSize="2rem" fontWeight={700} $margin="2rem 0 0 0">
+              <Font $fontSize="2rem" $fontWeight={700} $margin="2rem 0 0 0">
                 {centerData.centerName}
               </Font>
 
               <Font
-                fontSize="1.8rem"
-                lineHeight={1.4}
+                $fontSize="1.8rem"
+                $lineHeight={1.4}
                 color="#868C92"
                 $margin="1rem 0 0 0"
               >
@@ -62,17 +64,17 @@ const CustomMapMarker = ({ centerData }) => {
 
               <ButtonWrapper>
                 <Button
-                  fontSize="1.4rem"
-                  backgroundColor="#CBAD61"
+                  $fontSize="1.4rem"
+                  $backgroundColor="#CBAD61"
                   color="#fff"
-                  // onClick={() => setcenterDataUpdateIsModalOpen(patchDataState)}
+                  onClick={e => router.push(`/center/${centerData.id}`)}
                 >
                   자세히보기
                 </Button>
 
                 <Button
-                  fontSize="1.4rem"
-                  backgroundColor="#000"
+                  $fontSize="1.4rem"
+                  $backgroundColor="#000"
                   color="#fff"
                   onClick={() => setIsOpen(false)}
                 >
