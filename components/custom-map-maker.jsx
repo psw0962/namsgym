@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import styled from 'styled-components';
 import Font from './font';
 import Button from './button';
 import ImageComponent from './image-component';
 import { useRouter } from 'next/router';
+import { useKakaoMapLoaded } from '@/hooks/useKakaoMapLoaded';
 
-const CustomMapMarker = ({ centerData }) => {
+const CustomMapMarker = ({ centerData, infoWindowIsOpen }) => {
   const router = useRouter();
+  const kakaoMapLoaded = useKakaoMapLoaded();
 
   // 인포윈도우
   const [isOpen, setIsOpen] = useState(false);
+
+  // 페이지 진입 시 인포윈도우 상태 설정
+  useEffect(() => {
+    if (kakaoMapLoaded && infoWindowIsOpen) {
+      setIsOpen(true);
+    }
+  }, [kakaoMapLoaded, infoWindowIsOpen]);
 
   return (
     <Frame>
       {/* 마커 */}
       <MapMarker
         position={{
-          lat: `${centerData.lat}`,
-          lng: `${centerData.lng}`,
+          lat: `${centerData?.lat}`,
+          lng: `${centerData?.lng}`,
         }}
         clickable={true}
         onClick={() => {
@@ -29,8 +38,8 @@ const CustomMapMarker = ({ centerData }) => {
         {isOpen && (
           <CustomOverlayMap
             position={{
-              lat: `${centerData.lat}`,
-              lng: `${centerData.lng}`,
+              lat: `${centerData?.lat}`,
+              lng: `${centerData?.lng}`,
             }}
             clickable={true}
             yAnchor={1.13}
@@ -43,12 +52,12 @@ const CustomMapMarker = ({ centerData }) => {
                 $cursor="pointer"
                 $zIndex={10}
                 $borderRadius="10px"
-                $src={centerData.thumbnailImage}
-                $alt={`centerImage${centerData.id}`}
+                $src={centerData?.thumbnailImage}
+                $alt={`centerImage${centerData?.id}`}
               />
 
               <Font $fontSize="2rem" $fontWeight={700} $margin="2rem 0 0 0">
-                {centerData.centerName}
+                {centerData?.centerName}
               </Font>
 
               <Font
@@ -57,9 +66,9 @@ const CustomMapMarker = ({ centerData }) => {
                 color="#868C92"
                 $margin="1rem 0 0 0"
               >
-                {centerData.address}
+                {centerData?.address}
                 <br />
-                {centerData.tel}
+                {centerData?.tel}
               </Font>
 
               <ButtonWrapper>
@@ -67,7 +76,7 @@ const CustomMapMarker = ({ centerData }) => {
                   $fontSize="1.4rem"
                   $backgroundColor="#CBAD61"
                   color="#fff"
-                  onClick={e => router.push(`/center/${centerData.id}`)}
+                  onClick={e => router.push(`/center/${centerData?.id}`)}
                 >
                   자세히보기
                 </Button>

@@ -5,12 +5,10 @@ const centerInfo = [
     address: '경기 안산시 단원구 새뿔길 48 월산빌딩 지하 1층, 3층',
     tel: '0507-1388-3413',
     images: [
-      '/images/center/center1/1.jpg',
-      '/images/center/center1/1.jpg',
-      '/images/center/center1/1.jpg',
-      '/images/center/center1/1.jpg',
-      '/images/center/center1/1.jpg',
-      '/images/center/center1/1.jpg',
+      '/images/center/center1/facility/1.jpg',
+      '/images/center/center1/facility/2.jpg',
+      '/images/center/center1/facility/3.jpg',
+      '/images/center/center1/facility/4.jpg',
     ],
     operatingTime: `24시 운영
 공휴일 및 정기휴무 : 별도 공지
@@ -19,7 +17,7 @@ const centerInfo = [
       'https://www.instagram.com/namsgym_official_/?igsh=NjR0NXo3dDFlYmZi',
     kakaoTalkUrl: 'https://pf.kakao.com/_FxgHWd',
     naverPlaceUrl: 'https://naver.me/x4bOeUXv',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center1/facility/1.jpg',
     lat: 37.33687904685948,
     lng: 126.77646063325268,
     parking: '무료주차(주차공간이 협소합니다.)',
@@ -43,7 +41,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_MIqhj',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EB%B2%94%EB%B0%95%EC%A0%90/place/1876092791?c=14116952.5021869,4504480.5158603,15,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center2/facility/1.jpg',
     lat: 37.47122497284895,
     lng: 126.80960758843011,
     parking: '무료주차(최대 4시간 주차등록)',
@@ -67,7 +65,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_IxorFT',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%98%A4%EB%A5%98%EC%A0%90/place/1200580002?c=14118926.4639254,4507732.5902900,15,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center3/facility/1.jpg',
     lat: 37.490764350277686,
     lng: 126.84074424356173,
     parking: '무료주차(주차공간이 협소합니다.)',
@@ -92,7 +90,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_kxaRxkxb',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%B2%9C%EC%99%95%EC%A0%90/place/1017081459?c=14118762.3010719,4506348.9388933,15,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center4/facility/1.jpg',
     lat: 37.48081079295241,
     lng: 126.83931819532178,
     parking: '무료주차',
@@ -118,7 +116,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_HueSK',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EB%8A%A5%EA%B3%A1%EC%A0%90/place/1643426658?c=14115665.3483103,4490641.3637084,15,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center5/facility/1.jpg',
     lat: 37.368805284657775,
     lng: 126.81174636303915,
     parking: '무료주차',
@@ -144,7 +142,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_xoSxjxoK',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%98%A5%EA%B8%B8%EC%A0%90/place/1762867363?c=14116952.5021869,4504480.5158603,15,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center6/facility/1.jpg',
     lat: 37.46751149807185,
     lng: 126.82326099611598,
     parking: '무료주차(최대 3시간 주차등록)',
@@ -165,7 +163,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_xoSxjxoK',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%98%A5%EA%B8%B8%EC%A0%90/place/1762867363?c=14116952.5021869,4504480.5158603,15,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center7/facility/1.jpg',
     lat: 37.319299359198226,
     lng: 126.82723010054141,
     parking: '무료주차(최대 3시간 주차등록)',
@@ -189,7 +187,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_STxcrb',
     naverPlaceUrl:
       'https://map.naver.com/v5/entry/place/1136567577?c=14129897.3264950,4491016.1690441,15.96,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center8/facility/1.jpg',
     lat: 37.371779820008754,
     lng: 126.93471739416293,
     parking: '주차불가',
@@ -213,7 +211,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_xaBxikb',
     naverPlaceUrl:
       'https://map.naver.com/v5/entry/place/1890409909?c=14114543.1091927,4501213.8303306,15.96,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center9/facility/1.jpg',
     lat: 37.444350018297015,
     lng: 126.797389171103,
     parking: '무료주차(길건너 공영주차장 최대 2시간 주차등록)',
@@ -237,7 +235,7 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_xdvxklxj',
     naverPlaceUrl:
       'https://map.naver.com/v5/entry/place/1566486851?c=14108106.6830268,4493353.4581360,15.96,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center1/1.jpg',
+    thumbnailImage: '/images/center/center10/facility/1.jpg',
     lat: 37.38822946947643,
     lng: 126.73952134070836,
     parking:

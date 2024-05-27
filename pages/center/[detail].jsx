@@ -7,9 +7,11 @@ import Font from '@/components/font';
 import Pre from '@/components/pre';
 import ImageComponent from '@/components/image-component';
 import CenterImages from '@/components/slick/center-images';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
 import TrainerImages from '@/components/slick/trainer-image';
+import { Map } from 'react-kakao-maps-sdk';
+import CustomMapMarker from '@/components/custom-map-maker';
+import CenterGallery from '@/components/center-gallery';
+import ReSetttingMapBounds from '@/components/resetting-map-bounds';
 
 const CenterDetail = () => {
   const router = useRouter();
@@ -67,6 +69,25 @@ const CenterDetail = () => {
                   {centerDetailInfo?.tel}
                 </a>
               </Font>
+            </IconWrapper>
+
+            <IconWrapper $margin="1.2rem 0 0 0">
+              <ImageComponent
+                width={2}
+                height={2}
+                $src="/dumbbell.svg"
+                $alt="dumbbell"
+              />
+
+              <Pre
+                $fontSize="1.6rem"
+                $fontWeight="400"
+                color="#fff"
+                $lineHeight={1.4}
+                $whiteSpace="pre-wrap"
+              >
+                {centerDetailInfo?.address}
+              </Pre>
             </IconWrapper>
 
             <IconWrapper $margin="1.2rem 0 0 0">
@@ -253,12 +274,34 @@ const CenterDetail = () => {
         <TrainerImages images={centerDetailInfo?.images} />
       </TrainerImagesFrame>
 
-      {/* <div>카카오맵</div> */}
+      <Map
+        id="map"
+        center={{
+          lat: 37.34000448213145,
+          lng: 126.77825131268006,
+        }}
+        style={{
+          width: '100%',
+          height: '50rem',
+        }}
+        level={4}
+      >
+        {/* 맵 마커 */}
+        <CustomMapMarker
+          centerData={centerDetailInfo}
+          infoWindowIsOpen={true}
+        />
+
+        {/* 리바운스 */}
+        <ReSetttingMapBounds points={centerDetailInfo} isSingle={true} />
+      </Map>
 
       <SubTitle
         content={`${centerDetailInfo?.centerName} 갤러리`}
         $margin="15rem 0 3rem 0"
       />
+
+      <CenterGallery />
     </Frame>
   );
 };
@@ -385,4 +428,5 @@ const CustomPre = styled(Pre)`
 
 const TrainerImagesFrame = styled.div`
   width: 100%;
+  margin-bottom: 10rem;
 `;

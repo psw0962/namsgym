@@ -193,7 +193,7 @@ const Center = () => {
                   height={30}
                   $borderRadius="10px 10px 0 0"
                   $cursor="pointer"
-                  $src="/images/center/center1/1.jpg"
+                  $src={`/images/center/center${x.id}/facility/1.jpg`}
                   $alt="center1"
                 />
 
