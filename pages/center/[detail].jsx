@@ -33,7 +33,7 @@ const CenterDetail = () => {
 
       <div className="inner-frame">
         <div className="center-images-wrapper">
-          <CenterImages images={centerDetailInfo?.images} />
+          <CenterImages images={centerDetailInfo?.facility} />
         </div>
 
         <InfoFrame>
@@ -268,40 +268,44 @@ const CenterDetail = () => {
         </InfoFrame>
       </div>
 
-      <SubTitle content="퍼스널 트레이너" $margin="20rem 0 3rem 0" />
+      <MarginComp />
+
+      <SubTitle content="퍼스널 트레이너" $margin="0 0 3rem 0" />
 
       <TrainerImagesFrame>
-        <TrainerImages images={centerDetailInfo?.images} />
+        <TrainerImages images={centerDetailInfo?.trainer} />
       </TrainerImagesFrame>
-
-      <Map
-        id="map"
-        center={{
-          lat: 37.34000448213145,
-          lng: 126.77825131268006,
-        }}
-        style={{
-          width: '100%',
-          height: '50rem',
-        }}
-        level={4}
-      >
-        {/* 맵 마커 */}
-        <CustomMapMarker
-          centerData={centerDetailInfo}
-          infoWindowIsOpen={true}
-        />
-
-        {/* 리바운스 */}
-        <ReSetttingMapBounds points={centerDetailInfo} isSingle={true} />
-      </Map>
 
       <SubTitle
         content={`${centerDetailInfo?.centerName} 갤러리`}
-        $margin="15rem 0 3rem 0"
+        $margin="10rem 0 3rem 0"
       />
 
-      <CenterGallery />
+      <CenterGallery images={centerDetailInfo?.gallrey} />
+
+      <div style={{ marginTop: '18rem', marginBottom: '18rem' }}>
+        <Map
+          id="map"
+          center={{
+            lat: 37.34000448213145,
+            lng: 126.77825131268006,
+          }}
+          style={{
+            width: '100%',
+            height: '50rem',
+          }}
+          level={4}
+        >
+          {/* 맵 마커 */}
+          <CustomMapMarker
+            centerData={centerDetailInfo}
+            infoWindowIsOpen={true}
+          />
+
+          {/* 리바운스 */}
+          <ReSetttingMapBounds points={centerDetailInfo} isSingle={true} />
+        </Map>
+      </div>
     </Frame>
   );
 };
@@ -429,4 +433,12 @@ const CustomPre = styled(Pre)`
 const TrainerImagesFrame = styled.div`
   width: 100%;
   margin-bottom: 10rem;
+`;
+
+const MarginComp = styled.div`
+  margin-top: 21rem;
+
+  @media screen and (max-width: 500px) {
+    margin-top: 15rem;
+  }
 `;

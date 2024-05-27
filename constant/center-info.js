@@ -4,11 +4,32 @@ const centerInfo = [
     centerName: '안산 신길점',
     address: '경기 안산시 단원구 새뿔길 48 월산빌딩 지하 1층, 3층',
     tel: '0507-1388-3413',
-    images: [
+    facility: [
       '/images/center/center1/facility/1.jpg',
       '/images/center/center1/facility/2.jpg',
       '/images/center/center1/facility/3.jpg',
       '/images/center/center1/facility/4.jpg',
+      '/images/center/center1/facility/5.jpg',
+      '/images/center/center1/facility/6.jpg',
+      '/images/center/center1/facility/7.jpg',
+      '/images/center/center1/facility/8.jpg',
+    ],
+    trainer: [
+      '/images/center/center1/trainer/1.jpg',
+      '/images/center/center1/trainer/2.jpg',
+      '/images/center/center1/trainer/3.jpg',
+      '/images/center/center1/trainer/4.jpg',
+    ],
+    gallrey: [
+      '/images/center/center1/gallrey/1.jpg',
+      '/images/center/center1/gallrey/2.jpg',
+      '/images/center/center1/gallrey/3.jpg',
+      '/images/center/center1/gallrey/4.jpg',
+      '/images/center/center1/gallrey/5.jpg',
+      '/images/center/center1/gallrey/6.jpg',
+      '/images/center/center1/gallrey/7.jpg',
+      '/images/center/center1/gallrey/8.jpg',
+      '/images/center/center1/gallrey/9.jpg',
     ],
     operatingTime: `24시 운영
 공휴일 및 정기휴무 : 별도 공지
@@ -30,7 +51,9 @@ const centerInfo = [
     centerName: '부천 범박점',
     address: '경기 부천시 범안로 117 2층',
     tel: '0507-1392-3375',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
 정기휴무 : 매주 일요일
@@ -54,7 +77,9 @@ const centerInfo = [
     centerName: '구로 오류점',
     address: '구로 오류로70 4층',
     tel: '02-2619-3337',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
 정기휴무 : 매주 일요일
@@ -79,7 +104,9 @@ const centerInfo = [
     centerName: '구로 천왕점',
     address: '구로 천왕로 36 4층',
     tel: '0507-1405-3362',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
 정기휴무 : 매주 일요일
@@ -105,7 +132,9 @@ const centerInfo = [
     centerName: '시흥 능곡점',
     address: '경기 시흥시 승지로60번길 12 광장프라자 3층',
     tel: '0507-1428-7377',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `평일 : 08:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
 정기휴무 : 둘째주 넷째주 일요일 정기 휴무
@@ -131,7 +160,9 @@ const centerInfo = [
     centerName: '부천 옥길점',
     address: '부천 옥길동 745-5 퀸즈파크 C동 8층',
     tel: '0507-1427-3375',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
 정기휴무 : 매주 일요일
@@ -155,7 +186,9 @@ const centerInfo = [
     centerName: '안산 고잔점',
     address: '안산시 단원구 원고잔로 17 지하 1층',
     tel: '0507-1378-3385',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `24시 운영
 공휴일 및 정기휴무 : 별도 공지
 (센터 내 게시판, 네이버 또는 인스타그램)`,
@@ -178,7 +211,9 @@ const centerInfo = [
     centerName: '군포 산본점',
     address: '경기 군포시 고산로 691 도율빌딩 5층',
     tel: '0507-1390-3375',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `평일 : 06:00 ~ 24:00
 주말 및 공휴일 : 10:00 ~ 18:00
 공휴일 휴무 : 별도 공지
@@ -202,7 +237,9 @@ const centerInfo = [
     centerName: '시흥 은행점',
     address: '경기도 시흥시 대은로 80 5층',
     tel: '0507-1394-7377',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `24시 운영
 정기휴무 : 넷째 주 일요일
 공휴일 휴무 : 별도 공지
@@ -225,7 +262,9 @@ const centerInfo = [
     centerName: '시흥 월곶점',
     address: '경기 시흥시 월곶중앙로 49 2층',
     tel: '0507-1362-0776',
-    images: [],
+    facility: [],
+    trainer: [],
+    gallrey: [],
     operatingTime: `평일 : 07:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
 공휴일 휴무 : 별도 공지

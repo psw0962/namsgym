@@ -317,7 +317,6 @@ const CardWrapper = styled.div`
 
   .scale-img {
     overflow: hidden;
-    border-radius: 10px;
   }
 
   &:hover .scale-img img {

@@ -11,7 +11,7 @@ function CustomPaging({ images }) {
         </a>
       );
     },
-    // draggable: false,
+    draggable: true,
     arrows: false,
     dots: true,
     dotsClass: 'slick-dots slick-thumb',
@@ -42,13 +42,19 @@ const SliderContainer = styled.div`
   }
 
   .slick-dots.slick-thumb {
-    bottom: -7rem;
+    bottom: -6.8rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    cursor: grab;
   }
 
   .slick-dots.slick-thumb li {
     width: 6rem;
     height: 6rem;
     margin: 1;
+
+    display: inline-block;
   }
 
   .slick-dots.slick-thumb li img {
@@ -65,12 +71,30 @@ const SliderContainer = styled.div`
   .slick-slide img {
     margin: 0 auto;
     width: 100%;
-    height: 50rem;
+    height: 45rem;
     object-fit: cover;
     border-radius: 10px;
 
     @media screen and (max-width: 500px) {
       width: 100%;
     }
+  }
+
+  .slick-dots.slick-thumb::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .slick-dots.slick-thumb::-webkit-scrollbar-thumb {
+    background: #dec173;
+    border-radius: 10px;
+  }
+
+  .slick-dots.slick-thumb::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .slick-dots.slick-thumb::-webkit-scrollbar-track {
+    background: #a5adb8;
+    border-radius: 10px;
   }
 `;

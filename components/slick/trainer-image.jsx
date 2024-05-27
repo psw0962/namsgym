@@ -35,7 +35,7 @@ const TrainerImages = ({ images }) => {
         className="right-arrow"
         onClick={e => {
           e.stopPropagation();
-          onClick();
+          onClick && onClick(e);
         }}
       >
         <ImageComponent
@@ -55,7 +55,7 @@ const TrainerImages = ({ images }) => {
         className="left-arrow"
         onClick={e => {
           e.stopPropagation();
-          onClick();
+          onClick && onClick(e);
         }}
       >
         <ImageComponent
@@ -69,10 +69,11 @@ const TrainerImages = ({ images }) => {
   };
 
   const settings = {
-    dots: true,
+    dots: false,
     arrows: true,
     autoplay: true,
-    draggable: false,
+    draggable: true,
+    infinite: true,
     slidesToShow: 4,
     slidesToScroll: 2,
     speed: 1000,
@@ -187,6 +188,6 @@ const StyledSlick = styled(Slick)`
   }
 
   .slick-list {
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
 `;
