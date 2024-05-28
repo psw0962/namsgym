@@ -198,7 +198,7 @@ const Center = () => {
                 />
 
                 <CardInfo className="center-info">
-                  <Font $fontSize="2.4rem" $fontWeight="700" color="#fff">
+                  <Font $fontSize="2rem" $fontWeight="700" color="#fff">
                     {x?.centerName}
                   </Font>
 

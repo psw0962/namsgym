@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Slick from 'react-slick';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
@@ -11,15 +11,6 @@ const TrainerImages = ({ images }) => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  const [forceRender, setForceRender] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      setForceRender(true);
-    } else {
-      setForceRender(false);
-    }
-  }, [isOpen, photoIndex, images]);
 
   const openLightbox = index => {
     if (!isDragging) {
@@ -74,9 +65,9 @@ const TrainerImages = ({ images }) => {
     autoplay: true,
     draggable: true,
     infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 2,
-    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    speed: 100,
     beforeChange: () => setIsDragging(true),
     afterChange: () => setIsDragging(false),
     nextArrow: <CustomNextArrow />,
@@ -110,7 +101,6 @@ const TrainerImages = ({ images }) => {
     <div>
       {isOpen && (
         <Lightbox
-          key={forceRender}
           mainSrc={images[photoIndex]}
           nextSrc={images[(photoIndex + 1) % images.length]}
           prevSrc={images[(photoIndex + images.length - 1) % images.length]}
@@ -124,20 +114,22 @@ const TrainerImages = ({ images }) => {
         />
       )}
 
-      <StyledSlick {...settings}>
-        {images?.map((item, index) => (
-          <ImageComponent
-            key={`image${index}`}
-            width={30}
-            height={30}
-            $borderRadius="10px"
-            $cursor="pointer"
-            $src={item}
-            $alt={`slick${index}`}
-            onClick={() => openLightbox(index)}
-          />
-        ))}
-      </StyledSlick>
+      {images?.length > 0 && (
+        <StyledSlick {...settings}>
+          {images?.map((item, index) => (
+            <ImageComponent
+              key={`image${index}`}
+              width={30}
+              height={30}
+              $borderRadius="10px"
+              $cursor="pointer"
+              $src={item}
+              $alt={`slick${index}`}
+              onClick={() => openLightbox(index)}
+            />
+          ))}
+        </StyledSlick>
+      )}
     </div>
   );
 };

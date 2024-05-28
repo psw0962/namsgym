@@ -1,13 +1,18 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
+import ImageComponent from '../image-component';
 
 function CustomPaging({ images }) {
   const settings = {
     customPaging: function (i) {
       return (
         <a>
-          <img src={images[i]} alt={`slide-${i}`} />
+          <ImageComponent
+            $src={images[i]}
+            $alt={`slide-${i}`}
+            $borderRadius="10px"
+          />
         </a>
       );
     },
@@ -26,7 +31,13 @@ function CustomPaging({ images }) {
       <Slider {...settings}>
         {images?.map((image, index) => (
           <div key={index}>
-            <img src={image} alt={`slide-${index}`} />
+            <ImageComponent
+              width={'100%'}
+              height={65}
+              $src={image}
+              $alt={`slide-${index}`}
+              $borderRadius="10px"
+            />
           </div>
         ))}
       </Slider>
@@ -42,7 +53,7 @@ const SliderContainer = styled.div`
   }
 
   .slick-dots.slick-thumb {
-    bottom: -6.8rem;
+    bottom: -7rem;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
@@ -53,14 +64,11 @@ const SliderContainer = styled.div`
     width: 6rem;
     height: 6rem;
     margin: 1;
-
     display: inline-block;
   }
 
+  /* active background */
   .slick-dots.slick-thumb li img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
     filter: grayscale(100%);
   }
 
@@ -68,18 +76,7 @@ const SliderContainer = styled.div`
     filter: grayscale(0%);
   }
 
-  .slick-slide img {
-    margin: 0 auto;
-    width: 100%;
-    height: 45rem;
-    object-fit: cover;
-    border-radius: 10px;
-
-    @media screen and (max-width: 500px) {
-      width: 100%;
-    }
-  }
-
+  /* scroll bar */
   .slick-dots.slick-thumb::-webkit-scrollbar {
     height: 5px;
   }

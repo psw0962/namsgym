@@ -29,9 +29,11 @@ const ImageComponent = props => {
       <Image
         src={`${$src}`}
         alt={`${$alt}`}
-        fill
-        sizes="100%"
+        quality={80}
         style={{ objectFit: 'cover' }}
+        fill
+        priority
+        sizes="100%"
         placeholder="blur"
         blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
       />

@@ -123,7 +123,7 @@ const FooterFrame = styled.div`
 
 const Wrapper = styled.div`
   padding: 2.4rem 6rem 2.4rem 6rem;
-  max-width: 140rem;
+  max-width: 120rem;
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -31,259 +31,240 @@ const CenterDetail = () => {
 
       <CustomPre>{centerDetailInfo?.description}</CustomPre>
 
-      <div className="inner-frame">
-        <div className="center-images-wrapper">
-          <CenterImages images={centerDetailInfo?.facility} />
+      <CenterImages images={centerDetailInfo?.facility} />
+
+      <CenterInfoWrapper>
+        <Font
+          color="#fff"
+          $fontSize="2.5rem"
+          $fontWeight={700}
+          $whiteSpace="pre-wrap"
+          $textAlign="center"
+          $margin="0 0 3.5rem 0"
+        >
+          운영 안내/문의
+        </Font>
+
+        <div style={{ margin: '0 auto' }}>
+          <IconWrapper>
+            <div>
+              <ImageComponent
+                width={2}
+                height={2}
+                $src="/phone.svg"
+                $alt="phone"
+              />
+            </div>
+
+            <Font
+              $fontSize="1.6rem"
+              $fontWeight="400"
+              color="#fff"
+              $textDecoration="underline"
+            >
+              <a href={`tel:${centerDetailInfo?.tel}`}>
+                {centerDetailInfo?.tel}
+              </a>
+            </Font>
+          </IconWrapper>
+
+          <IconWrapper $margin="1.2rem 0 0 0">
+            <ImageComponent
+              width={2}
+              height={2}
+              $src="/dumbbell.svg"
+              $alt="dumbbell"
+            />
+
+            <Pre
+              $fontSize="1.6rem"
+              $fontWeight="400"
+              color="#fff"
+              $lineHeight={1.4}
+              $whiteSpace="pre-wrap"
+            >
+              {centerDetailInfo?.address}
+            </Pre>
+          </IconWrapper>
+
+          <IconWrapper $margin="1.2rem 0 0 0">
+            <ImageComponent
+              width={2}
+              height={2}
+              $src="/clock.svg"
+              $alt="clock"
+            />
+
+            <Pre
+              $fontSize="1.6rem"
+              $fontWeight="400"
+              color="#fff"
+              $lineHeight={1.4}
+              $whiteSpace="pre-wrap"
+            >
+              {centerDetailInfo?.operatingTime}
+            </Pre>
+          </IconWrapper>
+
+          <IconWrapper $margin="1.2rem 0 0 0">
+            <ImageComponent width={2} height={2} $src="/car.svg" $alt="car" />
+
+            <Font
+              $fontSize="1.6rem"
+              $fontWeight="400"
+              color="#fff"
+              $lineHeight={1.4}
+              $whiteSpace="pre-wrap"
+            >
+              {centerDetailInfo?.parking}
+            </Font>
+          </IconWrapper>
         </div>
 
-        <InfoFrame>
+        <ContactWrapper>
+          <a href={centerDetailInfo?.instagramUrl} target="_blank">
+            <ImageComponent
+              width={7}
+              height={7}
+              $cursor="pointer"
+              $src="/footer-instagram.svg"
+              $alt="footer-instagram"
+              $borderRadius="10px"
+            />
+          </a>
+
+          <a href={centerDetailInfo?.kakaoTalkUrl} target="_blank">
+            <ImageComponent
+              width={6}
+              height={6}
+              $cursor="pointer"
+              $src="/footer-kakaotalk.svg"
+              $alt="footer-kakaotalk"
+              $borderRadius="10px"
+            />
+          </a>
+
+          <a href={centerDetailInfo?.naverPlaceUrl} target="_blank">
+            <ImageComponent
+              width={5}
+              height={5}
+              $cursor="pointer"
+              $src="/footer-naver.svg"
+              $alt="footer-naver"
+              $borderRadius="10px"
+              $margin="0 0 0 1rem"
+            />
+          </a>
+        </ContactWrapper>
+
+        <DivLine />
+
+        <FacilityFrame>
           <Font
-            color="#000"
+            color="#fff"
             $fontSize="2.5rem"
             $fontWeight={700}
             $whiteSpace="pre-wrap"
-            $textAlign="center"
-            $margin="0 0 1rem 0"
+            $margin="0 0 3rem 0"
           >
-            운영 안내/문의
+            편의시설
           </Font>
 
-          <CenterInfoWrapper>
-            <IconWrapper>
-              <div>
-                <ImageComponent
-                  width={2}
-                  height={2}
-                  $src="/phone.svg"
-                  $alt="phone"
-                />
-              </div>
-
-              <Font
-                $fontSize="1.6rem"
-                $fontWeight="400"
-                color="#fff"
-                $textDecoration="underline"
-              >
-                <a href={`tel:${centerDetailInfo?.tel}`}>
-                  {centerDetailInfo?.tel}
-                </a>
-              </Font>
-            </IconWrapper>
-
-            <IconWrapper $margin="1.2rem 0 0 0">
+          <div className="wrapper">
+            <FacilityWrapper>
               <ImageComponent
-                width={2}
-                height={2}
-                $src="/dumbbell.svg"
-                $alt="dumbbell"
+                width={3}
+                height={3}
+                $src="/shower.svg"
+                $alt="shower"
               />
 
-              <Pre
-                $fontSize="1.6rem"
-                $fontWeight="400"
-                color="#fff"
-                $lineHeight={1.4}
-                $whiteSpace="pre-wrap"
-              >
-                {centerDetailInfo?.address}
-              </Pre>
-            </IconWrapper>
-
-            <IconWrapper $margin="1.2rem 0 0 0">
-              <ImageComponent
-                width={2}
-                height={2}
-                $src="/clock.svg"
-                $alt="clock"
-              />
-
-              <Pre
-                $fontSize="1.6rem"
-                $fontWeight="400"
-                color="#fff"
-                $lineHeight={1.4}
-                $whiteSpace="pre-wrap"
-              >
-                {centerDetailInfo?.operatingTime}
-              </Pre>
-            </IconWrapper>
-
-            <IconWrapper $margin="1.2rem 0 0 0">
-              <ImageComponent width={2} height={2} $src="/car.svg" $alt="car" />
-
               <Font
-                $fontSize="1.6rem"
-                $fontWeight="400"
                 color="#fff"
-                $lineHeight={1.4}
-                $whiteSpace="pre-wrap"
-              >
-                {centerDetailInfo?.parking}
-              </Font>
-            </IconWrapper>
-
-            <ContactWrapper>
-              <a href={centerDetailInfo?.instagramUrl} target="_blank">
-                <ImageComponent
-                  width={7}
-                  height={7}
-                  $cursor="pointer"
-                  $src="/footer-instagram.svg"
-                  $alt="footer-instagram"
-                  $borderRadius="10px"
-                />
-              </a>
-
-              <a href={centerDetailInfo?.kakaoTalkUrl} target="_blank">
-                <ImageComponent
-                  width={6}
-                  height={6}
-                  $cursor="pointer"
-                  $src="/footer-kakaotalk.svg"
-                  $alt="footer-kakaotalk"
-                  $borderRadius="10px"
-                />
-              </a>
-
-              <a href={centerDetailInfo?.naverPlaceUrl} target="_blank">
-                <ImageComponent
-                  width={5}
-                  height={5}
-                  $cursor="pointer"
-                  $src="/footer-naver.svg"
-                  $alt="footer-naver"
-                  $borderRadius="10px"
-                  $margin="0 0 0 1rem"
-                />
-              </a>
-            </ContactWrapper>
-          </CenterInfoWrapper>
-
-          <FacilityFrame>
-            <div className="wrapper">
-              <Font
-                color="#000"
-                $fontSize="2.5rem"
+                $fontSize="1.4rem"
                 $fontWeight={700}
                 $whiteSpace="pre-wrap"
-                $margin="2rem 0 2rem 0"
               >
-                편의시설
+                샤워실
               </Font>
+            </FacilityWrapper>
 
-              <div className="facility-wrapper">
-                <FacilityInnerWrapper>
-                  <ImageComponent
-                    width={3.5}
-                    height={3.5}
-                    $src="/shower.svg"
-                    $alt="shower"
-                  />
+            <FacilityWrapper>
+              <ImageComponent
+                width={3}
+                height={3}
+                $src="/inventory.svg"
+                $alt="inventory"
+              />
 
-                  <Font
-                    color="#fff"
-                    $fontSize="1.4rem"
-                    $fontWeight={700}
-                    $whiteSpace="pre-wrap"
-                  >
-                    샤워실
-                  </Font>
-                </FacilityInnerWrapper>
+              <Font
+                color="#fff"
+                $fontSize="1.4rem"
+                $fontWeight={700}
+                $whiteSpace="pre-wrap"
+              >
+                락커시설
+              </Font>
+            </FacilityWrapper>
 
-                <FacilityInnerWrapper>
-                  <ImageComponent
-                    width={3.5}
-                    height={3.5}
-                    $src="/inventory.svg"
-                    $alt="inventory"
-                  />
+            <FacilityWrapper>
+              <ImageComponent
+                width={3}
+                height={3}
+                $src="/clothes.svg"
+                $alt="clothes"
+              />
 
-                  <Font
-                    color="#fff"
-                    $fontSize="1.4rem"
-                    $fontWeight={700}
-                    $whiteSpace="pre-wrap"
-                  >
-                    락커시설
-                  </Font>
-                </FacilityInnerWrapper>
+              <Font
+                color="#fff"
+                $fontSize="1.4rem"
+                $fontWeight={700}
+                $whiteSpace="pre-wrap"
+              >
+                운동복/수건
+              </Font>
+            </FacilityWrapper>
 
-                <FacilityInnerWrapper>
-                  <ImageComponent
-                    width={3.5}
-                    height={3.5}
-                    $src="/clothes.svg"
-                    $alt="clothes"
-                  />
+            <FacilityWrapper>
+              <ImageComponent
+                width={3}
+                height={3}
+                $src="/drink.svg"
+                $alt="drink"
+              />
 
-                  <Font
-                    color="#fff"
-                    $fontSize="1.4rem"
-                    $fontWeight={700}
-                    $whiteSpace="pre-wrap"
-                  >
-                    운동복/수건
-                  </Font>
-                </FacilityInnerWrapper>
+              <Font
+                color="#fff"
+                $fontSize="1.4rem"
+                $fontWeight={700}
+                $whiteSpace="pre-wrap"
+              >
+                음료 자판기
+              </Font>
+            </FacilityWrapper>
 
-                <FacilityInnerWrapper>
-                  <ImageComponent
-                    width={3.5}
-                    height={3.5}
-                    $src="/drink.svg"
-                    $alt="drink"
-                  />
+            <FacilityWrapper>
+              <ImageComponent
+                width={3}
+                height={3}
+                $src="/wifi.svg"
+                $alt="wifi"
+              />
 
-                  <Font
-                    color="#fff"
-                    $fontSize="1.4rem"
-                    $fontWeight={700}
-                    $whiteSpace="pre-wrap"
-                  >
-                    음료 자판기
-                  </Font>
-                </FacilityInnerWrapper>
+              <Font
+                color="#fff"
+                $fontSize="1.4rem"
+                $fontWeight={700}
+                $whiteSpace="pre-wrap"
+              >
+                와이파이
+              </Font>
+            </FacilityWrapper>
+          </div>
+        </FacilityFrame>
+      </CenterInfoWrapper>
 
-                <FacilityInnerWrapper>
-                  <ImageComponent
-                    width={3.5}
-                    height={3.5}
-                    $src="/wifi.svg"
-                    $alt="wifi"
-                  />
-
-                  <Font
-                    color="#fff"
-                    $fontSize="1.4rem"
-                    $fontWeight={700}
-                    $whiteSpace="pre-wrap"
-                  >
-                    와이파이
-                  </Font>
-                </FacilityInnerWrapper>
-              </div>
-            </div>
-          </FacilityFrame>
-        </InfoFrame>
-      </div>
-
-      <MarginComp />
-
-      <SubTitle content="퍼스널 트레이너" $margin="0 0 3rem 0" />
-
-      <TrainerImagesFrame>
-        <TrainerImages images={centerDetailInfo?.trainer} />
-      </TrainerImagesFrame>
-
-      <SubTitle
-        content={`${centerDetailInfo?.centerName} 갤러리`}
-        $margin="10rem 0 3rem 0"
-      />
-
-      <CenterGallery images={centerDetailInfo?.gallrey} />
-
-      <div style={{ marginTop: '18rem', marginBottom: '18rem' }}>
+      <div style={{ marginTop: '4rem' }}>
         <Map
           id="map"
           center={{
@@ -306,6 +287,25 @@ const CenterDetail = () => {
           <ReSetttingMapBounds points={centerDetailInfo} isSingle={true} />
         </Map>
       </div>
+
+      <SubTitle content="퍼스널 트레이너" $margin="15rem 0 3rem 0" />
+
+      <TrainerImagesFrame>
+        <TrainerImages images={centerDetailInfo?.trainer} />
+      </TrainerImagesFrame>
+
+      {centerDetailInfo?.gallrey.length > 0 && (
+        <>
+          <SubTitle
+            content={`${centerDetailInfo?.centerName} 갤러리`}
+            $margin="15rem 0 3rem 0"
+          />
+
+          <CenterGallery images={centerDetailInfo?.gallrey} />
+        </>
+      )}
+
+      <MarginComp />
     </Frame>
   );
 };
@@ -316,29 +316,16 @@ const Frame = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+`;
 
-  .inner-frame {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-
-    @media screen and (max-width: 500px) {
-      flex-direction: column;
-    }
-  }
-
-  .center-images-wrapper {
-    width: 50%;
-
-    @media screen and (max-width: 500px) {
-      width: 100%;
-      margin: 6rem auto 11rem 0;
-    }
-  }
-
-  .ril-prev-button.ril__navButtons {
-    display: none !important;
-  }
+const CenterInfoWrapper = styled.div`
+  width: 100%;
+  border-radius: 10px;
+  padding: 3.5rem;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
 `;
 
 const IconWrapper = styled.div`
@@ -348,67 +335,31 @@ const IconWrapper = styled.div`
   margin: ${props => (props.$margin ? props.$margin : '')};
 `;
 
-const InfoFrame = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  @media screen and (max-width: 500px) {
-    flex-direction: column;
-  }
-`;
-
-const CenterInfoWrapper = styled.div`
-  width: 100%;
-  border-radius: 10px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  background-color: #000;
-
-  @media screen and (max-width: 500px) {
-    margin-top: 2rem;
-  }
-`;
-
 const ContactWrapper = styled.div`
   display: flex;
   align-items: center;
   margin: 0 auto;
-  gap: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 const FacilityFrame = styled.div`
-  width: 100%;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
 
   .wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     @media screen and (max-width: 500px) {
-      width: 90%;
-      margin-top: 4rem;
-      margin: 4rem auto 0rem auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
     }
-  }
-
-  .facility-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
   }
 `;
 
-const FacilityInnerWrapper = styled.div`
+const FacilityWrapper = styled.div`
   width: 10rem;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -424,21 +375,17 @@ const CustomPre = styled(Pre)`
   line-height: 1.4;
   white-space: pre-wrap;
   margin: 0 0 4rem 0;
-
-  @media screen and (max-width: 500px) {
-    margin: 2rem 0 0 0;
-  }
 `;
 
 const TrainerImagesFrame = styled.div`
   width: 100%;
-  margin-bottom: 10rem;
 `;
 
 const MarginComp = styled.div`
-  margin-top: 21rem;
+  margin-top: 15rem;
+`;
 
-  @media screen and (max-width: 500px) {
-    margin-top: 15rem;
-  }
+const DivLine = styled.div`
+  border: 1px solid #fff;
+  margin: 1rem 0 2rem 0;
 `;

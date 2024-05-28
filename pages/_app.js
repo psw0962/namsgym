@@ -92,7 +92,7 @@ const ComponentFrame = styled.div`
   flex-direction: column;
 
   width: 100%;
-  max-width: 140rem;
+  max-width: 120rem;
   min-height: 100vh;
   padding: 12rem 6rem 6rem 6rem;
 
