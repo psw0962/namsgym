@@ -20,6 +20,8 @@ import useLocalStorage from 'use-local-storage';
 import shuffleArray from '@/functions/shuffleArray';
 import useDrag from '@/hooks/useDrag';
 import Pre from '@/components/pre';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const MACHINELOGO = [
   { id: 1, url: '/images/machine-logo/1.jpg' },
@@ -41,6 +43,11 @@ const Center = () => {
   );
 
   const carouselRef = useRef(null);
+
+  const { ref: ref1, inView: inView1 } = useInView({
+    triggerOnce: true,
+    threshold: 0.01,
+  });
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -176,103 +183,114 @@ const Center = () => {
         </NoSelected>
       )}
       {checkedItems?.length > 0 && (
-        <CardFrame>
-          {checkedItems?.map(x => {
-            return (
-              <CardWrapper
-                key={x?.id}
-                onClick={() => {
-                  if (!isDragging) {
-                    router.push(`/center/${x.id}`);
-                  }
-                }}
-              >
-                <ImageComponent
-                  className="scale-img"
-                  width={'100%'}
-                  height={30}
-                  $borderRadius="10px 10px 0 0"
-                  $cursor="pointer"
-                  $src={`/images/center/center${x.id}/facility/1.jpg`}
-                  $alt="center1"
-                />
+        <motion.div
+          ref={ref1}
+          initial={{ opacity: 0, y: 100 }}
+          animate={inView1 ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: 1,
+            delay: 0.1,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
+          <CardFrame>
+            {checkedItems?.map(x => {
+              return (
+                <CardWrapper
+                  key={x?.id}
+                  onClick={() => {
+                    if (!isDragging) {
+                      router.push(`/center/${x.id}`);
+                    }
+                  }}
+                >
+                  <ImageComponent
+                    className="scale-img"
+                    width={'100%'}
+                    height={30}
+                    $borderRadius="10px 10px 0 0"
+                    $cursor="pointer"
+                    $src={`/images/center/center${x.id}/facility/1.jpg`}
+                    $alt="center1"
+                  />
 
-                <CardInfo className="center-info">
-                  <Font $fontSize="2rem" $fontWeight="700" color="#fff">
-                    {x?.centerName}
-                  </Font>
+                  <CardInfo className="center-info">
+                    <Font $fontSize="2rem" $fontWeight="700" color="#fff">
+                      {x?.centerName}
+                    </Font>
 
-                  <Font
-                    $fontSize="1.6rem"
-                    $fontWeight="400"
-                    color="#fff"
-                    $lineHeight={1.4}
-                  >
-                    {x?.address}
-                  </Font>
+                    <Font
+                      $fontSize="1.6rem"
+                      $fontWeight="400"
+                      color="#fff"
+                      $lineHeight={1.4}
+                    >
+                      {x?.address}
+                    </Font>
 
-                  <IconWrapper $margin="1.5rem 0 0 0">
-                    <div>
+                    <IconWrapper $margin="1.5rem 0 0 0">
+                      <div>
+                        <ImageComponent
+                          width={2}
+                          height={2}
+                          $src="/phone.svg"
+                          $alt="phone"
+                        />
+                      </div>
+
+                      <Font
+                        $fontSize="1.6rem"
+                        $fontWeight="400"
+                        color="#fff"
+                        $margin="0.5rem 0 0 0"
+                      >
+                        {x?.tel}
+                      </Font>
+                    </IconWrapper>
+
+                    <IconWrapper $margin="0.1rem 0 0 0">
                       <ImageComponent
                         width={2}
                         height={2}
-                        $src="/phone.svg"
-                        $alt="phone"
+                        $src="/clock.svg"
+                        $alt="clock"
                       />
-                    </div>
 
-                    <Font
-                      $fontSize="1.6rem"
-                      $fontWeight="400"
-                      color="#fff"
-                      $margin="0.5rem 0 0 0"
-                    >
-                      {x?.tel}
-                    </Font>
-                  </IconWrapper>
+                      <Pre
+                        $fontSize="1.6rem"
+                        $fontWeight="400"
+                        color="#fff"
+                        $lineHeight={1.4}
+                        $whiteSpace="pre-wrap"
+                      >
+                        {x?.operatingTime}
+                      </Pre>
+                    </IconWrapper>
 
-                  <IconWrapper $margin="0.1rem 0 0 0">
-                    <ImageComponent
-                      width={2}
-                      height={2}
-                      $src="/clock.svg"
-                      $alt="clock"
-                    />
+                    <IconWrapper $margin="0.1rem 0 0 0">
+                      <ImageComponent
+                        width={2}
+                        height={2}
+                        $src="/car.svg"
+                        $alt="car"
+                      />
 
-                    <Pre
-                      $fontSize="1.6rem"
-                      $fontWeight="400"
-                      color="#fff"
-                      $lineHeight={1.4}
-                      $whiteSpace="pre-wrap"
-                    >
-                      {x?.operatingTime}
-                    </Pre>
-                  </IconWrapper>
-
-                  <IconWrapper $margin="0.1rem 0 0 0">
-                    <ImageComponent
-                      width={2}
-                      height={2}
-                      $src="/car.svg"
-                      $alt="car"
-                    />
-
-                    <Font
-                      $fontSize="1.6rem"
-                      $fontWeight="400"
-                      color="#fff"
-                      $lineHeight={1.4}
-                      $whiteSpace="pre-wrap"
-                    >
-                      {x?.parking}
-                    </Font>
-                  </IconWrapper>
-                </CardInfo>
-              </CardWrapper>
-            );
-          })}
-        </CardFrame>
+                      <Font
+                        $fontSize="1.6rem"
+                        $fontWeight="400"
+                        color="#fff"
+                        $lineHeight={1.4}
+                        $whiteSpace="pre-wrap"
+                      >
+                        {x?.parking}
+                      </Font>
+                    </IconWrapper>
+                  </CardInfo>
+                </CardWrapper>
+              );
+            })}
+          </CardFrame>
+        </motion.div>
       )}
     </Frame>
   );

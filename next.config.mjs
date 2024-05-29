@@ -11,10 +11,10 @@ const nextConfig = withInterceptStdout(
     compiler: {
       styledComponents: true,
     },
-    // images: {
-    //   domains: ['www.namsgym.com', '127.0.0.1', 'localhost', 'localhost:3000'],
-    //   formats: ['image/avif', 'image/webp'],
-    // },
+    images: {
+      domains: ['www.namsgym.com', '127.0.0.1', 'localhost', 'localhost:3000'],
+      formats: ['image/avif', 'image/webp'],
+    },
     images: {
       remotePatterns: [
         {

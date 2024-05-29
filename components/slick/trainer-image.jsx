@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
-import Slick from 'react-slick';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ImageComponent from '../image-component';
+import Slick from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 const TrainerImages = ({ images }) => {
-  const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
-  const openLightbox = index => {
+  useEffect(() => {
+    const arr = [...images];
+    const result = arr.map(x => ({ src: x }));
+    setData(result);
+  }, [images]);
+
+  const handleImageClick = index => {
     if (!isDragging) {
-      setPhotoIndex(index);
+      setSelectedIndex(index);
       setIsOpen(true);
     }
   };
@@ -99,20 +106,12 @@ const TrainerImages = ({ images }) => {
 
   return (
     <div>
-      {isOpen && (
-        <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-          onCloseRequest={() => setIsOpen(false)}
-          onMovePrevRequest={() =>
-            setPhotoIndex((photoIndex + images.length - 1) % images.length)
-          }
-          onMoveNextRequest={() =>
-            setPhotoIndex((photoIndex + 1) % images.length)
-          }
-        />
-      )}
+      <Lightbox
+        open={isOpen}
+        close={() => setIsOpen(false)}
+        slides={data}
+        index={selectedIndex}
+      />
 
       {images?.length > 0 && (
         <StyledSlick {...settings}>
@@ -125,7 +124,7 @@ const TrainerImages = ({ images }) => {
               $cursor="pointer"
               $src={item}
               $alt={`slick${index}`}
-              onClick={() => openLightbox(index)}
+              onClick={() => handleImageClick(index)}
             />
           ))}
         </StyledSlick>

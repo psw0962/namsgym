@@ -1,48 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import ImageComponent from './image-component';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+import Image from 'next/image';
 
 const CenterGallery = ({ images }) => {
-  const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(9);
 
-  const openLightbox = index => {
-    setPhotoIndex(index);
+  useEffect(() => {
+    const arr = [...images];
+    const result = arr.map(x => ({ src: x }));
+    setData(result);
+  }, [images]);
+
+  const handleImageClick = index => {
+    setSelectedIndex(index);
     setIsOpen(true);
   };
 
-  return (
-    <Frame>
-      {isOpen && (
-        <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-          onCloseRequest={() => setIsOpen(false)}
-          onMovePrevRequest={() =>
-            setPhotoIndex((photoIndex + images.length - 1) % images.length)
-          }
-          onMoveNextRequest={() =>
-            setPhotoIndex((photoIndex + 1) % images.length)
-          }
-        />
-      )}
+  const handleLoadMore = () => {
+    setVisibleCount(prevCount => prevCount + 9);
+  };
 
-      {images?.map((item, index) => (
-        <ImageCard key={item} onClick={() => openLightbox(index)}>
-          <ImageComponent
-            width={35}
-            height={35}
-            $src={item}
-            $alt={`${item}${index}`}
-            $borderRadius="10px"
-            $cursor="pointer"
-          />
-        </ImageCard>
-      ))}
-    </Frame>
+  return (
+    <div>
+      <Frame>
+        <Lightbox
+          open={isOpen}
+          close={() => setIsOpen(false)}
+          slides={data}
+          index={selectedIndex}
+        />
+
+        {images?.slice(0, visibleCount).map((item, index) => (
+          <ImageCard key={item} onClick={() => handleImageClick(index)}>
+            <Image
+              src={item}
+              alt={`${item}${index}`}
+              quality={70}
+              style={{ objectFit: 'cover' }}
+              fill
+              priority
+              sizes="100%"
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+            />
+          </ImageCard>
+        ))}
+      </Frame>
+      {visibleCount < images?.length && (
+        <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
+      )}
+    </div>
   );
 };
 
@@ -52,8 +64,43 @@ const Frame = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const ImageCard = styled.div`
   display: flex;
+  position: relative;
+  width: 35rem;
+  height: 35rem;
+
+  @media screen and (max-width: 500px) {
+    width: 21.5rem;
+    height: 21.5rem;
+  }
+
+  img {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+  }
+`;
+
+const LoadMoreButton = styled.button`
+  display: block;
+  margin: 4rem auto;
+  padding: 2rem 4rem;
+  background-color: #c5a75b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  cursor: pointer;
 `;

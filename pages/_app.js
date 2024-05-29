@@ -94,10 +94,10 @@ const ComponentFrame = styled.div`
   width: 100%;
   max-width: 120rem;
   min-height: 100vh;
-  padding: 12rem 6rem 6rem 6rem;
+  padding: 6rem;
 
   @media screen and (max-width: 500px) {
     max-width: 100%;
-    padding: 12rem 3rem 6rem 3rem;
+    padding: 6rem 3rem 6rem 3rem;
   }
 `;

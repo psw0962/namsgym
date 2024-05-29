@@ -12,10 +12,17 @@ import { Map } from 'react-kakao-maps-sdk';
 import CustomMapMarker from '@/components/custom-map-maker';
 import CenterGallery from '@/components/center-gallery';
 import ReSetttingMapBounds from '@/components/resetting-map-bounds';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const CenterDetail = () => {
   const router = useRouter();
   const [centerDetailInfo, setCenterDetailInfo] = useState();
+
+  const { ref: ref1, inView: inView1 } = useInView({
+    triggerOnce: true,
+    threshold: 0.01,
+  });
 
   useEffect(() => {
     const filtered = centerInfo.filter(
@@ -290,9 +297,11 @@ const CenterDetail = () => {
 
       <SubTitle content="퍼스널 트레이너" $margin="15rem 0 3rem 0" />
 
-      <TrainerImagesFrame>
-        <TrainerImages images={centerDetailInfo?.trainer} />
-      </TrainerImagesFrame>
+      {centerDetailInfo && (
+        <TrainerImagesFrame>
+          <TrainerImages images={centerDetailInfo?.trainer} />
+        </TrainerImagesFrame>
+      )}
 
       {centerDetailInfo?.gallrey.length > 0 && (
         <>
@@ -301,7 +310,18 @@ const CenterDetail = () => {
             $margin="15rem 0 3rem 0"
           />
 
-          <CenterGallery images={centerDetailInfo?.gallrey} />
+          <motion.div
+            ref={ref1}
+            initial={{ opacity: 0, y: 100 }}
+            animate={inView1 ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: 1,
+              delay: 0.1,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
+          >
+            <CenterGallery images={centerDetailInfo?.gallrey} />
+          </motion.div>
         </>
       )}
 

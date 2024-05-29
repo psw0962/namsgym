@@ -64,6 +64,58 @@ const Navigation = () => {
                 );
               })}
             </MenuWrapper>
+
+            <InnerWrapper $marginLeftIsTrue={true}>
+              <a
+                href="https://www.instagram.com/namsgym_official_/?igsh=NjR0NXo3dDFlYmZi"
+                target="_blank"
+              >
+                <ImageComponent
+                  width={3.5}
+                  height={3.5}
+                  $cursor="pointer"
+                  $src="/footer-instagram.svg"
+                  $alt="footer-instagram"
+                  $borderRadius="10px"
+                />
+              </a>
+
+              <a href="https://www.youtube.com/@pt7066" target="_blank">
+                <ImageComponent
+                  width={3.5}
+                  height={3.5}
+                  $cursor="pointer"
+                  $src="/footer-youtube.svg"
+                  $alt="footer-youtube"
+                  $borderRadius="10px"
+                />
+              </a>
+
+              <a href="https://pf.kakao.com/_FxgHWd" target="_blank">
+                <ImageComponent
+                  width={3.5}
+                  height={3.5}
+                  $cursor="pointer"
+                  $src="/footer-kakaotalk.svg"
+                  $alt="footer-kakaotalk"
+                  $borderRadius="10px"
+                />
+              </a>
+
+              <a
+                href="https://map.naver.com/p/search/%EB%82%A8%EC%8A%A3.5%EC%A7%90?c=15.00,0,0,0,dh"
+                target="_blank"
+              >
+                <ImageComponent
+                  width={3}
+                  height={3}
+                  $cursor="pointer"
+                  $src="/footer-naver.svg"
+                  $alt="footer-naver"
+                  $borderRadius="10px"
+                />
+              </a>
+            </InnerWrapper>
           </DeskTopMenuWrapper>
 
           {/* mobile */}
@@ -110,6 +162,58 @@ const Navigation = () => {
                   </Font>
                 );
               })}
+
+              <InnerWrapper $marginLeftIsTrue={false}>
+                <a
+                  href="https://www.instagram.com/namsgym_official_/?igsh=NjR0NXo3dDFlYmZi"
+                  target="_blank"
+                >
+                  <ImageComponent
+                    width={5}
+                    height={5}
+                    $cursor="pointer"
+                    $src="/footer-instagram.svg"
+                    $alt="footer-instagram"
+                    $borderRadius="10px"
+                  />
+                </a>
+
+                <a href="https://www.youtube.com/@pt7066" target="_blank">
+                  <ImageComponent
+                    width={5}
+                    height={5}
+                    $cursor="pointer"
+                    $src="/footer-youtube.svg"
+                    $alt="footer-youtube"
+                    $borderRadius="10px"
+                  />
+                </a>
+
+                <a href="https://pf.kakao.com/_FxgHWd" target="_blank">
+                  <ImageComponent
+                    width={5}
+                    height={5}
+                    $cursor="pointer"
+                    $src="/footer-kakaotalk.svg"
+                    $alt="footer-kakaotalk"
+                    $borderRadius="10px"
+                  />
+                </a>
+
+                <a
+                  href="https://map.naver.com/p/search/%EB%82%A8%EC%8A%A3.5%EC%A7%90?c=15.00,0,0,0,dh"
+                  target="_blank"
+                >
+                  <ImageComponent
+                    width={4}
+                    height={4}
+                    $cursor="pointer"
+                    $src="/footer-naver.svg"
+                    $alt="footer-naver"
+                    $borderRadius="10px"
+                  />
+                </a>
+              </InnerWrapper>
             </MobileMenuWrapper>
           </MobileMenuFrame>
         </Container>
@@ -172,7 +276,8 @@ const MenuWrapper = styled.ul`
 const DeskTopMenuWrapper = styled.nav`
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  align-items: center;
+  width: 100%;
 
   @media screen and (max-width: 500px) {
     display: none;
@@ -213,4 +318,11 @@ const CustomLi = styled.li`
   line-height: ${props => (props.$lineHeight ? props.$lineHeight : '')};
   font-weight: ${props => (props.$fontWeight ? props.$fontWeight : 400)};
   margin: ${props => (props.$margin ? props.$margin : '')};
+`;
+
+const InnerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: ${props => (props.$marginLeftIsTrue ? '7rem' : 0)};
 `;
