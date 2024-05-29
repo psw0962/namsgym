@@ -9,11 +9,11 @@ import ImageComponent from '@/components/image-component';
 import CenterImages from '@/components/slick/center-images';
 import TrainerImages from '@/components/slick/trainer-image';
 import { Map } from 'react-kakao-maps-sdk';
-import CustomMapMarker from '@/components/custom-map-maker';
 import CenterGallery from '@/components/center-gallery';
-import ReSetttingMapBounds from '@/components/resetting-map-bounds';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import CustomMapMarker from '@/components/custom-map-maker';
+import ReSetttingMapBoundsSingle from '@/components/resetting-map-bounds-single';
 
 const CenterDetail = () => {
   const router = useRouter();
@@ -303,7 +303,7 @@ const CenterDetail = () => {
           />
 
           {/* 리바운스 */}
-          <ReSetttingMapBounds points={centerDetailInfo} isSingle={true} />
+          <ReSetttingMapBoundsSingle points={centerDetailInfo} />
         </Map>
       </div>
 
