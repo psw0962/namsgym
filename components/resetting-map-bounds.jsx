@@ -42,17 +42,17 @@ const ReSetttingMapBounds = ({ points, isSingle = false }) => {
   const map = useMap();
 
   const bounds = useMemo(() => {
-    if (typeof kakao === 'undefined') {
+    if (typeof window === 'undefined' || typeof window.kakao === 'undefined') {
       return null;
     }
 
     const bounds = new kakao.maps.LatLngBounds();
 
     if (isSingle) {
-      bounds.extend(new kakao.maps.LatLng(points?.lat, points?.lng));
+      bounds.extend(new window.kakao.maps.LatLng(points?.lat, points?.lng));
     } else {
       points?.forEach(point => {
-        bounds.extend(new kakao.maps.LatLng(point.lat, point.lng));
+        bounds.extend(new window.kakao.maps.LatLng(point.lat, point.lng));
       });
     }
 
@@ -60,7 +60,11 @@ const ReSetttingMapBounds = ({ points, isSingle = false }) => {
   }, [points, isSingle]);
 
   useEffect(() => {
-    if (typeof kakao === 'undefined' || !bounds) {
+    if (
+      typeof window === 'undefined' ||
+      typeof window.kakao === 'undefined' ||
+      !bounds
+    ) {
       console.error('Kakao Maps API is not loaded or bounds is not defined');
       return;
     }

@@ -79,6 +79,8 @@ export default class CustomDocument extends Document {
           <script
             type="text/javascript"
             src={`https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_KEY}&libraries=services,clusterer`}
+            async
+            defer
           ></script>
         </Head>
 
