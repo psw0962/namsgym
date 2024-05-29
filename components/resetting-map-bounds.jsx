@@ -28,9 +28,9 @@ const ReSetttingMapBounds = ({ points, isSingle = false }) => {
       map.setBounds(bounds);
       return;
     }
-  }, [points, bounds, map]);
+  }, []);
 
-  return null;
+  return <></>;
 };
 
 export default ReSetttingMapBounds;
