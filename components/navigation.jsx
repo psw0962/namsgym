@@ -69,6 +69,7 @@ const Navigation = () => {
               <a
                 href="https://www.instagram.com/namsgym_official_/?igsh=NjR0NXo3dDFlYmZi"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <ImageComponent
                   width={3.5}
@@ -80,7 +81,11 @@ const Navigation = () => {
                 />
               </a>
 
-              <a href="https://www.youtube.com/@pt7066" target="_blank">
+              <a
+                href="https://www.youtube.com/@pt7066"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ImageComponent
                   width={3.5}
                   height={3.5}
@@ -91,7 +96,11 @@ const Navigation = () => {
                 />
               </a>
 
-              <a href="https://pf.kakao.com/_FxgHWd" target="_blank">
+              <a
+                href="https://pf.kakao.com/_FxgHWd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ImageComponent
                   width={3.5}
                   height={3.5}
@@ -105,6 +114,7 @@ const Navigation = () => {
               <a
                 href="https://map.naver.com/p/search/%EB%82%A8%EC%8A%A3.5%EC%A7%90?c=15.00,0,0,0,dh"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <ImageComponent
                   width={3}
@@ -167,6 +177,7 @@ const Navigation = () => {
                 <a
                   href="https://www.instagram.com/namsgym_official_/?igsh=NjR0NXo3dDFlYmZi"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <ImageComponent
                     width={5}
@@ -178,7 +189,11 @@ const Navigation = () => {
                   />
                 </a>
 
-                <a href="https://www.youtube.com/@pt7066" target="_blank">
+                <a
+                  href="https://www.youtube.com/@pt7066"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ImageComponent
                     width={5}
                     height={5}
@@ -189,7 +204,11 @@ const Navigation = () => {
                   />
                 </a>
 
-                <a href="https://pf.kakao.com/_FxgHWd" target="_blank">
+                <a
+                  href="https://pf.kakao.com/_FxgHWd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ImageComponent
                     width={5}
                     height={5}
@@ -203,6 +222,7 @@ const Navigation = () => {
                 <a
                   href="https://map.naver.com/p/search/%EB%82%A8%EC%8A%A3.5%EC%A7%90?c=15.00,0,0,0,dh"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <ImageComponent
                     width={4}

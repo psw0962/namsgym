@@ -129,7 +129,11 @@ const CenterDetail = () => {
         </div>
 
         <ContactWrapper>
-          <a href={centerDetailInfo?.instagramUrl} target="_blank">
+          <a
+            href={centerDetailInfo?.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <ImageComponent
               width={7}
               height={7}
@@ -140,7 +144,11 @@ const CenterDetail = () => {
             />
           </a>
 
-          <a href={centerDetailInfo?.kakaoTalkUrl} target="_blank">
+          <a
+            href={centerDetailInfo?.kakaoTalkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <ImageComponent
               width={6}
               height={6}
@@ -151,7 +159,11 @@ const CenterDetail = () => {
             />
           </a>
 
-          <a href={centerDetailInfo?.naverPlaceUrl} target="_blank">
+          <a
+            href={centerDetailInfo?.naverPlaceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <ImageComponent
               width={5}
               height={5}

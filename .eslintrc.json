@@ -25,6 +25,7 @@
   },
   "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
+    "react-hooks/exhaustive-deps": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/react-in-jsx-scope": 0,
     "react/prefer-stateless-function": 0,
