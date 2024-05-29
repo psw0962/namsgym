@@ -13,47 +13,47 @@ const Home = () => {
 
   const { ref: ref1, inView: inView1 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   const { ref: ref2, inView: inView2 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   const { ref: ref3, inView: inView3 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   const { ref: ref4, inView: inView4 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   const { ref: ref5, inView: inView5 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   const { ref: ref6, inView: inView6 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   const { ref: ref7, inView: inView7 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   const { ref: ref8, inView: inView8 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   const { ref: ref9, inView: inView9 } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   });
 
   return (

@@ -9,7 +9,6 @@ import GlobalSpinner from '@/components/global-spinner';
 import styled from 'styled-components';
 import Navigation from '@/components/navigation';
 import { Analytics } from '@vercel/analytics/react';
-// import Sns from '@/component/common/sns';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import dynamic from 'next/dynamic';
@@ -62,8 +61,6 @@ const App = ({ Component, pageProps }) => {
                       </ComponentFrame>
 
                       <Footer />
-
-                      {/* <Sns /> */}
                     </>
                   )}
                 </Frame>
@@ -94,10 +91,10 @@ const ComponentFrame = styled.div`
   width: 100%;
   max-width: 120rem;
   min-height: 100vh;
-  padding: 6rem;
+  padding: 12rem 6rem 6rem 6rem;
 
   @media screen and (max-width: 500px) {
     max-width: 100%;
-    padding: 6rem 3rem 6rem 3rem;
+    padding: 12rem 3rem 6rem 3rem;
   }
 `;

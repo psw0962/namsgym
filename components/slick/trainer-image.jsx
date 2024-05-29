@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import Image from 'next/image';
 
 const TrainerImages = ({ images }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,7 +98,7 @@ const TrainerImages = ({ images }) => {
       {
         breakpoint: 500,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -116,16 +117,21 @@ const TrainerImages = ({ images }) => {
       {images?.length > 0 && (
         <StyledSlick {...settings}>
           {images?.map((item, index) => (
-            <ImageComponent
-              key={`image${index}`}
-              width={30}
-              height={30}
-              $borderRadius="10px"
-              $cursor="pointer"
-              $src={item}
-              $alt={`slick${index}`}
-              onClick={() => handleImageClick(index)}
-            />
+            <React.Fragment key={item}>
+              <ImageCard onClick={() => handleImageClick(index)}>
+                <Image
+                  src={item}
+                  alt={`${item}${index}`}
+                  quality={70}
+                  style={{ objectFit: 'cover' }}
+                  fill
+                  priority
+                  sizes="100%"
+                  placeholder="blur"
+                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                />
+              </ImageCard>
+            </React.Fragment>
           ))}
         </StyledSlick>
       )}
@@ -150,7 +156,7 @@ const ArrowWrapper = styled.div`
     left: -3rem;
 
     @media screen and (max-width: 500px) {
-      left: 0rem;
+      left: -2rem;
     }
   }
 
@@ -158,7 +164,7 @@ const ArrowWrapper = styled.div`
     right: -3rem;
 
     @media screen and (max-width: 500px) {
-      right: 0rem;
+      right: -2rem;
     }
   }
 
@@ -180,5 +186,28 @@ const StyledSlick = styled(Slick)`
 
   .slick-list {
     padding-bottom: 20px;
+  }
+`;
+
+const ImageCard = styled.div`
+  display: flex;
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+
+  @media screen and (max-width: 500px) {
+    width: 21.5rem;
+    height: 21.5rem;
+  }
+
+  img {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
   }
 `;

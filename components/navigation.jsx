@@ -37,8 +37,8 @@ const Navigation = () => {
       <NavigationFrame>
         <Container>
           <ImageComponent
-            width={5}
-            height={5}
+            width={4}
+            height={4}
             $cursor="pointer"
             $zIndex={10}
             $src="/logo.svg"
@@ -245,14 +245,15 @@ const Navigation = () => {
 export default Navigation;
 
 const Frame = styled.div`
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 3;
 
-  height: 8rem;
-  visibility: ${props => (props.$scrollEventState ? 'hidden' : 'visible')};
-  opacity: ${props => (props.$scrollEventState ? 0 : 1)};
-  transition: all 0.2s;
+  /* height: 10rem; */
+  /* visibility: ${props =>
+    props.$scrollEventState ? 'hidden' : 'visible'}; */
+  /* opacity: ${props => (props.$scrollEventState ? 0 : 1)}; */
+  /* transition: all 0.2s; */
 `;
 
 const NavigationFrame = styled.header`
