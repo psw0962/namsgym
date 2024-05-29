@@ -35,7 +35,7 @@
 
 // export default ReSetttingMapBounds;
 
-import { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useMap } from 'react-kakao-maps-sdk';
 
 const ReSetttingMapBounds = ({ points, isSingle = false }) => {
@@ -65,7 +65,9 @@ const ReSetttingMapBounds = ({ points, isSingle = false }) => {
       return;
     }
 
-    if (isSingle || points?.length > 0) {
+    if (isSingle) {
+      map.setBounds(bounds);
+    } else if (points?.length > 0) {
       map.setBounds(bounds);
     }
   }, [points, bounds, map, isSingle]);
