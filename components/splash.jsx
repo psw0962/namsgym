@@ -28,7 +28,7 @@ const Splash = ({ setIsSplash }) => {
             <ImageComponent
               width={15}
               height={15}
-              $src="/logo.svg"
+              $src="/logo.png"
               $alt="logo"
             />
           </Frame>

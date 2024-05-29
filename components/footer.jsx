@@ -14,7 +14,7 @@ const Footer = () => {
               width={7}
               height={7}
               $cursor="pointer"
-              $src="/logo.svg"
+              $src="/logo.png"
               $alt="logo"
               onClick={() => router.push('/')}
             />
@@ -58,21 +58,6 @@ const Footer = () => {
 
           <InnerWrapper>
             <a
-              href="https://www.instagram.com/namsgym_official_/?igsh=NjR0NXo3dDFlYmZi"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ImageComponent
-                width={4}
-                height={4}
-                $cursor="pointer"
-                $src="/footer-instagram.svg"
-                $alt="footer-instagram"
-                $borderRadius="10px"
-              />
-            </a>
-
-            <a
               href="https://www.youtube.com/@pt7066"
               target="_blank"
               rel="noopener noreferrer"
@@ -81,8 +66,23 @@ const Footer = () => {
                 width={4}
                 height={4}
                 $cursor="pointer"
-                $src="/footer-youtube.svg"
-                $alt="footer-youtube"
+                $src="/youtube.svg"
+                $alt="youtube"
+                $borderRadius="10px"
+              />
+            </a>
+
+            <a
+              href="https://www.instagram.com/namsgym_official_/?igsh=NjR0NXo3dDFlYmZi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ImageComponent
+                width={3.5}
+                height={3.5}
+                $cursor="pointer"
+                $src="/instagram.svg"
+                $alt="instagram"
                 $borderRadius="10px"
               />
             </a>
@@ -93,11 +93,11 @@ const Footer = () => {
               rel="noopener noreferrer"
             >
               <ImageComponent
-                width={4}
-                height={4}
+                width={3.5}
+                height={3.5}
                 $cursor="pointer"
-                $src="/footer-kakaotalk.svg"
-                $alt="footer-kakaotalk"
+                $src="/kakaotalk.svg"
+                $alt="kakaotalk"
                 $borderRadius="10px"
               />
             </a>
@@ -111,8 +111,8 @@ const Footer = () => {
                 width={3.5}
                 height={3.5}
                 $cursor="pointer"
-                $src="/footer-naver.svg"
-                $alt="footer-naver"
+                $src="/naver.svg"
+                $alt="naver"
                 $borderRadius="10px"
               />
             </a>

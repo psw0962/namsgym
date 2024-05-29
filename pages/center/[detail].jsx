@@ -135,11 +135,11 @@ const CenterDetail = () => {
             rel="noopener noreferrer"
           >
             <ImageComponent
-              width={7}
-              height={7}
+              width={5.5}
+              height={5.5}
               $cursor="pointer"
-              $src="/footer-instagram.svg"
-              $alt="footer-instagram"
+              $src="/instagram.svg"
+              $alt="instagram"
               $borderRadius="10px"
             />
           </a>
@@ -150,12 +150,13 @@ const CenterDetail = () => {
             rel="noopener noreferrer"
           >
             <ImageComponent
-              width={6}
-              height={6}
+              width={5}
+              height={5}
               $cursor="pointer"
-              $src="/footer-kakaotalk.svg"
-              $alt="footer-kakaotalk"
+              $src="/kakaotalk.svg"
+              $alt="kakaotalk"
               $borderRadius="10px"
+              $margin="0 0 0 1rem"
             />
           </a>
 
@@ -168,8 +169,8 @@ const CenterDetail = () => {
               width={5}
               height={5}
               $cursor="pointer"
-              $src="/footer-naver.svg"
-              $alt="footer-naver"
+              $src="/naver.svg"
+              $alt="naver"
               $borderRadius="10px"
               $margin="0 0 0 1rem"
             />
@@ -371,7 +372,7 @@ const ContactWrapper = styled.div`
   display: flex;
   align-items: center;
   margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 2rem;
 `;
 
 const FacilityFrame = styled.div`

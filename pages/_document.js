@@ -33,7 +33,7 @@ export default class CustomDocument extends Document {
       <Html>
         <Head>
           {/* 파비콘 */}
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico" sizes="any" />
 
           {/* 홈페이지 */}
           <meta name="author" content="namsgym" />

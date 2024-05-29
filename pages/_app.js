@@ -13,6 +13,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import dynamic from 'next/dynamic';
 import Footer from '@/components/footer';
+import Contact from '@/components/contact';
 
 const Splash = dynamic(() => import('@/components/splash'), {
   ssr: false,
@@ -33,7 +34,7 @@ const App = ({ Component, pageProps }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
 
         <title>남스짐 | 프리미엄 PT GYM</title>
       </Head>
@@ -59,6 +60,8 @@ const App = ({ Component, pageProps }) => {
                       <ComponentFrame>
                         <Component {...pageProps} />
                       </ComponentFrame>
+
+                      <Contact />
 
                       <Footer />
                     </>

@@ -9,7 +9,7 @@ const SubTitle = ({ content, $margin }) => {
         width={4}
         height={4}
         $cursor="pointer"
-        $src="/logo.svg"
+        $src="/logo.png"
         $alt="logo"
       />
 
