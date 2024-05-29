@@ -112,7 +112,7 @@ const Navigation = () => {
               </a>
 
               <a
-                href="https://map.naver.com/p/search/%EB%82%A8%EC%8A%A3.5%EC%A7%90?c=15.00,0,0,0,dh"
+                href="https://map.naver.com/p/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=15.00,0,0,0,dh"
                 target="_blank"
                 rel="noopener noreferrer"
               >

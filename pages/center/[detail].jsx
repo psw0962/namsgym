@@ -355,10 +355,14 @@ const CenterInfoWrapper = styled.div`
   width: 100%;
   border-radius: 10px;
   padding: 3.5rem;
-  margin-top: 10rem;
+  margin-top: 15rem;
   display: flex;
   flex-direction: column;
   background-color: #000;
+
+  @media screen and (max-width: 500px) {
+    margin-top: 10rem;
+  }
 `;
 
 const IconWrapper = styled.div`

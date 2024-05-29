@@ -53,18 +53,27 @@ const SliderContainer = styled.div`
   }
 
   .slick-dots.slick-thumb {
-    bottom: -7rem;
+    bottom: -12rem;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     cursor: grab;
+
+    @media screen and (max-width: 500px) {
+      bottom: -6rem;
+    }
   }
 
   .slick-dots.slick-thumb li {
-    width: 6rem;
-    height: 6rem;
-    margin: 1;
     display: inline-block;
+    width: 10rem;
+    height: 10rem;
+    margin: 1;
+
+    @media screen and (max-width: 500px) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
   }
 
   /* active background */
