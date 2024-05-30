@@ -195,11 +195,6 @@ const ImageCard = styled.div`
   width: 30rem;
   height: 30rem;
 
-  @media screen and (max-width: 500px) {
-    width: 21.5rem;
-    height: 21.5rem;
-  }
-
   img {
     position: absolute;
     cursor: pointer;
@@ -209,5 +204,10 @@ const ImageCard = styled.div`
   &:hover img {
     transform: scale(1.05);
     transition: transform 0.2s ease-in-out;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 21.5rem;
+    height: 21.5rem;
   }
 `;

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "1.2.2",
+    "animate.css": "^4.1.1",
     "axios": "1.6.8",
     "babel-plugin-styled-components": "2.1.4",
     "date-fns": "3.6.0",
