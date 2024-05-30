@@ -5,31 +5,11 @@ import ImageComponent from '@/components/image-component';
 import Pre from '@/components/pre';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import 'animate.css';
 
 const Home = () => {
   const router = useRouter();
-
-  const { ref: ref1, inView: inView1 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
-  const { ref: ref2, inView: inView2 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
-  const { ref: ref3, inView: inView3 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
-  const { ref: ref4, inView: inView4 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
 
   const { ref: ref5, inView: inView5 } = useInView({
     triggerOnce: true,
@@ -59,299 +39,224 @@ const Home = () => {
   return (
     <Frame>
       <OverFlowFrame>
-        <motion.div
-          ref={ref1}
-          style={{ overflowX: 'hidden' }}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={inView1 ? { opacity: 1, scale: 1 } : {}}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
-        >
-          <OverFlowWrapper>
-            {centerInfo.map(x => {
-              return (
-                <div
-                  key={x.id}
-                  className="inner-wrapper"
-                  onClick={() => router.push(`/center/${x.id}`)}
-                >
-                  <ImageComponent
-                    width={10}
-                    height={10}
-                    $src={x.thumbnailImage}
-                    $alt={`slide-${x.id}`}
-                    $borderRadius="10px"
-                  />
+        <OverFlowWrapper className="animate__bounceIn">
+          {centerInfo.map(x => {
+            return (
+              <div
+                key={x.id}
+                className="inner-wrapper"
+                onClick={() => router.push(`/center/${x.id}`)}
+              >
+                <ImageComponent
+                  width={10}
+                  height={10}
+                  $src={x.thumbnailImage}
+                  $alt={`slide-${x.id}`}
+                  $borderRadius="10px"
+                />
 
-                  <Font $fontSize="1.2rem" $fontWeight={700}>
-                    {x.centerName}
-                  </Font>
-                </div>
-              );
-            })}
-          </OverFlowWrapper>
-        </motion.div>
+                <Font $fontSize="1.2rem" $fontWeight={700}>
+                  {x.centerName}
+                </Font>
+              </div>
+            );
+          })}
+        </OverFlowWrapper>
       </OverFlowFrame>
 
-      <motion.div
-        ref={ref2}
-        initial={{ opacity: 0, y: 100 }}
-        animate={inView2 ? { opacity: 1, y: 0 } : {}}
-        transition={{
-          duration: 0.8,
-          delay: 0.5,
-          ease: [0, 0.71, 0.2, 1.01],
-        }}
+      <Pre
+        className="animate__animated animate__bounce"
+        $fontSize="10rem"
+        $fontWeight={700}
+        $margin="15rem auto 1rem auto"
+        $lineHeight={1.3}
+        $whiteSpace="pre-wrap"
       >
-        <Pre
-          $fontSize="10rem"
-          $fontWeight={700}
-          $margin="15rem auto 1rem auto"
-          $lineHeight={1.3}
-          $whiteSpace="pre-wrap"
-        >
-          {`여기에 들어갈
+        {`여기에 들어갈
 워딩을 정해야합니다.`}
-        </Pre>
+      </Pre>
 
-        <Pre
-          $fontSize="5rem"
-          $fontWeight={700}
-          $margin="5rem auto 1rem auto"
-          $lineHeight={1.3}
-          $whiteSpace="pre-wrap"
-        >
-          {`여기에 들어갈
+      <Pre
+        className="animate__animated animate__bounce"
+        $fontSize="5rem"
+        $fontWeight={700}
+        $margin="5rem auto 1rem auto"
+        $lineHeight={1.3}
+        $whiteSpace="pre-wrap"
+      >
+        {`여기에 들어갈
 워딩을 정해야합니다`}
-        </Pre>
-      </motion.div>
+      </Pre>
 
       {/* 1 */}
       <ImageWithTextFrame>
-        <motion.div
-          ref={ref3}
-          initial={{ opacity: 0, x: -100 }}
-          animate={inView3 ? { opacity: 1, x: 0 } : {}}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
-        >
-          <ImageCard>
-            <Image
-              src="/images/center/center1/facility/1.jpg"
-              alt="test"
-              quality={70}
-              style={{ objectFit: 'cover' }}
-              fill
-              priority
-              sizes="100%"
-              placeholder="blur"
-              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-            />
-          </ImageCard>
-        </motion.div>
+        <ImageCard className="animate__animated animate__fadeInLeft">
+          <Image
+            src="/images/center/center1/facility/1.jpg"
+            alt="test"
+            quality={70}
+            style={{ objectFit: 'cover' }}
+            fill
+            priority
+            sizes="100%"
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
+        </ImageCard>
 
-        <motion.div
-          ref={ref4}
-          initial={{ opacity: 0, x: 100 }}
-          animate={inView4 ? { opacity: 1, x: 0 } : {}}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
-        >
-          <div className="wrapper">
-            <Pre
-              $fontSize="5rem"
-              $fontWeight={700}
-              $margin="5rem auto 1rem auto"
-              $lineHeight={1.3}
-              $whiteSpace="pre-wrap"
-            >
-              {`여기에 들어갈
+        <div className="wrapper animate__animated animate__fadeInRight">
+          <Pre
+            $fontSize="5rem"
+            $fontWeight={700}
+            $margin="5rem auto 1rem auto"
+            $lineHeight={1.3}
+            $whiteSpace="pre-wrap"
+          >
+            {`여기에 들어갈
 워딩을 정해야합니다`}
-            </Pre>
+          </Pre>
 
-            <Pre
-              $fontSize="3rem"
-              $fontWeight={700}
-              $lineHeight={1.3}
-              $whiteSpace="pre-wrap"
-              $margin="0 auto"
-              color="#A7B0B9"
-            >
-              {`여기에 들어갈
+          <Pre
+            $fontSize="3rem"
+            $fontWeight={700}
+            $lineHeight={1.3}
+            $whiteSpace="pre-wrap"
+            $margin="0 auto"
+            color="#A7B0B9"
+          >
+            {`여기에 들어갈
 워딩을 정해야합니다`}
-            </Pre>
-          </div>
-        </motion.div>
+          </Pre>
+        </div>
       </ImageWithTextFrame>
 
       {/* 2 */}
       <ImageWithTextFrame>
-        <motion.div
+        <div
           ref={ref5}
-          initial={{ opacity: 0, x: -100 }}
-          animate={inView5 ? { opacity: 1, x: 0 } : {}}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
+          className={`animate__animated ${
+            inView5 ? 'animate__fadeInLeft' : ''
+          }`}
         >
-          <div className="wrapper">
-            <Pre
-              $fontSize="5rem"
-              $fontWeight={700}
-              $margin="5rem auto 1rem auto"
-              $lineHeight={1.3}
-              $whiteSpace="pre-wrap"
-            >
-              {`여기에 들어갈
+          <Pre
+            $fontSize="5rem"
+            $fontWeight={700}
+            $margin="5rem auto 1rem auto"
+            $lineHeight={1.3}
+            $whiteSpace="pre-wrap"
+          >
+            {`여기에 들어갈
 워딩을 정해야합니다`}
-            </Pre>
+          </Pre>
 
-            <Pre
-              $fontSize="3rem"
-              $fontWeight={700}
-              $lineHeight={1.3}
-              $whiteSpace="pre-wrap"
-              color="#D6B86B"
-              $margin="0 auto"
-            >
-              {`여기에 들어갈
+          <Pre
+            $fontSize="3rem"
+            $fontWeight={700}
+            $lineHeight={1.3}
+            $whiteSpace="pre-wrap"
+            color="#D6B86B"
+            $margin="0 auto"
+          >
+            {`여기에 들어갈
 워딩을 정해야합니다`}
-            </Pre>
-          </div>
-        </motion.div>
+          </Pre>
+        </div>
 
-        <motion.div
+        <ImageCard
           ref={ref6}
-          initial={{ opacity: 0, x: 100 }}
-          animate={inView6 ? { opacity: 1, x: 0 } : {}}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
+          className={`animate__animated ${
+            inView6 ? 'animate__fadeInRight' : ''
+          }`}
         >
-          <ImageCard>
-            <Image
-              src="/images/center/center1/facility/1.jpg"
-              alt="test"
-              quality={70}
-              style={{ objectFit: 'cover' }}
-              fill
-              priority
-              sizes="100%"
-              placeholder="blur"
-              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-            />
-          </ImageCard>
-        </motion.div>
+          <Image
+            src="/images/center/center1/facility/1.jpg"
+            alt="test"
+            quality={70}
+            style={{ objectFit: 'cover' }}
+            fill
+            priority
+            sizes="100%"
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
+        </ImageCard>
       </ImageWithTextFrame>
 
       {/* 3 */}
       <ImageWithTextFrame>
-        <motion.div
+        <ImageCard
           ref={ref7}
-          initial={{ opacity: 0, x: -100 }}
-          animate={inView7 ? { opacity: 1, x: 0 } : {}}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
+          className={`animate__animated ${
+            inView7 ? 'animate__fadeInLeft' : ''
+          }`}
         >
-          <ImageCard>
-            <Image
-              src="/images/center/center1/facility/1.jpg"
-              alt="test"
-              quality={70}
-              style={{ objectFit: 'cover' }}
-              fill
-              priority
-              sizes="100%"
-              placeholder="blur"
-              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-            />
-          </ImageCard>
-        </motion.div>
+          <Image
+            src="/images/center/center1/facility/1.jpg"
+            alt="test"
+            quality={70}
+            style={{ objectFit: 'cover' }}
+            fill
+            priority
+            sizes="100%"
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
+        </ImageCard>
 
-        <motion.div
+        <div
           ref={ref8}
-          initial={{ opacity: 0, x: 100 }}
-          animate={inView8 ? { opacity: 1, x: 0 } : {}}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
+          className={`animate__animated ${
+            inView8 ? 'wrapper animate__fadeInRight' : ''
+          }`}
         >
-          <div className="wrapper">
-            <Pre
-              $fontSize="5rem"
-              $fontWeight={700}
-              $margin="5rem auto 1rem auto"
-              $lineHeight={1.3}
-              $whiteSpace="pre-wrap"
-            >
-              {`여기에 들어갈
+          <Pre
+            $fontSize="5rem"
+            $fontWeight={700}
+            $margin="5rem auto 1rem auto"
+            $lineHeight={1.3}
+            $whiteSpace="pre-wrap"
+          >
+            {`여기에 들어갈
 워딩을 정해야합니다`}
-            </Pre>
+          </Pre>
 
-            <Pre
-              $fontSize="3rem"
-              $fontWeight={700}
-              $lineHeight={1.3}
-              $whiteSpace="pre-wrap"
-              color="#A7B0B9"
-              $margin="0 auto"
-            >
-              {`여기에 들어갈
+          <Pre
+            $fontSize="3rem"
+            $fontWeight={700}
+            $lineHeight={1.3}
+            $whiteSpace="pre-wrap"
+            color="#A7B0B9"
+            $margin="0 auto"
+          >
+            {`여기에 들어갈
 워딩을 정해야합니다`}
-            </Pre>
-          </div>
-        </motion.div>
+          </Pre>
+        </div>
       </ImageWithTextFrame>
 
-      <motion.div
+      <WelcomeFrame
         ref={ref9}
-        initial={{ opacity: 0, y: 100 }}
-        animate={inView9 ? { opacity: 1, y: 0 } : {}}
-        transition={{
-          duration: 0.8,
-          delay: 0.5,
-          ease: [0, 0.71, 0.2, 1.01],
-        }}
+        className={`animate__animated ${inView9 ? 'animate__bounceIn' : ''}`}
       >
-        <WelcomeFrame>
-          <div className="inner-frame">
-            <Pre
-              $fontSize="3rem"
-              color="#000"
-              $fontWeight={400}
-              $lineHeight={1.4}
-              $whiteSpace="pre-wrap"
-            >
-              {` 워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
+        <div className="inner-frame">
+          <Pre
+            $fontSize="3rem"
+            color="#000"
+            $fontWeight={400}
+            $lineHeight={1.4}
+            $whiteSpace="pre-wrap"
+          >
+            {` 워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다. 워딩을 정해야합니다.`}
-            </Pre>
-          </div>
+          </Pre>
+        </div>
 
-          <div className="ceo-image">사진</div>
-        </WelcomeFrame>
-      </motion.div>
+        <div className="ceo-image">사진</div>
+      </WelcomeFrame>
     </Frame>
   );
 };

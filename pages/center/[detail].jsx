@@ -10,10 +10,10 @@ import CenterImages from '@/components/slick/center-images';
 import TrainerImages from '@/components/slick/trainer-image';
 import { Map } from 'react-kakao-maps-sdk';
 import CenterGallery from '@/components/center-gallery';
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CustomMapMarker from '@/components/custom-map-maker';
 import ReSetttingMapBoundsSingle from '@/components/resetting-map-bounds-single';
+import 'animate.css';
 
 const CenterDetail = () => {
   const router = useRouter();
@@ -34,11 +34,17 @@ const CenterDetail = () => {
 
   return (
     <Frame>
-      <SubTitle content={centerDetailInfo?.centerName} />
+      <div className="animate__animated animate__fadeInLeft">
+        <SubTitle content={centerDetailInfo?.centerName} />
+      </div>
 
-      <CustomPre>{centerDetailInfo?.description}</CustomPre>
+      <div className="animate__animated animate__fadeInLeft">
+        <CustomPre>{centerDetailInfo?.description}</CustomPre>
+      </div>
 
-      <CenterImages images={centerDetailInfo?.facility} />
+      <div className="animate__animated animate__fadeIn">
+        <CenterImages images={centerDetailInfo?.facility} />
+      </div>
 
       <CenterInfoWrapper>
         <Font
@@ -323,18 +329,12 @@ const CenterDetail = () => {
             $margin="15rem 0 3rem 0"
           />
 
-          <motion.div
+          <div
             ref={ref1}
-            initial={{ opacity: 0, y: 100 }}
-            animate={inView1 ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 1,
-              delay: 0.1,
-              ease: [0, 0.71, 0.2, 1.01],
-            }}
+            className={`animate__animated ${inView1 ? 'animate__zoomIn' : ''}`}
           >
             <CenterGallery images={centerDetailInfo?.gallrey} />
-          </motion.div>
+          </div>
         </>
       )}
 
