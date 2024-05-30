@@ -67,6 +67,7 @@ const Thumbnails = styled.div`
   overflow-x: auto;
   padding: 10px 0;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
     display: none;

@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Slider from 'react-slick';
-import ImageComponent from '../image-component';
 import Overflow from '../overflow';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 const CenterImages = ({ images }) => {
   const slickRef = useRef(null);
@@ -9,13 +10,12 @@ const CenterImages = ({ images }) => {
 
   const settings = {
     dots: false,
-    arrows: true,
+    arrows: false,
     autoplay: false,
-    draggable: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 100,
+    speed: 500,
     beforeChange: (oldIndex, newIndex) => setActiveIndex(newIndex),
   };
 
@@ -27,19 +27,23 @@ const CenterImages = ({ images }) => {
 
   return (
     <>
-      <Slider {...settings} ref={slickRef}>
+      <CustomSlider {...settings} ref={slickRef}>
         {images?.map((image, index) => (
-          <div key={index}>
-            <ImageComponent
-              // width={'100%'}
-              height={70}
-              $src={image}
-              $alt={`slide-${index}`}
-              $borderRadius="10px"
+          <ImageCard key={index}>
+            <Image
+              src={image}
+              alt={`${image}${index}`}
+              quality={100}
+              style={{ objectFit: 'cover' }}
+              fill
+              priority
+              sizes="100%"
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
             />
-          </div>
+          </ImageCard>
         ))}
-      </Slider>
+      </CustomSlider>
 
       <Overflow
         propsImages={images}
@@ -51,3 +55,22 @@ const CenterImages = ({ images }) => {
 };
 
 export default CenterImages;
+
+const CustomSlider = styled(Slider)``;
+
+const ImageCard = styled.div`
+  display: flex;
+  position: relative;
+  height: 70rem;
+  border-radius: 10px;
+
+  img {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 500px) {
+    height: 40rem;
+  }
+`;
