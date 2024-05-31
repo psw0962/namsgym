@@ -194,6 +194,8 @@ const ImageCard = styled.div`
   position: relative;
   width: 30rem;
   height: 30rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
 
   img {
     position: absolute;

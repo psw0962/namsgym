@@ -290,7 +290,7 @@ const CenterDetail = () => {
         </FacilityFrame>
       </CenterInfoWrapper>
 
-      <div style={{ marginTop: '4rem' }}>
+      <MapWrapper>
         <Map
           id="map"
           center={{
@@ -312,7 +312,7 @@ const CenterDetail = () => {
           {/* 리바운스 */}
           <ReSetttingMapBoundsSingle points={centerDetailInfo} />
         </Map>
-      </div>
+      </MapWrapper>
 
       <SubTitle content="퍼스널 트레이너" $margin="15rem 0 3rem 0" />
 
@@ -425,4 +425,12 @@ const MarginComp = styled.div`
 const DivLine = styled.div`
   border: 1px solid #fff;
   margin: 1rem 0 2rem 0;
+`;
+
+const MapWrapper = styled.div`
+  margin-top: 4rem;
+
+  #map {
+    border-radius: 10px;
+  }
 `;

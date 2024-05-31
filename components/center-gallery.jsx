@@ -75,6 +75,8 @@ const ImageCard = styled.div`
   position: relative;
   width: 35rem;
   height: 35rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
 
   @media screen and (max-width: 500px) {
     width: 21.5rem;
