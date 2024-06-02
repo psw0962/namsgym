@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "target": "esnext",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
       "@/api/*": ["api/*"],
-      "@/component/*": ["component/*"],
-      "@/constant/*": ["constant/*"],
-      "@/function/*": ["function/*"],
+      "@/components/*": ["components/*"],
+      "@/constants/*": ["constants/*"],
+      "@/functions/*": ["functions/*"],
       "@/config/*": ["config/*"],
       "@/hoc/*": ["hoc/*"],
       "@/hooks/*": ["hooks/*"],
@@ -15,5 +14,6 @@
       "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", ".next"]
 }
