@@ -1,4 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class CustomDocument extends Document {
@@ -76,10 +77,15 @@ export default class CustomDocument extends Document {
             content="ba25ba00b30c985846a42b4d115ba32ae505c4ff"
           />
 
-          <script
-            type="text/javascript"
+          {/* <Script
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_KEY}&libraries=services,clusterer`}
-          ></script>
+            strategy="beforeInteractive"
+          /> */}
+
+          <Script
+            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_KEY}&autoload=false`}
+            strategy="beforeInteractive"
+          />
         </Head>
 
         <body>

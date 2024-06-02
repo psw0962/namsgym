@@ -1,27 +1,20 @@
-import React, { useEffect, useRef } from 'react';
-import styled, { keyframes } from 'styled-components';
-import {
-  Map,
-  useMap,
-  MapTypeControl,
-  ZoomControl,
-  MapMarker,
-  CustomOverlayMap,
-} from 'react-kakao-maps-sdk';
-import SubTitle from '@/components/sub-title';
+import CustomMapMarker from '@/components/custom-map-maker';
 import Font from '@/components/font';
 import ImageComponent from '@/components/image-component';
-import CustomMapMarker from '@/components/custom-map-maker';
-import centerInfo from '@/constant/center-info';
+import Pre from '@/components/pre';
 import ReSetttingMapBounds from '@/components/resetting-map-bounds';
-import { useRouter } from 'next/router';
-import useScrollMove from '@/hooks/useScrollMove';
-import useLocalStorage from 'use-local-storage';
+import SubTitle from '@/components/sub-title';
+import centerInfo from '@/constant/center-info';
 import shuffleArray from '@/functions/shuffleArray';
 import useDrag from '@/hooks/useDrag';
-import Pre from '@/components/pre';
+import useScrollMove from '@/hooks/useScrollMove';
 import 'animate.css';
+import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { Map } from 'react-kakao-maps-sdk';
+import styled, { keyframes } from 'styled-components';
+import useLocalStorage from 'use-local-storage';
 
 const MACHINELOGO = [
   { id: 1, url: '/images/machine-logo/1.jpg' },
@@ -52,7 +45,7 @@ const Center = () => {
   useEffect(() => {
     const carousel = carouselRef.current;
     if (carousel) {
-      // 첫 번째 배열을 복제하여 두 번 반복하게 만듦
+      // 첫 번째 배열을 복제하여 두 번 반복하게
       const clonedElements = Array.from(carousel.children).map(child => {
         return child.cloneNode(true);
       });
