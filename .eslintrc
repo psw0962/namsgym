@@ -19,6 +19,7 @@
   },
   "ignorePatterns": ["node_modules/", ".next/*"],
   "rules": {
+    "no-unused-vars": "off",
     "react/display-name": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
@@ -26,7 +27,6 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0,
     "no-nested-ternary": 0,
-    "no-unused-vars": "warn",
     "no-undef": "error",
     "no-useless-escape": "off",
     "prettier/prettier": [
@@ -41,6 +41,7 @@
   },
   "globals": {
     "React": "writable",
+    "kakao": "readonly",
   },
   "overrides": [
     {

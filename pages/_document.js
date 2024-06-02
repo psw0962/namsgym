@@ -81,7 +81,6 @@ export default class CustomDocument extends Document {
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_KEY}&libraries=services,clusterer`}
             strategy="beforeInteractive"
           /> */}
-
           <Script
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_KEY}&autoload=false`}
             strategy="beforeInteractive"
