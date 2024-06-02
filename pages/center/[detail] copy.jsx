@@ -15,8 +15,9 @@ import CustomMapMarker from '@/components/custom-map-maker';
 import ReSetttingMapBoundsSingle from '@/components/resetting-map-bounds-single';
 import 'animate.css';
 
-const CenterDetail = ({ centerDetailInfo }) => {
+const CenterDetail = () => {
   const router = useRouter();
+  const [centerDetailInfo, setCenterDetailInfo] = useState();
 
   const { ref: ref1, inView: inView1 } = useInView({
     triggerOnce: true,
@@ -27,6 +28,14 @@ const CenterDetail = ({ centerDetailInfo }) => {
     triggerOnce: true,
     threshold: 0.01,
   });
+
+  useEffect(() => {
+    const filtered = centerInfo.filter(
+      x => x.id === Number(router.query.detail),
+    );
+
+    setCenterDetailInfo(filtered[0]);
+  }, []);
 
   return (
     <Frame>
@@ -341,18 +350,6 @@ const CenterDetail = ({ centerDetailInfo }) => {
     </Frame>
   );
 };
-
-export async function getServerSideProps(context) {
-  const { detail } = context.query;
-  const filtered = centerInfo.filter(x => x.id === Number(detail));
-  const centerDetailInfo = filtered[0] || null;
-
-  return {
-    props: {
-      centerDetailInfo,
-    },
-  };
-}
 
 export default CenterDetail;
 

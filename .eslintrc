@@ -1,0 +1,49 @@
+{
+  "plugins": ["prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "next/core-web-vitals",
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+    },
+  },
+  "settings": {
+    "react": {
+      "version": "detect",
+    },
+  },
+  "ignorePatterns": ["node_modules/", ".next/*"],
+  "rules": {
+    "react/display-name": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prefer-stateless-function": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "no-nested-ternary": 0,
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "no-useless-escape": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "useTabs": false,
+      },
+    ],
+    "no-empty-interface": "off",
+  },
+  "globals": {
+    "React": "writable",
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+    },
+  ],
+}
