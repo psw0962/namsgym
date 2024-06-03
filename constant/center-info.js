@@ -97,7 +97,6 @@ const centerInfo = [
       '/images/center/center3/facility/3.jpg',
       '/images/center/center3/facility/4.jpg',
       '/images/center/center3/facility/5.jpg',
-      '/images/center/center3/facility/6.jpg',
     ],
     gallrey: [
       '/images/center/center3/gallrey/1.jpg',
