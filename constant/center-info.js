@@ -24,6 +24,11 @@ const centerInfo = [
       '/images/center/center1/gallrey/7.jpg',
       '/images/center/center1/gallrey/8.jpg',
       '/images/center/center1/gallrey/9.jpg',
+      '/images/center/center1/gallrey/10.jpg',
+      '/images/center/center1/gallrey/11.jpg',
+      '/images/center/center1/gallrey/12.jpg',
+      '/images/center/center1/gallrey/13.jpg',
+      '/images/center/center1/gallrey/14.jpg',
     ],
     trainer: [
       '/images/center/center1/trainer/1.jpg',
