@@ -349,7 +349,13 @@ const centerInfo = [
       '/images/center/center8/facility/12.jpg',
       '/images/center/center8/facility/13.jpg',
     ],
-    gallrey: [],
+    gallrey: [
+      '/images/center/center8/gallrey/1.jpg',
+      '/images/center/center8/gallrey/2.jpg',
+      '/images/center/center8/gallrey/3.jpg',
+      '/images/center/center8/gallrey/4.jpg',
+      '/images/center/center8/gallrey/5.jpg',
+    ],
     trainer: [
       '/images/center/center8/trainer/1.jpg',
       '/images/center/center8/trainer/2.jpg',
