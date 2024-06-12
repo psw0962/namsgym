@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/react": "^18.3.3",
     "@vercel/analytics": "1.2.2",
     "animate.css": "^4.1.1",
     "axios": "1.6.8",
     "babel-plugin-styled-components": "2.1.4",
     "date-fns": "3.6.0",
     "framer-motion": "11.1.7",
+    "lodash.debounce": "^4.0.8",
     "next": "14.2.3",
     "next-intercept-stdout": "1.0.1",
     "query-string": "9.0.0",

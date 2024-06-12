@@ -307,7 +307,11 @@ const CardFrame = styled.div`
   gap: 3rem;
   margin-top: 8rem;
   margin-bottom: 10rem;
-  height: 100%;
+  /* height: 100%; */
+
+  @media screen and (max-width: 1250px) {
+    grid-template-columns: repeat(2, 2fr);
+  }
 
   @media screen and (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);

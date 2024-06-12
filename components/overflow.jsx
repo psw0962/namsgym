@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
-import styled from 'styled-components';
 import Image from 'next/image';
+import { useCallback, useEffect, useRef } from 'react';
+import styled from 'styled-components';
 
 const Overflow = ({ propsImages, activeIndex, setActiveIndex }) => {
   const thumbnailsRef = useRef(null);
+  const lastClickTimeRef = useRef(0);
 
   useEffect(() => {
     const scrollToCenter = () => {
@@ -22,12 +23,30 @@ const Overflow = ({ propsImages, activeIndex, setActiveIndex }) => {
     scrollToCenter();
   }, [activeIndex]);
 
+  const handleClick = useCallback(
+    index => {
+      const now = Date.now();
+      if (now - lastClickTimeRef.current < 800) {
+        return;
+      }
+      lastClickTimeRef.current = now;
+      setActiveIndex(index);
+    },
+    [setActiveIndex],
+  );
+
   return (
     <Frame>
       <ThumbnailsWrapper>
         <Thumbnails ref={thumbnailsRef}>
           {propsImages?.map((item, index) => (
-            <ImageWrapper key={index} onClick={() => setActiveIndex(index)}>
+            <ImageWrapper
+              key={index}
+              // onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                handleClick(index);
+              }}
+            >
               <Image
                 src={item}
                 alt={`${item}${index}`}

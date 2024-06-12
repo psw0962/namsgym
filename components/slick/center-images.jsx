@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Slider from 'react-slick';
-import Overflow from '../overflow';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import Slider from 'react-slick';
 import styled from 'styled-components';
+import Overflow from '../overflow';
 
 const CenterImages = ({ images }) => {
   const slickRef = useRef(null);
@@ -16,7 +16,9 @@ const CenterImages = ({ images }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     speed: 500,
-    beforeChange: (oldIndex, newIndex) => setActiveIndex(newIndex),
+    beforeChange: (oldIndex, newIndex) => {
+      setActiveIndex(newIndex);
+    },
   };
 
   useEffect(() => {

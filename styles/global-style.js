@@ -8,21 +8,24 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Pretendard';
         font-weight: 300;
         font-style: normal;
-        src: url('/fonts/PretendardLight.ttf') format('ttf');
+        src: url('/fonts/PretendardLight.ttf') format('ttf'),
+             url('/fonts/PretendardLight.woff2') format('woff2');
   }
 
   @font-face {
         font-family: 'Pretendard';
         font-weight: 400;
         font-style: normal;
-        src: url('/fonts/PretendardMedium.ttf') format('ttf');
+        src: url('/fonts/PretendardMedium.ttf') format('ttf'),
+             url('/fonts/PretendardMedium.woff2') format('woff2');
   }
 
   @font-face {
         font-family: 'Pretendard';
         font-weight: 700;
         font-style: normal;
-        src: url('/fonts/PretendardBold.ttf') format('ttf');
+        src: url('/fonts/PretendardBold.ttf') format('ttf'),
+             url('/fonts/PretendardBold.woff2') format('woff2');
   }
 
   * {
