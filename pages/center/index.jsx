@@ -303,19 +303,19 @@ const FindCenterFrame = styled.div`
 
 const CardFrame = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
   gap: 3rem;
   margin-top: 8rem;
   margin-bottom: 10rem;
   /* height: 100%; */
 
+  /* grid-template-columns: repeat(3, 1fr);
   @media screen and (max-width: 1250px) {
     grid-template-columns: repeat(2, 2fr);
   }
-
   @media screen and (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
-  }
+  } */
 `;
 
 const CardWrapper = styled.div`

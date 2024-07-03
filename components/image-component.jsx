@@ -29,7 +29,7 @@ const ImageComponent = props => {
       <Image
         src={`${$src}`}
         alt={`${$alt}`}
-        quality={70}
+        quality={100}
         style={{ objectFit: 'cover' }}
         fill
         priority

@@ -239,23 +239,80 @@ const Home = () => {
         className={`animate__animated ${inView9 ? 'animate__bounceIn' : ''}`}
       >
         <div className="inner-frame">
-          <Pre
-            $fontSize="3rem"
-            color="#000"
-            $fontWeight={400}
-            $lineHeight={1.4}
-            $whiteSpace="pre-wrap"
-          >
-            {` 워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
- 워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
- 워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
- 워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
- 워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.
- 워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다.  워딩을 정해야합니다. 워딩을 정해야합니다.`}
-          </Pre>
-        </div>
+          <div>
+            <Pre
+              $fontSize="2.6rem"
+              color="#000"
+              $fontWeight={400}
+              $lineHeight={1.4}
+              $whiteSpace="pre-wrap"
+            >
+              {`건강한 삶을 원하는 모든 분들을 위해 최선을 다하는
+피트니스 브랜드 남스짐입니다.`}
+            </Pre>
 
-        <div className="ceo-image">사진</div>
+            <Pre
+              $fontSize="2rem"
+              color="#000"
+              $fontWeight={400}
+              $lineHeight={1.4}
+              $whiteSpace="pre-wrap"
+              $margin="2rem 0 0 0"
+            >
+              {`안녕하세요,
+
+㈜남다른사람들 남스짐 피트니스 대표 남건우입니다.
+
+저희는 2017년 5월 1호점을 시작으로 전국 각지에 직영으로 운영하며 매년
+꾸준한 성장을 이루어 왔습니다.
+
+남스짐은 고객님들께 남다른 서비스와 가치를 제공하여 건강한 삶의 기준을
+제시하는 것을 목표로 하고 있습니다.
+
+저희 전 직원은 ‘도전’, ‘성장’, ‘변화’, ‘긍정’, ‘성과’라는 핵심 가치를 바탕으로
+성실하고 정직하게 성장하고 있습니다.
+이러한 가치는 저희가 고객님들께 신뢰를 드릴 수 있는 원동력이 됩니다.
+
+고객 만족을 최우선으로 생각하며, 피트니스 시장에서 모범이 되는 기업이
+되기 위해 항상 최선을 다하겠습니다.
+
+남스짐을 찾아주셔서 진심으로 감사드립니다.`}
+            </Pre>
+          </div>
+
+          <div className="ceo-image">
+            <ImageComponent
+              width={35}
+              height={55}
+              $src="/ceo.jpeg"
+              $alt="ceo"
+              $borderRadius="10px"
+            />
+
+            <Pre
+              $fontSize="2rem"
+              color="#000"
+              $fontWeight={400}
+              $lineHeight={1.4}
+              $whiteSpace="pre-wrap"
+              $margin="2rem 0 0 0"
+              $textAlign="center"
+            >
+              {`남건우`}
+            </Pre>
+
+            <Pre
+              $fontSize="1.6rem"
+              color="#C1C1C1"
+              $fontWeight={400}
+              $lineHeight={1.4}
+              $whiteSpace="pre-wrap"
+              $textAlign="center"
+            >
+              {`(주)남다른사람들 대표`}
+            </Pre>
+          </div>
+        </div>
       </WelcomeFrame>
     </Frame>
   );
@@ -322,23 +379,27 @@ const WelcomeFrame = styled.div`
 
   .inner-frame {
     width: 100%;
+    height: 100%;
     display: flex;
+    justify-content: space-between;
     background-color: #fff;
-    padding: 3rem 3rem 20rem 3rem;
+    padding: 3rem 3rem 3rem 3rem;
     border-radius: 10px;
+
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
   }
 
   .ceo-image {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 20rem;
-    height: 20rem;
-    border: 1px solid red;
-    border-radius: 10px;
+    justify-content: flex-end;
+
+    @media screen and (max-width: 500px) {
+      margin-top: 2rem;
+    }
   }
 `;
 
