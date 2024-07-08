@@ -178,7 +178,7 @@ const Center = () => {
       {checkedItems?.length > 0 && (
         <CardFrame
           ref={ref1}
-          className={`animate__animated ${inView1 ? 'animate__bounceIn' : ''}`}
+          className={`animate__animated ${inView1 ? 'animate__fadeIn' : ''}`}
         >
           {checkedItems?.map(x => {
             return (

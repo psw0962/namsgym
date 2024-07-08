@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <Frame>
       <OverFlowFrame>
-        <OverFlowWrapper className="animate__bounceIn">
+        <OverFlowWrapper>
           {centerInfo.map(x => {
             return (
               <div
@@ -65,7 +65,7 @@ const Home = () => {
       </OverFlowFrame>
 
       <Pre
-        className="animate__animated animate__bounce"
+        className="animate__animated animate__Left"
         $fontSize="10rem"
         $fontWeight={700}
         $margin="15rem auto 1rem auto"
@@ -77,7 +77,7 @@ const Home = () => {
       </Pre>
 
       <Pre
-        className="animate__animated animate__bounce"
+        className="animate__animated animate__fadeInRight"
         $fontSize="5rem"
         $fontWeight={700}
         $margin="5rem auto 1rem auto"
@@ -236,7 +236,7 @@ const Home = () => {
 
       <WelcomeFrame
         ref={ref9}
-        className={`animate__animated ${inView9 ? 'animate__bounceIn' : ''}`}
+        className={`animate__animated ${inView9 ? 'animate__fadeIn' : ''}`}
       >
         <div className="inner-frame">
           <div>
