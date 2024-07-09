@@ -27,7 +27,6 @@ const MACHINELOGO = [
 
 const Center = () => {
   const router = useRouter();
-  const { scrollOnceMove } = useScrollMove();
   const isDragging = useDrag();
 
   const [checkedItems, setCheckedItems] = useLocalStorage(
@@ -61,10 +60,6 @@ const Center = () => {
     const shuffledItems = shuffleArray([...checkedItems]);
     setCheckedItems(shuffledItems);
   }, []);
-
-  useEffect(() => {
-    scrollOnceMove();
-  }, [scrollOnceMove]);
 
   const handleCheckboxChange = (event, center) => {
     const { checked } = event.target;

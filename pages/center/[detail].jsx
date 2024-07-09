@@ -1,6 +1,4 @@
 import centerInfo from '@/constant/center-info';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 import SubTitle from '@/components/sub-title';
 import styled from 'styled-components';
 import Font from '@/components/font';
@@ -16,8 +14,6 @@ import ReSetttingMapBoundsSingle from '@/components/resetting-map-bounds-single'
 import 'animate.css';
 
 const CenterDetail = ({ centerDetailInfo }) => {
-  const router = useRouter();
-
   const { ref: ref1, inView: inView1 } = useInView({
     triggerOnce: true,
     threshold: 0.01,
@@ -44,7 +40,7 @@ const CenterDetail = ({ centerDetailInfo }) => {
 
       <CenterInfoWrapper
         ref={ref2}
-        className={`animate__animated ${inView2 ? 'animate__zoomIn' : ''}`}
+        className={`animate__animated ${inView2 ? 'animate__fadeIn' : ''}`}
       >
         <Font
           color="#fff"
@@ -330,7 +326,7 @@ const CenterDetail = ({ centerDetailInfo }) => {
 
           <div
             ref={ref1}
-            className={`animate__animated ${inView1 ? 'animate__zoomIn' : ''}`}
+            className={`animate__animated ${inView1 ? 'animate__fadeIn' : ''}`}
           >
             <CenterGallery images={centerDetailInfo?.gallrey} />
           </div>

@@ -203,9 +203,11 @@ const ImageCard = styled.div`
     border-radius: 10px;
   }
 
-  &:hover img {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
+  @media screen and (min-width: 500px) {
+    &:hover img {
+      transform: scale(1.05);
+      transition: transform 0.2s ease-in-out;
+    }
   }
 
   @media screen and (max-width: 500px) {
