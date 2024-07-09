@@ -175,6 +175,9 @@ const ArrowWrapper = styled.div`
 `;
 
 const StyledSlick = styled(Slick)`
+  .slick-track {
+    padding: 1rem 0;
+  }
   .slick-slide div:focus {
     outline: none;
   }
@@ -183,10 +186,6 @@ const StyledSlick = styled(Slick)`
     display: flex;
     justify-content: center;
   }
-
-  .slick-list {
-    padding-bottom: 20px;
-  }
 `;
 
 const ImageCard = styled.div`
@@ -194,8 +193,6 @@ const ImageCard = styled.div`
   position: relative;
   width: 30rem;
   height: 30rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 10px;
 
   img {
     position: absolute;
@@ -206,7 +203,8 @@ const ImageCard = styled.div`
   @media screen and (min-width: 500px) {
     &:hover img {
       transform: scale(1.05);
-      transition: transform 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      border-radius: 100%;
     }
   }
 
