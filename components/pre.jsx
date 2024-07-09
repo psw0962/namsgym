@@ -5,8 +5,8 @@ const CommonPre = styled.pre`
   font-size: ${props => (props.$fontSize ? props.$fontSize : '1.6rem')};
   letter-spacing: ${props => (props.$letterSpacing ? props.$letterSpacing : 0)};
   line-height: ${props => (props.$lineHeight ? props.$lineHeight : '')};
-  white-space: ${props => (props.$whiteSpace ? props.$whiteSpace : '')};
-  word-break: break-all;
+  white-space: ${props => (props.$whiteSpace ? props.$whiteSpace : 'pre-wrap')};
+  word-break: ${props => (props.$wordBreak ? props.$wordBreak : 'keep-all')};
   font-weight: ${props => (props.$fontWeight ? props.$fontWeight : 400)};
   text-align: ${props => (props.$textAlign ? props.$textAlign : '')};
   text-decoration: ${props =>

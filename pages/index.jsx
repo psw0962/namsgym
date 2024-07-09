@@ -26,16 +26,6 @@ const Home = () => {
     threshold: 0.01,
   });
 
-  const { ref: ref8, inView: inView8 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
-  const { ref: ref9, inView: inView9 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
   return (
     <Frame>
       <OverFlowFrame>
@@ -64,25 +54,28 @@ const Home = () => {
         </OverFlowWrapper>
       </OverFlowFrame>
 
-      <Pre
-        className="animate__animated animate__Left"
-        $fontSize="10rem"
-        $fontWeight={700}
-        $margin="15rem auto 1rem auto"
-        $lineHeight={1.3}
-        $whiteSpace="pre-wrap"
-      >
-        {`여기에 들어갈
+      <div>
+        <Pre
+          className="animate__animated animate__Left"
+          $fontSize="8rem"
+          $fontWeight={700}
+          $margin="15rem auto 1rem auto"
+          $lineHeight={1.3}
+          $textAlign="center"
+        >
+          {`여기에 들어갈
 워딩을 정해야합니다.`}
-      </Pre>
+        </Pre>
+      </div>
 
       <Pre
         className="animate__animated animate__fadeInRight"
         $fontSize="5rem"
+        color="#D6B86B"
         $fontWeight={700}
-        $margin="5rem auto 1rem auto"
+        $margin="2rem auto 1rem auto"
         $lineHeight={1.3}
-        $whiteSpace="pre-wrap"
+        $textAlign="center"
       >
         {`여기에 들어갈
 워딩을 정해야합니다`}
@@ -110,7 +103,7 @@ const Home = () => {
             $fontWeight={700}
             $margin="5rem auto 1rem auto"
             $lineHeight={1.3}
-            $whiteSpace="pre-wrap"
+            $textAlign="center"
           >
             {`여기에 들어갈
 워딩을 정해야합니다`}
@@ -120,9 +113,9 @@ const Home = () => {
             $fontSize="3rem"
             $fontWeight={700}
             $lineHeight={1.3}
-            $whiteSpace="pre-wrap"
             $margin="0 auto"
             color="#A7B0B9"
+            $textAlign="center"
           >
             {`여기에 들어갈
 워딩을 정해야합니다`}
@@ -143,7 +136,7 @@ const Home = () => {
             $fontWeight={700}
             $margin="5rem auto 1rem auto"
             $lineHeight={1.3}
-            $whiteSpace="pre-wrap"
+            $textAlign="center"
           >
             {`여기에 들어갈
 워딩을 정해야합니다`}
@@ -153,9 +146,9 @@ const Home = () => {
             $fontSize="3rem"
             $fontWeight={700}
             $lineHeight={1.3}
-            $whiteSpace="pre-wrap"
             color="#D6B86B"
             $margin="0 auto"
+            $textAlign="center"
           >
             {`여기에 들어갈
 워딩을 정해야합니다`}
@@ -182,134 +175,73 @@ const Home = () => {
         </ImageCard>
       </ImageWithTextFrame>
 
-      {/* 3 */}
-      <ImageWithTextFrame>
-        <ImageCard
-          ref={ref7}
-          className={`animate__animated ${
-            inView7 ? 'animate__fadeInLeft' : ''
-          }`}
-        >
-          <Image
-            src="/images/center/center1/facility/1.jpg"
-            alt="test"
-            quality={70}
-            style={{ objectFit: 'cover' }}
-            fill
-            priority
-            sizes="100%"
-            placeholder="blur"
-            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+      {/* welcome */}
+      <WelcomeFrame
+        ref={ref7}
+        className={`animate__animated ${inView7 ? 'animate__fadeIn' : ''}`}
+      >
+        <div className="ceo-image-frame">
+          <ImageComponent
+            width={35}
+            height={35}
+            $src="/ceo.jpeg"
+            $alt="ceo"
+            $borderRadius="50%"
           />
-        </ImageCard>
 
-        <div
-          ref={ref8}
-          className={`animate__animated ${
-            inView8 ? 'wrapper animate__fadeInRight' : ''
-          }`}
-        >
           <Pre
-            $fontSize="5rem"
-            $fontWeight={700}
-            $margin="5rem auto 1rem auto"
-            $lineHeight={1.3}
-            $whiteSpace="pre-wrap"
+            $fontSize="3.4rem"
+            color="#000"
+            $fontWeight={400}
+            $lineHeight={1.4}
+            $margin="3rem 0 0 0"
+            $textAlign="center"
           >
-            {`여기에 들어갈
-워딩을 정해야합니다`}
+            {`남건우`}
           </Pre>
 
           <Pre
-            $fontSize="3rem"
-            $fontWeight={700}
-            $lineHeight={1.3}
-            $whiteSpace="pre-wrap"
-            color="#A7B0B9"
-            $margin="0 auto"
+            $fontSize="2rem"
+            color="#C1C1C1"
+            $fontWeight={400}
+            $lineHeight={1.4}
+            $textAlign="center"
           >
-            {`여기에 들어갈
-워딩을 정해야합니다`}
+            {`(주)남다른사람들 대표`}
           </Pre>
         </div>
-      </ImageWithTextFrame>
 
-      <WelcomeFrame
-        ref={ref9}
-        className={`animate__animated ${inView9 ? 'animate__fadeIn' : ''}`}
-      >
         <div className="inner-frame">
-          <div>
+          <div className="msg-frame">
             <Pre
-              $fontSize="2.6rem"
+              $fontSize="3.8rem"
               color="#000"
-              $fontWeight={400}
+              $fontWeight={700}
               $lineHeight={1.4}
-              $whiteSpace="pre-wrap"
+              $textAlign="center"
             >
-              {`건강한 삶을 원하는 모든 분들을 위해 최선을 다하는
-피트니스 브랜드 남스짐입니다.`}
+              {`건강한 삶을 원하는 모든 분들을 위해 최선을 다하는 피트니스 브랜드 남스짐입니다.`}
             </Pre>
 
             <Pre
-              $fontSize="2rem"
+              $fontSize="2.4rem"
               color="#000"
               $fontWeight={400}
               $lineHeight={1.4}
-              $whiteSpace="pre-wrap"
-              $margin="2rem 0 0 0"
+              $margin="4rem 0 0 0"
             >
-              {`안녕하세요,
+              {`안녕하세요, ㈜남다른사람들 남스짐 피트니스 대표 남건우입니다.
 
-㈜남다른사람들 남스짐 피트니스 대표 남건우입니다.
+저희는 2017년 5월 1호점을 시작으로 전국 각지에 직영으로 운영하며 매년 꾸준한 성장을 이루어 왔습니다.
 
-저희는 2017년 5월 1호점을 시작으로 전국 각지에 직영으로 운영하며 매년
-꾸준한 성장을 이루어 왔습니다.
+남스짐은 고객님들께 남다른 서비스와 가치를 제공하여 건강한 삶의 기준을 제시하는 것을 목표로 하고 있습니다.
 
-남스짐은 고객님들께 남다른 서비스와 가치를 제공하여 건강한 삶의 기준을
-제시하는 것을 목표로 하고 있습니다.
-
-저희 전 직원은 ‘도전’, ‘성장’, ‘변화’, ‘긍정’, ‘성과’라는 핵심 가치를 바탕으로
-성실하고 정직하게 성장하고 있습니다.
+저희 전 직원은 ‘도전’, ‘성장’, ‘변화’, ‘긍정’, ‘성과’라는 핵심 가치를 바탕으로 성실하고 정직하게 성장하고 있습니다.
 이러한 가치는 저희가 고객님들께 신뢰를 드릴 수 있는 원동력이 됩니다.
 
-고객 만족을 최우선으로 생각하며, 피트니스 시장에서 모범이 되는 기업이
-되기 위해 항상 최선을 다하겠습니다.
+고객 만족을 최우선으로 생각하며, 피트니스 시장에서 모범이 되는 기업이 되기 위해 항상 최선을 다하겠습니다.
 
 남스짐을 찾아주셔서 진심으로 감사드립니다.`}
-            </Pre>
-          </div>
-
-          <div className="ceo-image">
-            <ImageComponent
-              width={35}
-              height={55}
-              $src="/ceo.jpeg"
-              $alt="ceo"
-              $borderRadius="10px"
-            />
-
-            <Pre
-              $fontSize="2rem"
-              color="#000"
-              $fontWeight={400}
-              $lineHeight={1.4}
-              $whiteSpace="pre-wrap"
-              $margin="2rem 0 0 0"
-              $textAlign="center"
-            >
-              {`남건우`}
-            </Pre>
-
-            <Pre
-              $fontSize="1.6rem"
-              color="#C1C1C1"
-              $fontWeight={400}
-              $lineHeight={1.4}
-              $whiteSpace="pre-wrap"
-              $textAlign="center"
-            >
-              {`(주)남다른사람들 대표`}
             </Pre>
           </div>
         </div>
@@ -370,36 +302,22 @@ const ImageWithTextFrame = styled.div`
 `;
 
 const WelcomeFrame = styled.div`
-  position: relative;
   display: flex;
-  background-color: #ededed;
-  padding: 3rem;
-  border-radius: 10px;
-  margin: 15rem 0 15rem 0;
+  gap: 5rem;
+  margin: 25rem 0;
 
-  .inner-frame {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 3rem 3rem 3rem 3rem;
-    border-radius: 10px;
-
-    @media screen and (max-width: 500px) {
-      flex-direction: column;
-    }
+  @media screen and (max-width: 500px) {
+    flex-direction: column-reverse;
+    align-items: center;
   }
 
-  .ceo-image {
+  .inner-frame {
+    display: flex;
+  }
+
+  .ceo-image-frame {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-
-    @media screen and (max-width: 500px) {
-      margin-top: 2rem;
-    }
   }
 `;
 
