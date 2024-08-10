@@ -7,7 +7,6 @@ import SubTitle from '@/components/sub-title';
 import centerInfo from '@/constant/center-info';
 import shuffleArray from '@/functions/shuffleArray';
 import useDrag from '@/hooks/useDrag';
-import useScrollMove from '@/hooks/useScrollMove';
 import 'animate.css';
 import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';

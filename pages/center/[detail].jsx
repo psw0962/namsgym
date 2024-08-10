@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Font from '@/components/font';
 import Pre from '@/components/pre';
 import ImageComponent from '@/components/image-component';
-import CenterImages from '@/components/slick/center-images';
+import CenterImage from '@/components/slick/center-image';
 import TrainerImages from '@/components/slick/trainer-image';
 import { Map } from 'react-kakao-maps-sdk';
 import CenterGallery from '@/components/center-gallery';
@@ -35,7 +35,7 @@ const CenterDetail = ({ centerDetailInfo }) => {
       </div>
 
       <div className="animate__animated animate__fadeIn">
-        <CenterImages images={centerDetailInfo?.facility} />
+        <CenterImage images={centerDetailInfo?.facility} />
       </div>
 
       <CenterInfoWrapper

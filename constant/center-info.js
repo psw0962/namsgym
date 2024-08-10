@@ -553,6 +553,51 @@ const centerInfo = [
       '무료주차(건물 앞, 월곶 포구 라인 주차장, 건물 앞 갓길->주정차 위반 X)',
     description: ``,
   },
+
+  {
+    id: 11,
+    centerName: '김포 고촌점',
+    address: '경기 김포시 고촌읍 장차로5번길 10 4층',
+    tel: '0507-1491-0776',
+    facility: [
+      '/images/center/center11/facility/1.jpg',
+      '/images/center/center11/facility/2.jpg',
+      '/images/center/center11/facility/3.jpg',
+      '/images/center/center11/facility/4.jpg',
+      '/images/center/center11/facility/5.jpg',
+      '/images/center/center11/facility/6.jpg',
+      '/images/center/center11/facility/7.jpg',
+      '/images/center/center11/facility/8.jpg',
+      '/images/center/center11/facility/9.jpg',
+      '/images/center/center11/facility/10.jpg',
+      '/images/center/center11/facility/11.jpg',
+      '/images/center/center11/facility/12.jpg',
+      '/images/center/center11/facility/13.jpg',
+      '/images/center/center11/facility/14.jpg',
+      '/images/center/center11/facility/15.jpg',
+      '/images/center/center11/facility/16.jpg',
+      '/images/center/center11/facility/17.jpg',
+      '/images/center/center11/facility/18.jpg',
+      '/images/center/center11/facility/19.jpg',
+      '/images/center/center11/facility/20.jpg',
+    ],
+    gallrey: ['/images/center/center11/gallrey/1.jpg'],
+    trainer: ['/images/center/center11/trainer/1.jpg'],
+    operatingTime: `24시 운영
+공휴일 및 정기휴무 : 별도 공지
+(센터 내 게시판, 네이버 또는 인스타그램)
+(설, 추석 당일 휴무)`,
+    instagramUrl: 'https://www.instagram.com/namsgym11/',
+    kakaoTalkUrl: 'https://pf.kakao.com/_axobtG',
+    naverPlaceUrl:
+      'https://map.naver.com/p/entry/place/1965863829?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=126.7697976&lat=37.6031394&c=15.00,0,0,0,dh',
+    thumbnailImage: '/images/center/center11/facility/1.jpg',
+    lat: 37.60311886982595,
+    lng: 126.76979463090174,
+    parking:
+      '무료주차(롯데리아 건물 4층 주차, 건물 좌측 카드 발급 후 출입, 주차 2시간 무료)',
+    description: ``,
+  },
 ];
 
 export default centerInfo;

@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import Overflow from '../overflow';
 
-const CenterImages = ({ images }) => {
+const CenterImage = ({ images }) => {
   const slickRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -56,7 +56,7 @@ const CenterImages = ({ images }) => {
   );
 };
 
-export default CenterImages;
+export default CenterImage;
 
 const CustomSlider = styled(Slider)``;
 

@@ -1,16 +1,12 @@
-import Font from '@/components/font';
 import styled from 'styled-components';
-import centerInfo from '@/constant/center-info';
 import ImageComponent from '@/components/image-component';
 import Pre from '@/components/pre';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { useInView } from 'react-intersection-observer';
 import 'animate.css';
+import MainCenterImage from '@/components/slick/main-center-image';
 
 const Home = () => {
-  const router = useRouter();
-
   const { ref: ref5, inView: inView5 } = useInView({
     triggerOnce: true,
     threshold: 0.01,
@@ -28,31 +24,7 @@ const Home = () => {
 
   return (
     <Frame>
-      <OverFlowFrame>
-        <OverFlowWrapper>
-          {centerInfo.map(x => {
-            return (
-              <div
-                key={x.id}
-                className="inner-wrapper"
-                onClick={() => router.push(`/center/${x.id}`)}
-              >
-                <ImageComponent
-                  width={10}
-                  height={10}
-                  $src={x.thumbnailImage}
-                  $alt={`slide-${x.id}`}
-                  $borderRadius="10px"
-                />
-
-                <Font $fontSize="1.2rem" $fontWeight={700}>
-                  {x.centerName}
-                </Font>
-              </div>
-            );
-          })}
-        </OverFlowWrapper>
-      </OverFlowFrame>
+      <MainCenterImage />
 
       <div>
         <Pre
@@ -256,31 +228,6 @@ const Frame = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-`;
-
-const OverFlowFrame = styled.div`
-  display: flex;
-  width: 100%;
-  overflow-x: hidden;
-`;
-
-const OverFlowWrapper = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  .inner-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-  }
 `;
 
 const ImageWithTextFrame = styled.div`
