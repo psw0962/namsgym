@@ -13,7 +13,8 @@ import { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Map } from 'react-kakao-maps-sdk';
 import styled, { keyframes } from 'styled-components';
-import useLocalStorage from 'use-local-storage';
+import { useState } from 'react';
+import Line from '@/components/line';
 
 const MACHINELOGO = [
   { id: 1, url: '/images/machine-logo/1.jpg' },
@@ -28,10 +29,7 @@ const Center = () => {
   const router = useRouter();
   const isDragging = useDrag();
 
-  const [checkedItems, setCheckedItems] = useLocalStorage(
-    'centerInfo',
-    centerInfo,
-  );
+  const [checkedItems, setCheckedItems] = useState(centerInfo);
 
   const carouselRef = useRef(null);
 
@@ -161,6 +159,8 @@ const Center = () => {
           })}
         </CheckBoxWrapper>
       </FindCenterFrame>
+
+      <Line $margin="3rem 0" border="1px solid #515151" />
 
       {checkedItems.length === 0 && (
         <NoSelected>
@@ -297,19 +297,13 @@ const FindCenterFrame = styled.div`
 
 const CardFrame = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  margin-top: 8rem;
   margin-bottom: 10rem;
-  /* height: 100%; */
 
-  /* grid-template-columns: repeat(3, 1fr);
-  @media screen and (max-width: 1250px) {
-    grid-template-columns: repeat(2, 2fr);
-  }
   @media screen and (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
-  } */
+  }
 `;
 
 const CardWrapper = styled.div`
@@ -372,11 +366,12 @@ const CheckBoxWrapper = styled.div`
 `;
 
 const CustomLabel = styled.label`
-  font-size: 1.6rem;
+  font-size: 2.4rem;
 `;
 
 const NoSelected = styled.div`
   margin-top: 10rem;
+  margin-bottom: 10rem;
   display: flex;
   justify-content: center;
 `;

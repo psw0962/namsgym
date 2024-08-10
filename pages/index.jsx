@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import 'animate.css';
 import MainCenterImage from '@/components/slick/main-center-image';
+import Reviews from '@/components/reviews';
 
 const Home = () => {
   const { ref: ref5, inView: inView5 } = useInView({
@@ -25,39 +26,31 @@ const Home = () => {
   return (
     <Frame>
       <MainCenterImage />
-
-      <div>
-        <Pre
-          className="animate__animated animate__Left"
-          $fontSize="8rem"
-          $fontWeight={700}
-          $margin="15rem auto 1rem auto"
-          $lineHeight={1.3}
-          $textAlign="center"
-        >
-          {`여기에 들어갈
-워딩을 정해야합니다.`}
-        </Pre>
-      </div>
-
+      <Pre
+        className="animate__animated animate__Left"
+        $fontSize="4rem"
+        $fontWeight={700}
+        $margin="10rem auto 0 auto"
+        $lineHeight={1.3}
+        $textAlign="center"
+      >
+        {`피트니스 문화를 선도하는`}
+      </Pre>
       <Pre
         className="animate__animated animate__fadeInRight"
         $fontSize="5rem"
         color="#D6B86B"
         $fontWeight={700}
-        $margin="2rem auto 1rem auto"
         $lineHeight={1.3}
         $textAlign="center"
       >
-        {`여기에 들어갈
-워딩을 정해야합니다`}
+        {`우리는 (주)남다른사람들입니다.`}
       </Pre>
-
       {/* 1 */}
       <ImageWithTextFrame>
         <ImageCard className="animate__animated animate__fadeInLeft">
           <Image
-            src="/images/center/center1/facility/1.jpg"
+            src="/images/center/center10/facility/4.jpg"
             alt="test"
             quality={70}
             style={{ objectFit: 'cover' }}
@@ -71,59 +64,54 @@ const Home = () => {
 
         <div className="wrapper animate__animated animate__fadeInRight">
           <Pre
-            $fontSize="5rem"
-            $fontWeight={700}
-            $margin="5rem auto 1rem auto"
-            $lineHeight={1.3}
-            $textAlign="center"
-          >
-            {`여기에 들어갈
-워딩을 정해야합니다`}
-          </Pre>
-
-          <Pre
             $fontSize="3rem"
             $fontWeight={700}
             $lineHeight={1.3}
-            $margin="0 auto"
+            $textAlign="center"
+          >
+            {`최적의 운동 환경을
+제공하기 위한`}
+          </Pre>
+
+          <Pre
+            $fontSize="4rem"
+            $fontWeight={700}
+            $lineHeight={1.3}
             color="#A7B0B9"
             $textAlign="center"
           >
-            {`여기에 들어갈
-워딩을 정해야합니다`}
+            {`명품 머신과
+인테리어`}
           </Pre>
         </div>
       </ImageWithTextFrame>
-
       {/* 2 */}
       <ImageWithTextFrame>
         <div
           ref={ref5}
-          className={`animate__animated ${
+          className={`wrapper animate__animated ${
             inView5 ? 'animate__fadeInLeft' : ''
           }`}
         >
           <Pre
-            $fontSize="5rem"
-            $fontWeight={700}
-            $margin="5rem auto 1rem auto"
-            $lineHeight={1.3}
-            $textAlign="center"
-          >
-            {`여기에 들어갈
-워딩을 정해야합니다`}
-          </Pre>
-
-          <Pre
             $fontSize="3rem"
             $fontWeight={700}
             $lineHeight={1.3}
-            color="#D6B86B"
-            $margin="0 auto"
             $textAlign="center"
           >
-            {`여기에 들어갈
-워딩을 정해야합니다`}
+            {`전 지점 직영 운영으로
+쾌적한 시설 운영과`}
+          </Pre>
+
+          <Pre
+            $fontSize="4rem"
+            $fontWeight={700}
+            $lineHeight={1.3}
+            color="#D6B86B"
+            $textAlign="center"
+          >
+            {`검증된 후기가 증명하는
+최고의 강사진`}
           </Pre>
         </div>
 
@@ -134,7 +122,7 @@ const Home = () => {
           }`}
         >
           <Image
-            src="/images/center/center1/facility/1.jpg"
+            src="/images/center/center5/facility/4.jpg"
             alt="test"
             quality={70}
             style={{ objectFit: 'cover' }}
@@ -146,6 +134,9 @@ const Home = () => {
           />
         </ImageCard>
       </ImageWithTextFrame>
+
+      {/* reviews */}
+      <Reviews />
 
       {/* welcome */}
       <WelcomeFrame
@@ -231,10 +222,11 @@ const Frame = styled.div`
 `;
 
 const ImageWithTextFrame = styled.div`
-  margin-top: 25rem;
+  margin-top: 13rem;
   display: flex;
-  gap: 4rem;
+  /* gap: 4rem; */
   justify-content: space-around;
+  align-items: center;
 
   @media screen and (max-width: 500px) {
     flex-direction: column;
@@ -251,7 +243,7 @@ const ImageWithTextFrame = styled.div`
 const WelcomeFrame = styled.div`
   display: flex;
   gap: 5rem;
-  margin: 25rem 0;
+  margin: 13rem 0 25rem 0;
 
   @media screen and (max-width: 500px) {
     flex-direction: column-reverse;

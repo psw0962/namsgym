@@ -24,43 +24,50 @@ const MainCenterImage = () => {
     }
   };
 
-  function CustomNextArrow(props) {
-    const { className, style, onClick } = props;
+  const CustomNextArrow = props => {
+    const { onClick } = props;
     return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: 'block',
-          color: 'black',
-          //   background: '#D6B86B',
+      <ArrowWrapper
+        className="right-arrow"
+        onClick={e => {
+          e.stopPropagation();
+          onClick && onClick(e);
         }}
-        onClick={onClick}
-      ></div>
+      >
+        <ImageComponent
+          width={2}
+          height={2}
+          $src="/rightarrow.svg"
+          $alt="Next"
+        />
+      </ArrowWrapper>
     );
-  }
+  };
 
-  function CustomPrevArrow(props) {
-    const { className, style, onClick } = props;
+  const CustomPrevArrow = props => {
+    const { onClick } = props;
     return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: 'block',
-          color: 'black',
-          //   background: '#D6B86B',
+      <ArrowWrapper
+        className="left-arrow"
+        onClick={e => {
+          e.stopPropagation();
+          onClick && onClick(e);
         }}
-        onClick={onClick}
-      />
+      >
+        <ImageComponent
+          width={2}
+          height={2}
+          $src="/leftarrow.svg"
+          $alt="Previous"
+        />
+      </ArrowWrapper>
     );
-  }
+  };
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     autoplay: true,
-    arrows: true,
     speed: 500,
     slidesToShow: 9,
     slidesToScroll: 3,
@@ -75,13 +82,6 @@ const MainCenterImage = () => {
           slidesToScroll: 9,
         },
       },
-      //   {
-      //     breakpoint: 600,
-      //     settings: {
-      //       slidesToShow: 9,
-      //       slidesToScroll: 9,
-      //     },
-      //   },
       {
         breakpoint: 500,
         settings: {
@@ -136,5 +136,38 @@ const CustomSlider = styled(Slider)`
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+  }
+`;
+
+const ArrowWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+
+  &.left-arrow {
+    left: -3rem;
+
+    @media screen and (max-width: 500px) {
+      left: -2rem;
+    }
+  }
+
+  &.right-arrow {
+    right: -3rem;
+
+    @media screen and (max-width: 500px) {
+      right: -2rem;
+    }
+  }
+
+  img {
+    width: 2rem;
+    height: 2rem;
   }
 `;
