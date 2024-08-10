@@ -57,7 +57,7 @@ const MainCenterImage = () => {
   }
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
     autoplay: true,
     arrows: true,
@@ -128,6 +128,7 @@ const CustomSlider = styled(Slider)`
   .slick-slide {
     display: flex;
     justify-content: center;
+    padding-bottom: 10px;
   }
 
   .slick-slide > div > div {

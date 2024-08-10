@@ -309,12 +309,14 @@ const CenterDetail = ({ centerDetailInfo }) => {
         </Map>
       </MapWrapper>
 
-      <SubTitle content="퍼스널 트레이너" $margin="15rem 0 3rem 0" />
+      {centerDetailInfo?.trainer.length > 0 && (
+        <>
+          <SubTitle content="퍼스널 트레이너" $margin="15rem 0 3rem 0" />
 
-      {centerDetailInfo && (
-        <TrainerImagesFrame>
-          <TrainerImages images={centerDetailInfo?.trainer} />
-        </TrainerImagesFrame>
+          <TrainerImagesFrame>
+            <TrainerImages images={centerDetailInfo?.trainer} />
+          </TrainerImagesFrame>
+        </>
       )}
 
       {centerDetailInfo?.gallrey.length > 0 && (
