@@ -26,6 +26,7 @@ const Home = () => {
   return (
     <Frame>
       <MainCenterImage />
+
       <Pre
         className="animate__animated animate__Left"
         $fontSize="4rem"
@@ -36,9 +37,10 @@ const Home = () => {
       >
         {`피트니스 문화를 선도하는`}
       </Pre>
+
       <Pre
         className="animate__animated animate__fadeInRight"
-        $fontSize="5rem"
+        $fontSize="4rem"
         color="#D6B86B"
         $fontWeight={700}
         $lineHeight={1.3}
@@ -46,6 +48,7 @@ const Home = () => {
       >
         {`우리는 (주)남다른사람들입니다.`}
       </Pre>
+
       {/* 1 */}
       <ImageWithTextFrame>
         <ImageCard className="animate__animated animate__fadeInLeft">
@@ -63,7 +66,7 @@ const Home = () => {
         </ImageCard>
 
         <div className="wrapper animate__animated animate__fadeInRight">
-          <Pre
+          <CustomPreTop
             $fontSize="3rem"
             $fontWeight={700}
             $lineHeight={1.3}
@@ -71,7 +74,7 @@ const Home = () => {
           >
             {`최적의 운동 환경을
 제공하기 위한`}
-          </Pre>
+          </CustomPreTop>
 
           <Pre
             $fontSize="4rem"
@@ -85,6 +88,7 @@ const Home = () => {
           </Pre>
         </div>
       </ImageWithTextFrame>
+
       {/* 2 */}
       <ImageWithTextFrame>
         <div
@@ -103,7 +107,7 @@ const Home = () => {
 쾌적한 시설 운영과`}
           </Pre>
 
-          <Pre
+          <CustomPreBottom
             $fontSize="4rem"
             $fontWeight={700}
             $lineHeight={1.3}
@@ -112,7 +116,7 @@ const Home = () => {
           >
             {`검증된 후기가 증명하는
 최고의 강사진`}
-          </Pre>
+          </CustomPreBottom>
         </div>
 
         <ImageCard
@@ -274,5 +278,27 @@ const ImageCard = styled.div`
   img {
     position: absolute;
     border-radius: 10px;
+  }
+`;
+
+const CustomPreTop = styled(Pre)`
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+
+  @media screen and (max-width: 500px) {
+    margin-top: 8rem;
+  }
+`;
+
+const CustomPreBottom = styled(Pre)`
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 8rem;
   }
 `;
