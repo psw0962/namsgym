@@ -71,6 +71,9 @@ export default class CustomDocument extends Document {
           />
           <meta name="twitter:image" content="" />
 
+          {/* 모바일 확대 방지 */}
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+
           {/* 네이버 검색엔진 */}
           <meta
             name="naver-site-verification"
