@@ -34,7 +34,11 @@ export default class CustomDocument extends Document {
       <Html>
         <Head>
           {/* 파비콘 */}
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico" sizes="any" />
+          <link
+            rel="shortcut icon"
+            href="http://www.namsgym.com/favicon.ico"
+          ></link>
           <link
             rel="icon"
             type="image/png"
