@@ -34,7 +34,31 @@ export default class CustomDocument extends Document {
       <Html>
         <Head>
           {/* 파비콘 */}
-          <link rel="icon" href="/favicon.ico" sizes="any" />
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/favicon-192x192.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="310x310"
+            href="/favicon-310x310.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="310x310"
+            href="/favicon-310x310.png"
+          />
+          <meta name="msapplication-TileImage" content="/favicon-310x310.png" />
 
           {/* 홈페이지 */}
           <meta name="author" content="namsgym" />
