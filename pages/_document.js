@@ -68,11 +68,6 @@ export default class CustomDocument extends Document {
           />
           <link
             rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-          />
-          <link
-            rel="apple-touch-icon"
             sizes="310x310"
             href="/favicon-310x310.png"
           />

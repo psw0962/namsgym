@@ -183,10 +183,6 @@ const centerInfo = [
       '/images/center/center4/facility/19.jpg',
       '/images/center/center4/facility/20.jpg',
       '/images/center/center4/facility/21.jpg',
-      '/images/center/center4/facility/22.jpg',
-      '/images/center/center4/facility/23.jpg',
-      '/images/center/center4/facility/24.jpg',
-      '/images/center/center4/facility/25.jpg',
     ],
     gallrey: [],
     trainer: [
