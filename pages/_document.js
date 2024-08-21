@@ -60,6 +60,11 @@ export default class CustomDocument extends Document {
             sizes="48x48"
             href="/favicon-48x48.png"
           />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
 
           {/* 홈페이지 */}
           <meta name="author" content="namsgym" />
