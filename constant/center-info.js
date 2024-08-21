@@ -582,9 +582,12 @@ const centerInfo = [
       '/images/center/center11/facility/20.jpg',
     ],
     gallrey: [],
-    trainer: [],
     // gallrey: ['/images/center/center11/gallrey/1.jpg'],
-    // trainer: ['/images/center/center11/trainer/1.jpg'],
+    trainer: [
+      '/images/center/center11/trainer/1.jpg',
+      '/images/center/center11/trainer/2.jpg',
+      '/images/center/center11/trainer/3.jpg',
+    ],
     operatingTime: `24시 운영
 공휴일 및 정기휴무 : 별도 공지
 (센터 내 게시판, 네이버 또는 인스타그램)

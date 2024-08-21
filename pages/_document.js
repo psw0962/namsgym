@@ -35,10 +35,19 @@ export default class CustomDocument extends Document {
         <Head>
           {/* 파비콘 */}
           <link rel="shortcut icon" href="/favicon.ico" sizes="any" />
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico" />
           <link
             rel="shortcut icon"
             href="http://www.namsgym.com/favicon.ico"
           ></link>
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
           <link
             rel="icon"
             type="image/png"
@@ -56,6 +65,11 @@ export default class CustomDocument extends Document {
             type="image/png"
             sizes="310x310"
             href="/favicon-310x310.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
           />
           <link
             rel="apple-touch-icon"
