@@ -35,9 +35,9 @@ export default class CustomDocument extends Document {
         <Head>
           {/* 파비콘 */}
           <link rel="shortcut icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" href="/favicon.ico" />
           <link rel="shortcut icon" href="/favicon/favicon.ico" />
           <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.ico" />
           <link
             rel="shortcut icon"
             href="http://www.namsgym.com/favicon.ico"
@@ -57,21 +57,9 @@ export default class CustomDocument extends Document {
           <link
             rel="icon"
             type="image/png"
-            sizes="192x192"
-            href="/favicon-192x192.png"
+            sizes="48x48"
+            href="/favicon-48x48.png"
           />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="310x310"
-            href="/favicon-310x310.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="310x310"
-            href="/favicon-310x310.png"
-          />
-          <meta name="msapplication-TileImage" content="/favicon-310x310.png" />
 
           {/* 홈페이지 */}
           <meta name="author" content="namsgym" />
