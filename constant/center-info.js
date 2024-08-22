@@ -487,8 +487,6 @@ const centerInfo = [
       '/images/center/center10/gallrey/12.jpg',
       '/images/center/center10/gallrey/13.jpg',
       '/images/center/center10/gallrey/14.jpg',
-      '/images/center/center10/gallrey/15.jpg',
-      '/images/center/center10/gallrey/16.jpg',
     ],
     trainer: [
       '/images/center/center10/trainer/1.jpg',
@@ -511,7 +509,9 @@ const centerInfo = [
     lng: 126.73952134070836,
     parking:
       '무료주차(건물 앞, 월곶 포구 라인 주차장, 건물 앞 갓길->주정차 위반 X)',
-    description: ``,
+    description: `남스짐 월곶점은 별도의 휴무일 없이 364일 운영중이며 월곶역 5분 거리에 위치하고 있습니다. 130평 규모에 전기구 뉴텍 머신을 보유하고 있습니다.
+유산소 기구 및 파워 랙은 사람이 많은 시간대에도 원활하게 이용하실 수 있도록 천국의 계단 4대, 아크트레이너 2대, 마이마운틴 2대, 10대의 트레드밀,
+렉 3대를 보유하고 있습니다. 모든 헬스인들이 즐겁게 운동할 수 있는 건강한 피트니스 문화를 만들겠습니다.`,
   },
 
   {
@@ -562,7 +562,8 @@ const centerInfo = [
     lng: 126.76979463090174,
     parking:
       '무료주차(롯데리아 건물 4층 주차, 건물 좌측 카드 발급 후 출입, 주차 2시간 무료)',
-    description: ``,
+    description: `남스짐 고촌점은 별도의 24시간 상시 운영중이며 고촌역 5분 거리에 위치하고 있습니다. 150평 규모에 전기구 DRAX, 뉴텍 머신을 보유하고 있습니다.
+유산소 기구 및 파워 랙은 사람이 많은 시간대에도 원활하게 이용하실 수 있도록 천국의 계단 4대, 마이마운틴 2대, 다수의 트레드밀과 사이클, 렉 4대를 보유하고 있습니다. 모든 헬스인들이 즐겁게 운동할 수 있는 건강한 피트니스 문화를 만들겠습니다.`,
   },
 ];
 
