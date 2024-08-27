@@ -88,7 +88,6 @@ const centerInfo = [
       '/images/center/center2/trainer/3.jpg',
       '/images/center/center2/trainer/4.jpg',
       '/images/center/center2/trainer/5.jpg',
-      '/images/center/center2/trainer/6.jpg',
     ],
     operatingTime: `평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
@@ -548,6 +547,7 @@ const centerInfo = [
       '/images/center/center11/trainer/1.jpg',
       '/images/center/center11/trainer/2.jpg',
       '/images/center/center11/trainer/3.jpg',
+      '/images/center/center11/trainer/4.jpg',
     ],
     operatingTime: `24시 운영
 공휴일 및 정기휴무 : 별도 공지
