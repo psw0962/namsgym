@@ -13,6 +13,11 @@ const NAVIGATION_MENU = [
     menu: '채용 안내',
     url: 'https://nonstop-attraction-3c8.notion.site/382e1fb43d6741c2afaedf971c33fd7d',
   },
+  {
+    id: 4,
+    menu: '명예 트레이너',
+    url: '/hornor',
+  },
 ];
 
 const Navigation = () => {
