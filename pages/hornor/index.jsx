@@ -15,10 +15,10 @@ const Center = () => {
       <CenterGallery images={HONOR_TRAINER_DATA_3000} />
 
       <SubTitle content="4000클럽 명예 트레이너" $margin="10rem 0 3rem 0" />
-      <CommingSoon>곧 업에이트 됩니다.</CommingSoon>
+      <CommingSoon>곧 업데이트 됩니다.</CommingSoon>
 
       <SubTitle content="5000클럽 명예 트레이너" $margin="10rem 0 3rem 0" />
-      <CommingSoon>곧 업에이트 됩니다.</CommingSoon>
+      <CommingSoon>곧 업데이트 됩니다.</CommingSoon>
     </Frame>
   );
 };
