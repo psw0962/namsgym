@@ -4,7 +4,10 @@ import { useRouter } from 'next/router';
 import styled, { keyframes } from 'styled-components';
 import CenterGallery from '@/components/center-gallery';
 
-const HONOR_TRAINER_DATA_3000 = ['/images/hornor-trainer/1.png'];
+const HONOR_TRAINER_DATA_3000 = [
+  '/images/hornor-trainer/1.png',
+  '/images/hornor-trainer/2.png',
+];
 
 const Center = () => {
   const router = useRouter();
