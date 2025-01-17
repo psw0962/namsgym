@@ -6,8 +6,8 @@ import Font from './font';
 import ImageComponent from './image-component';
 
 const NAVIGATION_MENU = [
-  { id: 1, menu: 'NamsGYM', url: '/' },
-  { id: 2, menu: '지점 안내', url: '/center' },
+  { id: 1, menu: '지점 안내', url: '/center' },
+  { id: 2, menu: '비포&애프터', url: '/review' },
   {
     id: 3,
     menu: '채용 안내',
