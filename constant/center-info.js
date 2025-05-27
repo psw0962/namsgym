@@ -565,6 +565,65 @@ const centerInfo = [
     description: `남스짐 고촌점은 별도의 24시간 상시 운영중이며 고촌역 5분 거리에 위치하고 있습니다. 150평 규모에 전기구 DRAX, 뉴텍 머신을 보유하고 있습니다.
 유산소 기구 및 파워 랙은 사람이 많은 시간대에도 원활하게 이용하실 수 있도록 천국의 계단 4대, 마이마운틴 2대, 다수의 트레드밀과 사이클, 렉 4대를 보유하고 있습니다. 모든 헬스인들이 즐겁게 운동할 수 있는 건강한 피트니스 문화를 만들겠습니다.`,
   },
+
+  {
+    id: 12,
+    centerName: '수원 당수점',
+    address: '수원시 당수동 330-1 3층, 4층',
+    tel: '031-419-3337',
+    facility: [
+      '/images/center/center12/facility/1.jpg',
+      '/images/center/center12/facility/2.jpg',
+      '/images/center/center12/facility/3.jpg',
+      '/images/center/center12/facility/4.jpg',
+      '/images/center/center12/facility/5.jpg',
+    ],
+    gallrey: [],
+    trainer: [],
+    operatingTime: `평일 06 : 00 ~ 23 : 30 
+주말 09 : 00 ~ 17 : 00
+(2,4주 일요일 휴무)
+공휴일 및 정기휴무 : 별도공지`,
+    instagramUrl: 'https://www.instagram.com/namsgym12/',
+    kakaoTalkUrl: 'https://pf.kakao.com/_FxgHWd',
+    naverPlaceUrl:
+      'https://map.naver.com/p/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EB%8B%B9%EC%88%98%EC%A0%90/place/1947541321?c=15.00,0,0,0,dh&isCorrectAnswer=true',
+    thumbnailImage: '/images/center/center12/facility/1.jpg',
+    lat: 37.28833866192988,
+    lng: 126.94122319726435,
+    parking: '무료주차',
+    description: ``,
+  },
+
+  {
+    id: 13,
+    centerName: '군포 대야미점',
+    address: '경기도 군포시 군포로 121 3층',
+    tel: '031-438-3337',
+    facility: [
+      '/images/center/center13/facility/1.jpg',
+      '/images/center/center13/facility/2.jpg',
+      '/images/center/center13/facility/3.jpg',
+      '/images/center/center13/facility/4.jpg',
+      '/images/center/center13/facility/5.jpg',
+    ],
+    gallrey: [],
+    trainer: [],
+    operatingTime: `평일: 09:00-23:30운영
+주말: 10:00-17:00운영
+(2,4주 격주 휴무)
+공휴일 별도공지
+(센터 내 게시판, 네이버 또는 인스타그램)`,
+    instagramUrl: 'https://www.instagram.com/namsgym13/',
+    kakaoTalkUrl: 'https://pf.kakao.com/_FxgHWd',
+    naverPlaceUrl:
+      'https://map.naver.com/p/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EB%8C%80%EC%95%BC%EB%AF%B8%EC%A0%90/place/1676012150?c=15.00,0,0,0,dh&isCorrectAnswer=true',
+    thumbnailImage: '/images/center/center13/facility/1.jpg',
+    lat: 37.32600669205176,
+    lng: 126.91878616574444,
+    parking: '무료주차',
+    description: ``,
+  },
 ];
 
 export default centerInfo;
