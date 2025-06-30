@@ -2,7 +2,7 @@ const centerInfo = [
   {
     id: 1,
     centerName: '안산 신길점',
-    address: '경기 안산시 단원구 새뿔길 48 월산빌딩 지하 1층, 3층',
+    address: '경기 안산시 단원구 신길동656-1. 2층',
     tel: '0507-1388-3413',
     facility: [
       '/images/center/center1/facility/1.jpg',
@@ -60,11 +60,11 @@ const centerInfo = [
     kakaoTalkUrl: 'https://pf.kakao.com/_FxgHWd',
     naverPlaceUrl: 'https://naver.me/x4bOeUXv',
     thumbnailImage: '/images/center/center1/facility/1.jpg',
-    lat: 37.33687904685948,
-    lng: 126.77646063325268,
+    lat: 37.33665305089859,
+    lng: 126.7737022663654,
     parking: '무료주차(주차공간이 협소합니다.)',
     description: `남스짐 안산 신길점은 24시 헬스장이며 100평 규모로 유산소 존/웨이트 존/스트레칭 존이 층으로 나눠져 있습니다.
-평균 3년이 상 전문 트레이너들로 구성되어 있어 목적별 다양한 트레이닝과 관리가 가능합니다.`,
+평균 3년이상 전문 트레이너들로 구성되어 있어 목적별 다양한 트레이닝과 관리가 가능합니다.`,
   },
 
   {
