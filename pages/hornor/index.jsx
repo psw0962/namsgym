@@ -1,21 +1,29 @@
 import SubTitle from '@/components/sub-title';
 import 'animate.css';
-import { useRouter } from 'next/router';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import CenterGallery from '@/components/center-gallery';
 
-const HONOR_TRAINER_DATA_3000 = [
+const HONOR_TRAINER_DATA_2024 = [
   '/images/hornor-trainer/1.png',
   '/images/hornor-trainer/2.png',
 ];
 
-const Center = () => {
-  const router = useRouter();
+const HONOR_TRAINER_DATA_2025 = [
+  '/images/hornor-trainer/3.png',
+  '/images/hornor-trainer/4.png',
+  '/images/hornor-trainer/5.png',
+  '/images/hornor-trainer/6.png',
+];
 
+const Center = () => {
   return (
     <Frame>
       <SubTitle content="3000클럽 명예 트레이너" />
-      <CenterGallery images={HONOR_TRAINER_DATA_3000} />
+      <CenterGallery images={HONOR_TRAINER_DATA_2024} />
+
+      <div style={{ marginTop: '3rem' }}></div>
+
+      <CenterGallery images={HONOR_TRAINER_DATA_2025} />
 
       <SubTitle content="4000클럽 명예 트레이너" $margin="10rem 0 3rem 0" />
       <CommingSoon>곧 업데이트 됩니다.</CommingSoon>

@@ -10,13 +10,13 @@ const NAVIGATION_MENU = [
   { id: 2, menu: '비포&애프터', url: '/review' },
   {
     id: 3,
-    menu: '채용 안내',
-    url: 'https://nonstop-attraction-3c8.notion.site/382e1fb43d6741c2afaedf971c33fd7d',
+    menu: '명예 트레이너',
+    url: '/hornor',
   },
   {
     id: 4,
-    menu: '명예 트레이너',
-    url: '/hornor',
+    menu: '채용 안내',
+    url: 'https://nonstop-attraction-3c8.notion.site/382e1fb43d6741c2afaedf971c33fd7d',
   },
 ];
 
@@ -253,12 +253,6 @@ const Frame = styled.div`
   position: fixed;
   top: 0;
   z-index: 3;
-
-  /* height: 10rem; */
-  /* visibility: ${props =>
-    props.$scrollEventState ? 'hidden' : 'visible'}; */
-  /* opacity: ${props => (props.$scrollEventState ? 0 : 1)}; */
-  /* transition: all 0.2s; */
 `;
 
 const NavigationFrame = styled.header`

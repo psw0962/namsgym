@@ -10,8 +10,6 @@ const CenterGallery = ({ images }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(9);
 
-  console.log(images);
-
   useEffect(() => {
     const arr = [...images];
     const result = arr.map(x => ({ src: x }));
