@@ -2,27 +2,11 @@ import styled from 'styled-components';
 import ImageComponent from '@/components/image-component';
 import Pre from '@/components/pre';
 import Image from 'next/image';
-import { useInView } from 'react-intersection-observer';
 import 'animate.css';
 import MainCenterImage from '@/components/slick/main-center-image';
 import Reviews from '@/components/reviews';
 
 const Home = () => {
-  const { ref: ref5, inView: inView5 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
-  const { ref: ref6, inView: inView6 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
-  const { ref: ref7, inView: inView7 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
   return (
     <Frame>
       <MainCenterImage />
@@ -91,12 +75,7 @@ const Home = () => {
 
       {/* 2 */}
       <ImageWithTextFrame>
-        <div
-          ref={ref5}
-          className={`wrapper animate__animated ${
-            inView5 ? 'animate__fadeInLeft' : ''
-          }`}
-        >
+        <div className="wrapper animate__animated animate__fadeInLeft">
           <Pre
             $fontSize="3rem"
             $fontWeight={700}
@@ -119,12 +98,7 @@ const Home = () => {
           </CustomPreBottom>
         </div>
 
-        <ImageCard
-          ref={ref6}
-          className={`animate__animated ${
-            inView6 ? 'animate__fadeInRight' : ''
-          }`}
-        >
+        <ImageCard className="animate__animated animate__fadeInRight">
           <Image
             src="/images/center/center5/facility/4.jpg"
             alt="test"
@@ -143,10 +117,7 @@ const Home = () => {
       <Reviews />
 
       {/* welcome */}
-      <WelcomeFrame
-        ref={ref7}
-        className={`animate__animated ${inView7 ? 'animate__fadeIn' : ''}`}
-      >
+      <WelcomeFrame>
         <div className="ceo-image-frame">
           <ImageComponent
             width={35}
@@ -157,7 +128,7 @@ const Home = () => {
           />
 
           <Pre
-            $fontSize="3.4rem"
+            $fontSize="2.4rem"
             color="#000"
             $fontWeight={400}
             $lineHeight={1.4}
@@ -168,7 +139,7 @@ const Home = () => {
           </Pre>
 
           <Pre
-            $fontSize="2rem"
+            $fontSize="1.6rem"
             color="#C1C1C1"
             $fontWeight={400}
             $lineHeight={1.4}
@@ -181,7 +152,7 @@ const Home = () => {
         <div className="inner-frame">
           <div className="msg-frame">
             <Pre
-              $fontSize="3.8rem"
+              $fontSize="3rem"
               color="#000"
               $fontWeight={700}
               $lineHeight={1.4}
@@ -191,7 +162,7 @@ const Home = () => {
             </Pre>
 
             <Pre
-              $fontSize="2.4rem"
+              $fontSize="2rem"
               color="#000"
               $fontWeight={400}
               $lineHeight={1.4}
@@ -228,7 +199,6 @@ const Frame = styled.div`
 const ImageWithTextFrame = styled.div`
   margin-top: 13rem;
   display: flex;
-  /* gap: 4rem; */
   justify-content: space-around;
   align-items: center;
 

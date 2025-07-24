@@ -203,8 +203,7 @@ const ImageCard = styled.div`
   @media screen and (min-width: 500px) {
     &:hover img {
       transform: scale(1.05);
-      transition: all 0.2s ease-in-out;
-      border-radius: 100%;
+      transition: transform 0.2s ease-in-out;
     }
   }
 

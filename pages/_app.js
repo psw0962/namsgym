@@ -3,7 +3,6 @@ import GlobalStyle from '@/styles/global-style';
 import Head from 'next/head';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { RecoilRoot } from 'recoil';
 import usePageLoading from '@/hooks/usePageLoading';
 import GlobalSpinner from '@/components/global-spinner';
 import styled from 'styled-components';
@@ -39,33 +38,31 @@ const App = ({ Component, pageProps }) => {
 
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <RecoilRoot>
-            <React.Fragment>
-              {isSplash ? (
-                <Splash setIsSplash={setIsSplash} />
-              ) : (
-                <Frame>
-                  {loading ? (
-                    <GlobalSpinner />
-                  ) : (
-                    <>
-                      <Analytics />
+          <React.Fragment>
+            {isSplash ? (
+              <Splash setIsSplash={setIsSplash} />
+            ) : (
+              <Frame>
+                {loading ? (
+                  <GlobalSpinner />
+                ) : (
+                  <>
+                    <Analytics />
 
-                      <Navigation />
+                    <Navigation />
 
-                      <ComponentFrame>
-                        <Component {...pageProps} />
-                      </ComponentFrame>
+                    <ComponentFrame>
+                      <Component {...pageProps} />
+                    </ComponentFrame>
 
-                      <Contact />
+                    <Contact />
 
-                      <Footer />
-                    </>
-                  )}
-                </Frame>
-              )}
-            </React.Fragment>
-          </RecoilRoot>
+                    <Footer />
+                  </>
+                )}
+              </Frame>
+            )}
+          </React.Fragment>
         </Hydrate>
 
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />

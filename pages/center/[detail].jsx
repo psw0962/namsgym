@@ -8,22 +8,11 @@ import CenterImage from '@/components/slick/center-image';
 import TrainerImages from '@/components/slick/trainer-image';
 import { Map } from 'react-kakao-maps-sdk';
 import CenterGallery from '@/components/center-gallery';
-import { useInView } from 'react-intersection-observer';
 import CustomMapMarker from '@/components/custom-map-maker';
 import ReSetttingMapBoundsSingle from '@/components/resetting-map-bounds-single';
 import 'animate.css';
 
 const CenterDetail = ({ centerDetailInfo }) => {
-  const { ref: ref1, inView: inView1 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
-  const { ref: ref2, inView: inView2 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
-
   return (
     <Frame>
       <div className="animate__animated animate__fadeInLeft">
@@ -38,10 +27,7 @@ const CenterDetail = ({ centerDetailInfo }) => {
         <CenterImage images={centerDetailInfo?.facility} />
       </div>
 
-      <CenterInfoWrapper
-        ref={ref2}
-        className={`animate__animated ${inView2 ? 'animate__fadeIn' : ''}`}
-      >
+      <CenterInfoWrapper className="animate__animated animate__fadeIn">
         <Font
           color="#fff"
           $fontSize="2.5rem"
@@ -326,10 +312,7 @@ const CenterDetail = ({ centerDetailInfo }) => {
             $margin="15rem 0 3rem 0"
           />
 
-          <div
-            ref={ref1}
-            className={`animate__animated ${inView1 ? 'animate__fadeIn' : ''}`}
-          >
+          <div className="animate__animated animate__fadeIn">
             <CenterGallery images={centerDetailInfo?.gallrey} />
           </div>
         </>

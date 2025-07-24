@@ -36,7 +36,11 @@ const CenterImage = ({ images }) => {
               src={image}
               alt={`${image}${index}`}
               quality={100}
-              style={{ objectFit: 'cover' }}
+              style={{
+                objectFit: 'cover',
+                width: '100%',
+                height: '100%',
+              }}
               fill
               priority
               sizes="100%"
@@ -63,16 +67,23 @@ const CustomSlider = styled(Slider)``;
 const ImageCard = styled.div`
   display: flex;
   position: relative;
-  height: 70rem;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 30rem;
+  max-height: 60rem;
   border-radius: 10px;
+  overflow: hidden;
 
   img {
     position: absolute;
     cursor: pointer;
     border-radius: 10px;
+    object-position: center;
   }
 
   @media screen and (max-width: 500px) {
-    height: 40rem;
+    aspect-ratio: 1 / 1;
+    min-height: 20rem;
+    max-height: 35rem;
   }
 `;

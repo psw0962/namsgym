@@ -10,11 +10,11 @@ import useDrag from '@/hooks/useDrag';
 import 'animate.css';
 import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { Map } from 'react-kakao-maps-sdk';
 import styled, { keyframes } from 'styled-components';
 import { useState } from 'react';
 import Line from '@/components/line';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const MACHINELOGO = [
   { id: 1, url: '/images/machine-logo/1.jpg' },
@@ -32,11 +32,6 @@ const Center = () => {
   const [checkedItems, setCheckedItems] = useState(centerInfo);
 
   const carouselRef = useRef(null);
-
-  const { ref: ref1, inView: inView1 } = useInView({
-    triggerOnce: true,
-    threshold: 0.01,
-  });
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -118,43 +113,64 @@ const Center = () => {
 
       <FindCenterFrame>
         <CountTagWrapper>
-          <Font $fontSize="4rem" $fontWeight="700">
+          <Font $fontSize="2.6rem" $fontWeight="700">
             지점 찾기
           </Font>
 
           <CountTag>
-            <Font $fontSize="1.5rem" $fontWeight="700">
+            <Font $fontSize="1.2rem" $fontWeight="700">
               {centerInfo.length}
             </Font>
           </CountTag>
         </CountTagWrapper>
 
         <CheckBoxWrapper>
-          <div>
-            <input
+          <CheckboxItem>
+            <HiddenCheckbox
               type="checkbox"
               id="전체"
               name="전체"
               checked={checkedItems.length === centerInfo.length}
               onChange={handleSelectAll}
             />
-            <CustomLabel htmlFor="전체">전체</CustomLabel>
-          </div>
+            <CustomCheckboxLabel
+              htmlFor="전체"
+              $isChecked={checkedItems.length === centerInfo.length}
+            >
+              <CheckboxIndicator
+                $isChecked={checkedItems.length === centerInfo.length}
+              >
+                <CheckIcon
+                  $isChecked={checkedItems.length === centerInfo.length}
+                >
+                  ✓
+                </CheckIcon>
+              </CheckboxIndicator>
+              <LabelText>전체</LabelText>
+            </CustomCheckboxLabel>
+          </CheckboxItem>
 
           {centerInfo.map(x => {
+            const isChecked = checkedItems?.some(item => item?.id === x?.id);
             return (
-              <div key={x.id}>
-                <input
+              <CheckboxItem key={x.id}>
+                <HiddenCheckbox
                   type="checkbox"
                   id={`${x.centerName}`}
                   name={`${x.centerName}`}
-                  checked={checkedItems?.some(item => item?.id === x?.id)}
+                  checked={isChecked}
                   onChange={event => handleCheckboxChange(event, x)}
                 />
-                <CustomLabel htmlFor={`${x.centerName}`}>
-                  {x.centerName}
-                </CustomLabel>
-              </div>
+                <CustomCheckboxLabel
+                  htmlFor={`${x.centerName}`}
+                  $isChecked={isChecked}
+                >
+                  <CheckboxIndicator $isChecked={isChecked}>
+                    <CheckIcon $isChecked={isChecked}>✓</CheckIcon>
+                  </CheckboxIndicator>
+                  <LabelText>{x.centerName}</LabelText>
+                </CustomCheckboxLabel>
+              </CheckboxItem>
             );
           })}
         </CheckBoxWrapper>
@@ -163,112 +179,115 @@ const Center = () => {
       <Line $margin="3rem 0" border="1px solid #515151" />
 
       {checkedItems.length === 0 && (
-        <NoSelected>
+        <NoSelected className="animate__animated animate__fadeIn">
           <Font $fontSize="3rem" $fontWeight="700">
             선택한 지점이 없습니다.
           </Font>
         </NoSelected>
       )}
       {checkedItems?.length > 0 && (
-        <CardFrame
-          ref={ref1}
-          className={`animate__animated ${inView1 ? 'animate__fadeIn' : ''}`}
-        >
-          {checkedItems?.map(x => {
-            return (
-              <CardWrapper
+        <CardFrame>
+          <TransitionGroup component={null}>
+            {checkedItems?.map(x => (
+              <CSSTransition
                 key={x?.id}
-                onClick={() => {
-                  if (!isDragging) {
-                    router.push(`/center/${x.id}`);
-                  }
-                }}
+                timeout={500}
+                classNames="card"
+                appear={true}
               >
-                <ImageComponent
-                  className="scale-img"
-                  width={'100%'}
-                  height={30}
-                  $borderRadius="10px 10px 0 0"
-                  $cursor="pointer"
-                  $src={`/images/center/center${x.id}/facility/1.jpg`}
-                  $alt="center1"
-                />
+                <CardWrapper
+                  onClick={() => {
+                    if (!isDragging) {
+                      router.push(`/center/${x.id}`);
+                    }
+                  }}
+                >
+                  <ImageComponent
+                    className="scale-img"
+                    width={'100%'}
+                    height={30}
+                    $borderRadius="10px 10px 0 0"
+                    $cursor="pointer"
+                    $src={`/images/center/center${x.id}/facility/1.jpg`}
+                    $alt="center1"
+                  />
 
-                <CardInfo className="center-info">
-                  <Font $fontSize="2rem" $fontWeight="700" color="#fff">
-                    {x?.centerName}
-                  </Font>
+                  <CardInfo className="center-info">
+                    <Font $fontSize="2rem" $fontWeight="700" color="#fff">
+                      {x?.centerName}
+                    </Font>
 
-                  <Font
-                    $fontSize="1.6rem"
-                    $fontWeight="400"
-                    color="#fff"
-                    $lineHeight={1.4}
-                  >
-                    {x?.address}
-                  </Font>
+                    <Font
+                      $fontSize="1.6rem"
+                      $fontWeight="400"
+                      color="#fff"
+                      $lineHeight={1.4}
+                    >
+                      {x?.address}
+                    </Font>
 
-                  <IconWrapper $margin="1.5rem 0 0 0">
-                    <div>
+                    <IconWrapper $margin="1.5rem 0 0 0">
+                      <div>
+                        <ImageComponent
+                          width={2}
+                          height={2}
+                          $src="/phone.svg"
+                          $alt="phone"
+                        />
+                      </div>
+
+                      <Font
+                        $fontSize="1.6rem"
+                        $fontWeight="400"
+                        color="#fff"
+                        $margin="0.5rem 0 0 0"
+                      >
+                        {x?.tel}
+                      </Font>
+                    </IconWrapper>
+
+                    <IconWrapper $margin="0.1rem 0 0 0">
                       <ImageComponent
                         width={2}
                         height={2}
-                        $src="/phone.svg"
-                        $alt="phone"
+                        $src="/clock.svg"
+                        $alt="clock"
                       />
-                    </div>
 
-                    <Font
-                      $fontSize="1.6rem"
-                      $fontWeight="400"
-                      color="#fff"
-                      $margin="0.5rem 0 0 0"
-                    >
-                      {x?.tel}
-                    </Font>
-                  </IconWrapper>
+                      <Pre
+                        $fontSize="1.6rem"
+                        $fontWeight="400"
+                        color="#fff"
+                        $lineHeight={1.4}
+                        $whiteSpace="pre-wrap"
+                      >
+                        {x?.operatingTime}
+                      </Pre>
+                    </IconWrapper>
 
-                  <IconWrapper $margin="0.1rem 0 0 0">
-                    <ImageComponent
-                      width={2}
-                      height={2}
-                      $src="/clock.svg"
-                      $alt="clock"
-                    />
+                    <IconWrapper $margin="0.1rem 0 0 0">
+                      <ImageComponent
+                        width={2}
+                        height={2}
+                        $src="/car.svg"
+                        $alt="car"
+                      />
 
-                    <Pre
-                      $fontSize="1.6rem"
-                      $fontWeight="400"
-                      color="#fff"
-                      $lineHeight={1.4}
-                      $whiteSpace="pre-wrap"
-                    >
-                      {x?.operatingTime}
-                    </Pre>
-                  </IconWrapper>
-
-                  <IconWrapper $margin="0.1rem 0 0 0">
-                    <ImageComponent
-                      width={2}
-                      height={2}
-                      $src="/car.svg"
-                      $alt="car"
-                    />
-
-                    <Font
-                      $fontSize="1.6rem"
-                      $fontWeight="400"
-                      color="#fff"
-                      $lineHeight={1.4}
-                      $whiteSpace="pre-wrap"
-                    >
-                      {x?.parking}
-                    </Font>
-                  </IconWrapper>
-                </CardInfo>
-              </CardWrapper>
-            );
-          })}
+                      <Font
+                        $fontSize="1.6rem"
+                        $fontWeight="400"
+                        color="#fff"
+                        $lineHeight={1.4}
+                        $whiteSpace="pre-wrap"
+                      >
+                        {x?.parking}
+                      </Font>
+                    </IconWrapper>
+                  </CardInfo>
+                </CardWrapper>
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         </CardFrame>
       )}
     </Frame>
@@ -304,11 +323,60 @@ const CardFrame = styled.div`
   @media screen and (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  /* 카드 애니메이션 스타일 */
+  .card-appear {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+
+  .card-appear-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-enter {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+
+  .card-enter-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-exit {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .card-exit-active {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;
 
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  &.card-animate {
+    animation: cardFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  @keyframes cardFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 
   .scale-img {
     overflow: hidden;
@@ -360,13 +428,87 @@ const CountTag = styled.div`
 const CheckBoxWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  white-space: pre-wrap;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  justify-content: center;
+
+  @media screen and (max-width: 500px) {
+    gap: 1rem;
+  }
 `;
 
-const CustomLabel = styled.label`
-  font-size: 2.4rem;
+const CheckboxItem = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const HiddenCheckbox = styled.input`
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+`;
+
+const CustomCheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  padding: 1rem 1.6rem;
+  border-radius: 25px;
+  border: 2px solid ${props => (props.$isChecked ? '#ceb063' : '#d0d0d0')};
+  background: #ffffff;
+  color: #333333;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(0);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: #ceb063;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+const CheckboxIndicator = styled.div`
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: ${props => (props.$isChecked ? '#ceb063' : '#ffffff')};
+  border: 2px solid ${props => (props.$isChecked ? '#ceb063' : '#d0d0d0')};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: ${props =>
+    props.$isChecked
+      ? '0 2px 8px rgba(206, 176, 99, 0.3)'
+      : '0 1px 3px rgba(0, 0, 0, 0.1)'};
+`;
+
+const CheckIcon = styled.span`
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  opacity: ${props => (props.$isChecked ? 1 : 0)};
+  transform: scale(${props => (props.$isChecked ? 1 : 0)});
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+`;
+
+const LabelText = styled.span`
+  font-size: 1.6rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #333333;
+
+  @media screen and (max-width: 500px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const NoSelected = styled.div`

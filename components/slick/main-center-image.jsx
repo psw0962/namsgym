@@ -108,6 +108,7 @@ const MainCenterImage = () => {
               $src={x.thumbnailImage}
               $alt={`slide-${x.id}`}
               $borderRadius="10px"
+              $cursor="pointer"
             />
 
             <Font $fontSize="1.4rem" $fontWeight={700}>

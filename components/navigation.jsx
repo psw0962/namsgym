@@ -28,9 +28,22 @@ const Navigation = () => {
   useEffect(() => {
     if (isMobileMenu) {
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.height = '100%';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
     }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+    };
   }, [isMobileMenu]);
 
   return (
@@ -58,7 +71,7 @@ const Navigation = () => {
                 return (
                   <CustomLi
                     key={x.id}
-                    $fontSize="2.4rem"
+                    $fontSize="2rem"
                     $fontWeight={700}
                     onClick={() => {
                       router.push(`${x.url}`);
@@ -165,7 +178,7 @@ const Navigation = () => {
                 return (
                   <Font
                     key={x.id}
-                    $fontSize="3.2rem"
+                    $fontSize="2rem"
                     $cursor="pointer"
                     $fontWeight={700}
                     onClick={() => {
@@ -185,8 +198,8 @@ const Navigation = () => {
                   rel="noopener noreferrer"
                 >
                   <ImageComponent
-                    width={4}
-                    height={4}
+                    width={3}
+                    height={3}
                     $cursor="pointer"
                     $src="/youtube.svg"
                     $alt="youtube"
@@ -200,8 +213,8 @@ const Navigation = () => {
                   rel="noopener noreferrer"
                 >
                   <ImageComponent
-                    width={4}
-                    height={4}
+                    width={3}
+                    height={3}
                     $cursor="pointer"
                     $src="/instagram.svg"
                     $alt="instagram"
@@ -215,8 +228,8 @@ const Navigation = () => {
                   rel="noopener noreferrer"
                 >
                   <ImageComponent
-                    width={4}
-                    height={4}
+                    width={3}
+                    height={3}
                     $cursor="pointer"
                     $src="/kakaotalk.svg"
                     $alt="kakaotalk"
@@ -230,8 +243,8 @@ const Navigation = () => {
                   rel="noopener noreferrer"
                 >
                   <ImageComponent
-                    width={4}
-                    height={4}
+                    width={3}
+                    height={3}
                     $cursor="pointer"
                     $src="/naver.svg"
                     $alt="naver"
@@ -260,7 +273,6 @@ const NavigationFrame = styled.header`
   position: absolute;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 `;
 
@@ -274,7 +286,7 @@ const Container = styled.div`
   padding: 1.5rem 6rem;
 
   @media screen and (max-width: 500px) {
-    padding: 2.4rem 3rem 2.4rem 3rem;
+    padding: 1rem 3rem 1rem 3rem;
   }
 `;
 
@@ -320,6 +332,10 @@ const MobileMenuWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3rem;
+
+  /* 터치 스크롤 방지 */
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 
   &.showMobildeMenu {
     visibility: visible;
