@@ -50,7 +50,7 @@ const Reviews = () => {
   return (
     <Frame>
       <Pre
-        $fontSize="3rem"
+        $fontSize="2.6rem"
         $fontWeight={700}
         $lineHeight={1.3}
         $textAlign="center"
@@ -79,13 +79,13 @@ const Reviews = () => {
         {REVIEWS.map(x => {
           return (
             <Card key={x.id}>
-              <Pre $fontSize="1.6rem" $fontWeight={700} $lineHeight={1.3}>
+              <Pre $fontSize="1.4rem" $fontWeight={700} $lineHeight={1.3}>
                 {`"${x.content}"`}
               </Pre>
 
               <div>
                 <Pre
-                  $fontSize="1.6rem"
+                  $fontSize="1.4rem"
                   $fontWeight={700}
                   $lineHeight={1.3}
                   $margin="2rem 0 0 0"

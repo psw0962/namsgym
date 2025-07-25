@@ -13,7 +13,6 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { Map } from 'react-kakao-maps-sdk';
 import styled, { keyframes } from 'styled-components';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import Line from '@/components/line';
 
 const MACHINELOGO = [
   { id: 1, url: '/images/machine-logo/1.jpg' },
@@ -546,4 +545,9 @@ const IconWrapper = styled.div`
   align-items: flex-start;
   gap: 1rem;
   margin: ${props => (props.$margin ? props.$margin : '')};
+`;
+
+const Line = styled.div`
+  margin: 2rem 0;
+  border: 1px solid #515151;
 `;
