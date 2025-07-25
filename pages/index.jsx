@@ -152,8 +152,8 @@ const Home = () => {
               $lineHeight={1.4}
               $textAlign="center"
             >
-              {`건강한 삶을 원하는 모든 분들을 위해 최선을 다하는
-피트니스 브랜드 남스짐입니다.`}
+              {`건강한 삶을 원하는 모든 분들을 위해
+최선을 다하는 피트니스 브랜드 남스짐입니다.`}
             </Pre>
 
             <Pre
@@ -203,7 +203,7 @@ const ImageWithTextFrame = styled.div`
 const WelcomeFrame = styled.div`
   display: flex;
   gap: 5rem;
-  margin: 13rem 0 15rem 0;
+  margin: 6rem 0 10rem 0;
 
   @media screen and (max-width: 500px) {
     flex-direction: column-reverse;
@@ -244,7 +244,7 @@ const CustomPreTop = styled(Pre)`
   text-align: center;
 
   @media screen and (max-width: 500px) {
-    margin-top: 8rem;
+    margin-top: 4rem;
   }
 `;
 
@@ -255,6 +255,6 @@ const CustomPreBottom = styled(Pre)`
   text-align: center;
 
   @media screen and (max-width: 500px) {
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
   }
 `;

@@ -55,7 +55,8 @@ const Reviews = () => {
         $lineHeight={1.3}
         $textAlign="center"
       >
-        {`네이버 리얼 후기가 증명하는 수 많은 경험 사례`}
+        {`네이버 리얼 후기가 증명하는
+수 많은 경험 사례`}
       </Pre>
 
       <Pre
@@ -113,7 +114,7 @@ const Reviews = () => {
 export default Reviews;
 
 const Frame = styled.div`
-  margin-top: 13rem;
+  margin-top: 6rem;
 `;
 
 const CardFrame = styled.div`
