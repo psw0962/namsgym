@@ -76,7 +76,7 @@ const Center = ({ honorTrainerData2024, honorTrainerData2025 }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       firework();
-    }, 800);
+    }, 100);
 
     const celebrationTimer = setTimeout(() => {
       celebrationEffect();
