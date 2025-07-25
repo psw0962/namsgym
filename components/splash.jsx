@@ -30,6 +30,7 @@ const Splash = ({ setIsSplash }) => {
               height={15}
               $src="/logo.png"
               $alt="logo"
+              $priority={true}
             />
           </Frame>
         </motion.div>

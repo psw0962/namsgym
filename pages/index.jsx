@@ -3,7 +3,7 @@ import ImageComponent from '@/components/image-component';
 import Pre from '@/components/pre';
 import Image from 'next/image';
 import 'animate.css';
-import MainCenterImage from '@/components/slick/main-center-image';
+import MainCenterImage from '@/components/main-center-image';
 import Reviews from '@/components/reviews';
 
 const Home = () => {

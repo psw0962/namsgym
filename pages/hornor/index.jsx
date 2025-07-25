@@ -15,15 +15,15 @@ const HONOR_TRAINER_DATA_2025 = [
   '/images/hornor-trainer/6.png',
 ];
 
-const Center = () => {
+const Center = ({ honorTrainerData2024, honorTrainerData2025 }) => {
   return (
     <Frame>
       <SubTitle content="3000클럽 명예 트레이너" />
-      <CenterGallery images={HONOR_TRAINER_DATA_2024} />
+      <CenterGallery images={honorTrainerData2024} />
 
       <div style={{ marginTop: '3rem' }}></div>
 
-      <CenterGallery images={HONOR_TRAINER_DATA_2025} />
+      <CenterGallery images={honorTrainerData2025} />
 
       <SubTitle content="4000클럽 명예 트레이너" $margin="10rem 0 3rem 0" />
       <CommingSoon>곧 업데이트 됩니다.</CommingSoon>
@@ -32,6 +32,18 @@ const Center = () => {
       <CommingSoon>곧 업데이트 됩니다.</CommingSoon>
     </Frame>
   );
+};
+
+export const getStaticProps = async () => {
+  const honorTrainerData2024 = HONOR_TRAINER_DATA_2024;
+  const honorTrainerData2025 = HONOR_TRAINER_DATA_2025;
+
+  return {
+    props: {
+      honorTrainerData2024,
+      honorTrainerData2025,
+    },
+  };
 };
 
 export default Center;

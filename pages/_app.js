@@ -8,8 +8,6 @@ import GlobalSpinner from '@/components/global-spinner';
 import styled from 'styled-components';
 import Navigation from '@/components/navigation';
 import { Analytics } from '@vercel/analytics/react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import dynamic from 'next/dynamic';
 import Footer from '@/components/footer';
 import Contact from '@/components/contact';

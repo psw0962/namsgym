@@ -1,16 +1,16 @@
-import centerInfo from '@/constant/center-info';
 import SubTitle from '@/components/sub-title';
 import styled from 'styled-components';
 import Font from '@/components/font';
 import Pre from '@/components/pre';
 import ImageComponent from '@/components/image-component';
-import CenterImage from '@/components/slick/center-image';
-import TrainerImages from '@/components/slick/trainer-image';
+import CenterImage from '@/components/center-image';
+import TrainerImages from '@/components/trainer-image';
 import { Map } from 'react-kakao-maps-sdk';
 import CenterGallery from '@/components/center-gallery';
 import CustomMapMarker from '@/components/custom-map-maker';
 import ReSetttingMapBoundsSingle from '@/components/resetting-map-bounds-single';
 import 'animate.css';
+import centerInfo from '@/constant/center-info';
 
 const CenterDetail = ({ centerDetailInfo }) => {
   return (
@@ -297,7 +297,7 @@ const CenterDetail = ({ centerDetailInfo }) => {
 
       {centerDetailInfo?.trainer.length > 0 && (
         <>
-          <SubTitle content="퍼스널 트레이너" $margin="15rem 0 3rem 0" />
+          <SubTitle content="퍼스널 트레이너" $margin="6rem 0 3rem 0" />
 
           <TrainerImagesFrame>
             <TrainerImages images={centerDetailInfo?.trainer} />
@@ -309,7 +309,7 @@ const CenterDetail = ({ centerDetailInfo }) => {
         <>
           <SubTitle
             content={`${centerDetailInfo?.centerName} 갤러리`}
-            $margin="15rem 0 3rem 0"
+            $margin="6rem 0 3rem 0"
           />
 
           <div className="animate__animated animate__fadeIn">
@@ -323,17 +323,31 @@ const CenterDetail = ({ centerDetailInfo }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = async context => {
   const { detail } = context.query;
-  const filtered = centerInfo.filter(x => x.id === Number(detail));
-  const centerDetailInfo = filtered[0] || null;
+
+  const centerId = parseInt(detail, 10);
+
+  if (isNaN(centerId)) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const centerDetailInfo = centerInfo.find(center => center.id === centerId);
+
+  if (!centerDetailInfo) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
       centerDetailInfo,
     },
   };
-}
+};
 
 export default CenterDetail;
 
@@ -347,14 +361,10 @@ const CenterInfoWrapper = styled.div`
   width: 100%;
   border-radius: 10px;
   padding: 3.5rem;
-  margin-top: 15rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   background-color: #000;
-
-  @media screen and (max-width: 500px) {
-    margin-top: 10rem;
-  }
 `;
 
 const IconWrapper = styled.div`
@@ -403,7 +413,7 @@ const CustomPre = styled(Pre)`
   font-weight: 500;
   line-height: 1.4;
   white-space: pre-wrap;
-  margin: 0 0 4rem 0;
+  margin: 0 0 2rem 0;
 `;
 
 const TrainerImagesFrame = styled.div`
@@ -420,7 +430,7 @@ const DivLine = styled.div`
 `;
 
 const MapWrapper = styled.div`
-  margin-top: 4rem;
+  margin-top: 2rem;
 
   #map {
     border-radius: 10px;

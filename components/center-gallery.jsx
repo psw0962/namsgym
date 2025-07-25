@@ -40,13 +40,14 @@ const CenterGallery = ({ images }) => {
             <Image
               src={item}
               alt={`${item}${index}`}
-              quality={70}
+              quality={60}
               style={{ objectFit: 'cover' }}
               fill
-              priority
-              sizes="100%"
+              priority={false}
+              loading="lazy"
+              sizes="(max-width: 768px) 50vw, 33vw"
               placeholder="blur"
-              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQpoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
             />
           </ImageCard>
         ))}

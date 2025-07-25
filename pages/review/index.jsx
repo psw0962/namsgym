@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { reviewData } from '@/constant/review';
 import SubTitle from '@/components/sub-title';
 
-const Review = () => {
+const Review = ({ reviews }) => {
   return (
     <Frame>
       <SubTitle content="비포&애프터" />
 
       <ReviewGrid>
-        {reviewData.map(review => (
+        {reviews.map((review, index) => (
           <ReviewCard key={review.id}>
             <ImageWrapper>
               <Image
@@ -18,6 +18,11 @@ const Review = () => {
                 fill
                 style={{ objectFit: 'contain' }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={index < 6}
+                loading={index < 6 ? 'eager' : 'lazy'}
+                quality={80}
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
               />
             </ImageWrapper>
             <ContentWrapper>
@@ -37,18 +42,22 @@ const Review = () => {
   );
 };
 
+export const getStaticProps = async () => {
+  const reviews = reviewData;
+
+  return {
+    props: {
+      reviews,
+    },
+  };
+};
+
 export default Review;
 
 const Frame = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-`;
-
-const Title = styled.h1`
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
 `;
 
 const ReviewGrid = styled.div`

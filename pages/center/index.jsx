@@ -9,12 +9,11 @@ import shuffleArray from '@/functions/shuffleArray';
 import useDrag from '@/hooks/useDrag';
 import 'animate.css';
 import { useRouter } from 'next/router';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { Map } from 'react-kakao-maps-sdk';
 import styled, { keyframes } from 'styled-components';
-import { useState } from 'react';
-import Line from '@/components/line';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import Line from '@/components/line';
 
 const MACHINELOGO = [
   { id: 1, url: '/images/machine-logo/1.jpg' },
@@ -30,30 +29,9 @@ const Center = () => {
   const isDragging = useDrag();
 
   const [checkedItems, setCheckedItems] = useState(centerInfo);
-
   const carouselRef = useRef(null);
 
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (carousel) {
-      // 첫 번째 배열을 복제하여 두 번 반복하게
-      const clonedElements = Array.from(carousel.children).map(child => {
-        return child.cloneNode(true);
-      });
-
-      // 복제한 요소들을 carousel에 추가
-      clonedElements.forEach(element => {
-        carousel.appendChild(element);
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    const shuffledItems = shuffleArray([...checkedItems]);
-    setCheckedItems(shuffledItems);
-  }, []);
-
-  const handleCheckboxChange = (event, center) => {
+  const handleCheckboxChange = useCallback((event, center) => {
     const { checked } = event.target;
     setCheckedItems(prev => {
       if (checked) {
@@ -62,9 +40,9 @@ const Center = () => {
         return prev.filter(item => item.id !== center.id);
       }
     });
-  };
+  }, []);
 
-  const handleSelectAll = event => {
+  const handleSelectAll = useCallback(event => {
     const { checked } = event.target;
     if (checked) {
       const shuffledItems = shuffleArray([...centerInfo]);
@@ -72,7 +50,38 @@ const Center = () => {
     } else {
       setCheckedItems([]);
     }
-  };
+  }, []);
+
+  const handleCardClick = useCallback(
+    centerId => {
+      if (!isDragging) {
+        router.push(`/center/${centerId}`);
+      }
+    },
+    [isDragging, router],
+  );
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (carousel) {
+      const clonedElements = Array.from(carousel.children).map(child => {
+        return child.cloneNode(true);
+      });
+
+      clonedElements.forEach(element => {
+        carousel.appendChild(element);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const shuffledItems = shuffleArray([...centerInfo]);
+    setCheckedItems(shuffledItems);
+  }, []);
+
+  const isAllSelected = useCallback(() => {
+    return checkedItems.length === centerInfo.length;
+  }, [checkedItems.length]);
 
   return (
     <Frame>
@@ -90,12 +99,9 @@ const Center = () => {
         }}
         level={4}
       >
-        {/* 맵 마커 */}
-        {checkedItems.map(x => {
-          return <CustomMapMarker key={x.id} centerData={x} />;
-        })}
-
-        {/* 지도 리바운스 */}
+        {checkedItems.map(x => (
+          <CustomMapMarker key={x.id} centerData={x} />
+        ))}
         <ReSetttingMapBounds points={checkedItems} />
       </Map>
 
@@ -116,7 +122,6 @@ const Center = () => {
           <Font $fontSize="2.6rem" $fontWeight="700">
             지점 찾기
           </Font>
-
           <CountTag>
             <Font $fontSize="1.2rem" $fontWeight="700">
               {centerInfo.length}
@@ -130,21 +135,12 @@ const Center = () => {
               type="checkbox"
               id="전체"
               name="전체"
-              checked={checkedItems.length === centerInfo.length}
+              checked={isAllSelected()}
               onChange={handleSelectAll}
             />
-            <CustomCheckboxLabel
-              htmlFor="전체"
-              $isChecked={checkedItems.length === centerInfo.length}
-            >
-              <CheckboxIndicator
-                $isChecked={checkedItems.length === centerInfo.length}
-              >
-                <CheckIcon
-                  $isChecked={checkedItems.length === centerInfo.length}
-                >
-                  ✓
-                </CheckIcon>
+            <CustomCheckboxLabel htmlFor="전체" $isChecked={isAllSelected()}>
+              <CheckboxIndicator $isChecked={isAllSelected()}>
+                <CheckIcon $isChecked={isAllSelected()}>✓</CheckIcon>
               </CheckboxIndicator>
               <LabelText>전체</LabelText>
             </CustomCheckboxLabel>
@@ -176,7 +172,7 @@ const Center = () => {
         </CheckBoxWrapper>
       </FindCenterFrame>
 
-      <Line $margin="3rem 0" border="1px solid #515151" />
+      <Line $margin="2rem 0" border="1px solid #515151" />
 
       {checkedItems.length === 0 && (
         <NoSelected className="animate__animated animate__fadeIn">
@@ -185,6 +181,7 @@ const Center = () => {
           </Font>
         </NoSelected>
       )}
+
       {checkedItems?.length > 0 && (
         <CardFrame>
           <TransitionGroup component={null}>
@@ -195,13 +192,7 @@ const Center = () => {
                 classNames="card"
                 appear={true}
               >
-                <CardWrapper
-                  onClick={() => {
-                    if (!isDragging) {
-                      router.push(`/center/${x.id}`);
-                    }
-                  }}
-                >
+                <CardWrapper onClick={() => handleCardClick(x.id)}>
                   <ImageComponent
                     className="scale-img"
                     width={'100%'}
@@ -324,7 +315,6 @@ const CardFrame = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 
-  /* 카드 애니메이션 스타일 */
   .card-appear {
     opacity: 0;
     transform: translateY(30px) scale(0.9);
@@ -518,7 +508,6 @@ const NoSelected = styled.div`
   justify-content: center;
 `;
 
-// 스크롤 애니매이션
 const scroll = keyframes`
   0% {
     transform: translateX(0);
