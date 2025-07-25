@@ -15,7 +15,7 @@ const Home = () => {
         className="animate__animated animate__Left"
         $fontSize="4rem"
         $fontWeight={700}
-        $margin="10rem auto 0 auto"
+        $margin="6rem auto 0 auto"
         $lineHeight={1.3}
         $textAlign="center"
       >

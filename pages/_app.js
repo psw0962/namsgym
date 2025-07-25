@@ -89,6 +89,6 @@ const ComponentFrame = styled.div`
 
   @media screen and (max-width: 500px) {
     max-width: 100%;
-    padding: 12rem 3rem 6rem 3rem;
+    padding: 8rem 3rem 6rem 3rem;
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import centerInfo from '@/constant/center-info';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
@@ -12,6 +12,23 @@ import 'swiper/css/navigation';
 const MainCenterImage = () => {
   const router = useRouter();
   const [isDragging, setIsDragging] = useState(false);
+  const [imageSize, setImageSize] = useState(11.5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 500) {
+        setImageSize(8);
+      } else {
+        setImageSize(11.5);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleSlideClick = center => {
     if (!isDragging) {
@@ -23,9 +40,8 @@ const MainCenterImage = () => {
     <SwiperContainer>
       <Swiper
         modules={[Navigation, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={9}
-        slidesPerGroup={3}
+        slidesPerView={5}
+        slidesPerGroup={1}
         navigation={{
           nextEl: '.swiper-button-next-custom',
           prevEl: '.swiper-button-prev-custom',
@@ -35,13 +51,9 @@ const MainCenterImage = () => {
           disableOnInteraction: false,
         }}
         breakpoints={{
-          320: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
-          },
-          1024: {
+          500: {
             slidesPerView: 9,
-            slidesPerGroup: 3,
+            slidesPerGroup: 1,
           },
         }}
         onSliderMove={() => setIsDragging(true)}
@@ -51,8 +63,8 @@ const MainCenterImage = () => {
           <SwiperSlide key={x.id}>
             <SlideContent onClick={() => handleSlideClick(x)}>
               <ImageComponent
-                width={10}
-                height={10}
+                width={imageSize}
+                height={imageSize}
                 $src={x.thumbnailImage}
                 $alt={`slide-${x.id}`}
                 $borderRadius="10px"
@@ -65,25 +77,6 @@ const MainCenterImage = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* 커스텀 네비게이션 버튼 */}
-      <CustomNavButton className="swiper-button-prev-custom left">
-        <ImageComponent
-          width={2}
-          height={2}
-          $src="/leftarrow.svg"
-          $alt="Previous"
-        />
-      </CustomNavButton>
-
-      <CustomNavButton className="swiper-button-next-custom right">
-        <ImageComponent
-          width={2}
-          height={2}
-          $src="/rightarrow.svg"
-          $alt="Next"
-        />
-      </CustomNavButton>
     </SwiperContainer>
   );
 };
@@ -101,37 +94,4 @@ const SlideContent = styled.div`
   align-items: center;
   gap: 1rem;
   cursor: pointer;
-`;
-
-const CustomNavButton = styled.div`
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-
-  &.left {
-    left: -3rem;
-
-    @media screen and (max-width: 500px) {
-      left: -2rem;
-    }
-  }
-
-  &.right {
-    right: -3rem;
-
-    @media screen and (max-width: 500px) {
-      right: -2rem;
-    }
-  }
-
-  img {
-    width: 2rem;
-    height: 2rem;
-  }
 `;
