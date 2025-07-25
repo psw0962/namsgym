@@ -203,7 +203,7 @@ const ImageWithTextFrame = styled.div`
 const WelcomeFrame = styled.div`
   display: flex;
   gap: 5rem;
-  margin: 6rem 0 10rem 0;
+  margin: 12rem 0 10rem 0;
 
   @media screen and (max-width: 500px) {
     flex-direction: column-reverse;
