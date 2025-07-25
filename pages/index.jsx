@@ -197,7 +197,7 @@ const Frame = styled.div`
 `;
 
 const ImageWithTextFrame = styled.div`
-  margin-top: 13rem;
+  margin-top: 6rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
