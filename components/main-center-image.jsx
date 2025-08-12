@@ -40,7 +40,7 @@ const MainCenterImage = () => {
     <SwiperContainer>
       <Swiper
         modules={[Navigation, Autoplay]}
-        slidesPerView={5}
+        slidesPerView={5.2}
         slidesPerGroup={1}
         navigation={{
           nextEl: '.swiper-button-next-custom',
@@ -52,7 +52,7 @@ const MainCenterImage = () => {
         }}
         breakpoints={{
           500: {
-            slidesPerView: 9,
+            slidesPerView: 8.5,
             slidesPerGroup: 1,
           },
         }}

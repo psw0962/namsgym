@@ -488,11 +488,10 @@ const centerInfo = [
       '/images/center/center10/gallrey/14.jpg',
     ],
     trainer: [
-      '/images/center/center10/trainer/1.jpg',
-      '/images/center/center10/trainer/2.jpg',
-      '/images/center/center10/trainer/3.jpg',
-      '/images/center/center10/trainer/4.jpg',
-      '/images/center/center10/trainer/5.jpg',
+      '/images/center/center10/trainer/1.png',
+      '/images/center/center10/trainer/2.png',
+      '/images/center/center10/trainer/3.png',
+      '/images/center/center10/trainer/4.png',
     ],
     operatingTime: `평일 : 07:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
