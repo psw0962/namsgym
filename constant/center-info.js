@@ -249,52 +249,6 @@ const centerInfo = [
   },
 
   {
-    id: 6,
-    centerName: '부천 옥길점',
-    address: '부천 옥길동 745-5 퀸즈파크 C동 8층',
-    tel: '0507-1427-3375',
-    facility: [
-      '/images/center/center6/facility/1.jpg',
-      '/images/center/center6/facility/2.jpg',
-      '/images/center/center6/facility/3.jpg',
-      '/images/center/center6/facility/4.jpg',
-      '/images/center/center6/facility/5.jpg',
-      '/images/center/center6/facility/6.jpg',
-      '/images/center/center6/facility/7.jpg',
-      '/images/center/center6/facility/8.jpg',
-      '/images/center/center6/facility/9.jpg',
-    ],
-    gallrey: [
-      '/images/center/center6/gallrey/1.jpg',
-      '/images/center/center6/gallrey/2.jpg',
-      '/images/center/center6/gallrey/3.jpg',
-      '/images/center/center6/gallrey/4.jpg',
-    ],
-    trainer: [
-      '/images/center/center6/trainer/1.jpg',
-      '/images/center/center6/trainer/2.jpg',
-      '/images/center/center6/trainer/3.jpg',
-      '/images/center/center6/trainer/4.jpg',
-    ],
-    operatingTime: `평일 : 09:00 ~ 23:30
-주말 및 공휴일 : 10:00 ~ 18:00
-정기휴무 : 매주 일요일
-공휴일 휴무 : 별도 공지
-(센터 내 게시판, 네이버 또는 인스타그램)`,
-    instagramUrl:
-      'https://www.instagram.com/namsgym6/?igsh=MW82ajZ5bmpzejRhcA%3D%3D',
-    kakaoTalkUrl: 'https://pf.kakao.com/_xoSxjxoK',
-    naverPlaceUrl:
-      'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%98%A5%EA%B8%B8%EC%A0%90/place/1762867363?c=14116952.5021869,4504480.5158603,15,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center6/facility/1.jpg',
-    lat: 37.46751149807185,
-    lng: 126.82326099611598,
-    parking: '무료주차(최대 3시간 주차등록)',
-    description: `남스짐 부천 옥길점은 헬스/PT 전문으로 운영중이며 부천소사경찰서 맞은편 퀸즈파크 C동 8층에 위치해있습니다. 
-획일화된 운동방법이 아닌 개개인에게 커스터마이징된 운동 솔루션을 제시해 드리며 확실한 결과를 내어 만족을 드리겠습니다.`,
-  },
-
-  {
     id: 7,
     centerName: '안산 고잔점',
     address: '안산시 단원구 원고잔로 17 지하 1층',
@@ -332,54 +286,6 @@ const centerInfo = [
 250평 규모에 50여 종 이상의 명품 외산 머신을 보유하고 있습니다.
 유산소 기구 및 파워랙은 사람이 많은 시간대에도 원활하게 이용하실 수 있도록 천국의 계단 7대, 렉 5대, 여러 대의 트레드밀을 보유하고 있습니다.
 모든 안산 헬스인들이 즐겁게 운동할 수 있는 새로운 피트니스 문화를 만들겠습니다.`,
-  },
-
-  {
-    id: 8,
-    centerName: '군포 산본점',
-    address: '경기 군포시 고산로 691 도율빌딩 5층',
-    tel: '0507-1390-3375',
-    facility: [
-      '/images/center/center8/facility/1.jpg',
-      '/images/center/center8/facility/2.jpg',
-      '/images/center/center8/facility/3.jpg',
-      '/images/center/center8/facility/4.jpg',
-      '/images/center/center8/facility/5.jpg',
-      '/images/center/center8/facility/6.jpg',
-      '/images/center/center8/facility/7.jpg',
-      '/images/center/center8/facility/8.jpg',
-      '/images/center/center8/facility/9.jpg',
-      '/images/center/center8/facility/10.jpg',
-    ],
-    gallrey: [
-      '/images/center/center8/gallrey/1.jpg',
-      '/images/center/center8/gallrey/2.jpg',
-      '/images/center/center8/gallrey/3.jpg',
-      '/images/center/center8/gallrey/4.jpg',
-      '/images/center/center8/gallrey/5.jpg',
-    ],
-    trainer: [
-      '/images/center/center8/trainer/1.jpg',
-      '/images/center/center8/trainer/2.jpg',
-      '/images/center/center8/trainer/3.jpg',
-      '/images/center/center8/trainer/4.jpg',
-    ],
-    operatingTime: `평일 : 06:00 ~ 24:00
-주말 및 공휴일 : 10:00 ~ 18:00
-공휴일 휴무 : 별도 공지
-(센터 내 게시판, 네이버 또는 인스타그램)`,
-    instagramUrl: 'https://www.instagram.com/namsgym_8/?igsh=Mm9qYjJlY2d5Y25p',
-    kakaoTalkUrl: 'https://pf.kakao.com/_STxcrb',
-    naverPlaceUrl:
-      'https://map.naver.com/v5/entry/place/1136567577?c=14129897.3264950,4491016.1690441,15.96,0,0,0,dh&isCorrectAnswer=true',
-    thumbnailImage: '/images/center/center8/facility/1.jpg',
-    lat: 37.371779820008754,
-    lng: 126.93471739416293,
-    parking: '주차불가',
-    description: `남스짐 군포 산본점은 산본역과 금정역에서 5분 거리에 위치한 200평 규모의 피트니스센터입니다.
-40여 종 이상의 웨이트 머신과 천국의 계단 3대, 프리랙 3대 등 최신 헬스 장비를 갖추고 있습니다.
-체계적인 식단 관리와 개인별 맞춤 트레이닝, 수업 외 관리 등을 통해 확실한 트레이닝을 제공합니다.
-검증된 비포&애프터 사진을 통해 회원들의 변화를 확인할 수 있습니다.`,
   },
 
   {
